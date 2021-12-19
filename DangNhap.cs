@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangJuno.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,17 @@ using System.Windows.Forms;
 
 namespace QLCuaHangJuno
 {
-    public partial class Form1 : Form
+    public partial class DangNhap : Form
     {
-        public Form1()
+        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext(); 
+        public DangNhap()
         {
             InitializeComponent();
         }
 
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
