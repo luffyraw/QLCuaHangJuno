@@ -16,5 +16,10 @@ namespace QLCuaHangJuno
         {
             InitializeComponent();
         }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
