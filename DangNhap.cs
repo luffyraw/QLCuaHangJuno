@@ -21,7 +21,8 @@ namespace QLCuaHangJuno
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
-
+            GiaoDienNhanVien gd = new GiaoDienNhanVien();
+            gd.Show();
         }
     }
 }
