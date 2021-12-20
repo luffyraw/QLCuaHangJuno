@@ -14,11 +14,11 @@ namespace QLCuaHangJuno.DataModel
         }
 
         public string MaHd { get; set; }
-        public string MaSp { get; set; }
+        public string MaSpCt { get; set; }
         public int SoLuongBan { get; set; }
 
         public virtual HoaDonBanHang MaHdNavigation { get; set; }
-        public virtual SanPham MaSpNavigation { get; set; }
+        public virtual SanPhamChiTiet MaSpCtNavigation { get; set; }
         public virtual ICollection<PhieuBaoHanh> PhieuBaoHanhs { get; set; }
         public virtual ICollection<PhieuTraHang> PhieuTraHangs { get; set; }
     }

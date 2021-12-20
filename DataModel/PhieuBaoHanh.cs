@@ -11,7 +11,7 @@ namespace QLCuaHangJuno.DataModel
         public DateTime NgayLapPhieu { get; set; }
         public DateTime NgayTra { get; set; }
         public string MaNv { get; set; }
-        public string MaSp { get; set; }
+        public string MaSpCt { get; set; }
         public string MaHd { get; set; }
         public string Loi { get; set; }
 

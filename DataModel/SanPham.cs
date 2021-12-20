@@ -9,10 +9,7 @@ namespace QLCuaHangJuno.DataModel
     {
         public SanPham()
         {
-            DatHangSanPhams = new HashSet<DatHangSanPham>();
-            HoaDonBanHangSanPhams = new HashSet<HoaDonBanHangSanPham>();
             KhuyenMaiSanPhams = new HashSet<KhuyenMaiSanPham>();
-            NhapHangSanPhams = new HashSet<NhapHangSanPham>();
             SanPhamChiTiets = new HashSet<SanPhamChiTiet>();
         }
 
@@ -26,10 +23,7 @@ namespace QLCuaHangJuno.DataModel
         public string MaLoaiSp { get; set; }
 
         public virtual LoaiSanPham MaLoaiSpNavigation { get; set; }
-        public virtual ICollection<DatHangSanPham> DatHangSanPhams { get; set; }
-        public virtual ICollection<HoaDonBanHangSanPham> HoaDonBanHangSanPhams { get; set; }
         public virtual ICollection<KhuyenMaiSanPham> KhuyenMaiSanPhams { get; set; }
-        public virtual ICollection<NhapHangSanPham> NhapHangSanPhams { get; set; }
         public virtual ICollection<SanPhamChiTiet> SanPhamChiTiets { get; set; }
     }
 }

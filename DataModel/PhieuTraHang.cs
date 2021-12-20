@@ -10,7 +10,7 @@ namespace QLCuaHangJuno.DataModel
         public string MaPhieuTra { get; set; }
         public DateTime NgayLap { get; set; }
         public string MaNv { get; set; }
-        public string MaSp { get; set; }
+        public string MaSpCt { get; set; }
         public string MaHd { get; set; }
         public string LyDoTra { get; set; }
 

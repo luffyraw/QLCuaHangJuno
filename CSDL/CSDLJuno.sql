@@ -144,8 +144,8 @@ CREATE TABLE SanPham_ChiTiet
 (
 	MaSP_CT varchar(10) PRIMARY KEY,
 	MaSP varchar(10) NOT NULL,
-	MaMau varchar(10) NOT NULL,
-	MaKC varchar(10) NOT NULL,
+	MaMau varchar(10),
+	MaKC varchar(10),
 	SoLuongTon int NOT NULL,
 	CONSTRAINT fk_sp_ct_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
 	CONSTRAINT fk_sp_ct_mau FOREIGN KEY (MaMau) REFERENCES Mau(MaMau),
@@ -287,11 +287,11 @@ GO
 CREATE TABLE HoaDonBanHang_SanPham
 (
 	MaHD varchar(10) NOT NULL,
-	MaSP varchar(10) NOT NULL,
+	MaSP_CT varchar(10) NOT NULL,
 	SoLuongBan int NOT NULL,
-	PRIMARY KEY(MaHD, MaSP),
+	PRIMARY KEY(MaHD, MaSP_CT),
 	CONSTRAINT fk_HoaDonBanHang_SanPham_HoaDon FOREIGN KEY (MaHD) REFERENCES HoaDonBanHang(MaHD),
-	CONSTRAINT fk_HoaDonBanHang_SanPham_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+	CONSTRAINT fk_HoaDonBanHang_SanPham_ChiTiet FOREIGN KEY (MaSP_CT) REFERENCES SanPham_ChiTiet(MaSP_CT)
 )
 GO
 --Tạo bảng Phiếu Bảo Hành
@@ -301,11 +301,11 @@ CREATE TABLE PhieuBaoHanh
 	NgayLapPhieu datetime NOT NULL,
 	NgayTra date NOT NULL,
 	MaNV varchar(10) NOT NULL,
-	MaSP varchar(10) NOT NULL,
+	MaSP_CT varchar(10) NOT NULL,
 	MaHD varchar(10) NOT NULL,
 	Loi nvarchar(100) NOT NULL,
 	CONSTRAINT fk_PhieuBaoHanh_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
-	CONSTRAINT fk_PhieuBaoHanh_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP)
+	CONSTRAINT fk_PhieuBaoHanh_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT)
 )
 GO
 
@@ -315,11 +315,11 @@ CREATE TABLE PhieuTraHang
 	MaPhieuTra varchar(10) PRIMARY KEY,
 	NgayLap datetime NOT NULL,
 	MaNV varchar(10) NOT NULL,
-	MaSP varchar(10) NOT NULL,
+	MaSP_CT varchar(10) NOT NULL,
 	MaHD varchar(10) NOT NULL,
 	LyDoTra nvarchar(100) NOT NULL,
 	CONSTRAINT fk_PhieuTraHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
-	CONSTRAINT fk_PhieuTraHang_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP))
+	CONSTRAINT fk_PhieuTraHang_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT))
 GO
 
 
@@ -335,11 +335,11 @@ GO
 CREATE TABLE DatHang_SanPham
 (
 	MaPhieuDat varchar(10) NOT NULL,
-	MaSP varchar(10) NOT NULL,
+	MaSP_CT varchar(10) NOT NULL,
 	SoLuongDat int NOT NULL,
-	PRIMARY KEY(MaPhieuDat,MaSP),
+	PRIMARY KEY(MaPhieuDat,MaSP_CT),
 	CONSTRAINT fk_PhieuDatHang FOREIGN KEY (MaPhieuDat) REFERENCES PhieuDatHang(MaPhieuDat),
-	CONSTRAINT fk_dh_sp_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+	CONSTRAINT fk_dh_sp_SanPham_ChiTiet FOREIGN KEY (MaSP_CT) REFERENCES SanPham_ChiTiet(MaSP_CT)
 )
 GO
 --Tạo bảng PhieuNhapHang
@@ -357,11 +357,11 @@ GO
 --Tạo bảng NhapHang_SanPham
 CREATE TABLE NhapHang_SanPham
 (
-	MaSP varchar(10) NOT NULL, 
+	MaSP_CT varchar(10) NOT NULL, 
 	MaPhNhap varchar(10) NOT NULL,
 	SoLuongNhap int NOT NULL,
-	PRIMARY KEY(MaPhNhap,MaSP),
+	PRIMARY KEY(MaPhNhap,MaSP_CT),
 	CONSTRAINT fk_PhieuNhapHang FOREIGN KEY (MaPhNhap) REFERENCES PhieuNhapHang(MaPhNhap),
-	CONSTRAINT fk_nh_sp_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+	CONSTRAINT fk_nh_sp_SanPham_ChiTiet FOREIGN KEY (MaSP_CT) REFERENCES SanPham_ChiTiet(MaSP_CT)
 )
 GO
