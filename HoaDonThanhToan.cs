@@ -16,7 +16,7 @@ namespace QLCuaHangJuno
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         HoaDonBanHang hd = new HoaDonBanHang();
         List<HoaDonBanHangSanPham> listsp = new List<HoaDonBanHangSanPham>();
-        
+    
         public HoaDonThanhToan()
         {
             InitializeComponent();
@@ -33,142 +33,213 @@ namespace QLCuaHangJuno
             {
                 //tên sản phẩm
                 txt_tensp.Text = sp.TenSp;
-                //Màu sắc, kích cỡ
-                var chitietsp = from item in db.SanPhamChiTiets
-                                where item.MaSp == txt_masp.Text
-                                select item;
                 
-                foreach (var item in chitietsp)
-                {
-                    if (!cb_mausac.Items.Contains(item.MaMau))
-                        cb_mausac.Items.Add(item.MaMau);
-                    if (!cb_kichco.Items.Contains(item.MaKc))
-                        cb_kichco.Items.Add(item.MaKc);
-                }
+                //combobox màu sắc
+                var listMau = from item in db.SanPhamChiTiets
+                           join a in db.Maus on item.MaMau equals a.MaMau
+                           where txt_masp.Text == item.MaSp
+                           select new 
+                           {
+                               MaMau = item.MaMau,
+                               Mau = a.Mau1
+                           };
+                listMau = listMau.Distinct();
+                cb_mausac.DataSource = listMau.ToList();
+                cb_mausac.DisplayMember = "Mau";
+                cb_mausac.ValueMember = "MaMau";
+                //combobox kích cỡ
+                var listKC = from item in db.SanPhamChiTiets
+                             join a in db.KichCos on item.MaKc equals a.MaKc
+                             where txt_masp.Text == item.MaSp
+                             select new
+                             {
+                                 MaKC = item.MaKc,
+                                 KC = a.KichCo1
+                             };
+                listKC = listKC.Distinct();
+                cb_kichco.DataSource = listKC.ToList();
+                cb_kichco.DisplayMember = "KC";
+                cb_kichco.ValueMember = "MaKC";
+                //Đơn giá
+                txt_dongia.Text = sp.DonGia.ToString(".");
+                //Số lượng max
+                DatSoLuongMax();
                 //Khuyến mãi
                 var km = (from item in db.KhuyenMaiSanPhams where item.MaSp == txt_masp.Text select item).FirstOrDefault();
                 if (km != null) txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
                 if (txt_giamgia.Text == null) txt_giamgia.Text = "0";
-                //Đơn giá
-                txt_dongia.Text = sp.DonGia.ToString();
+                
                 //Hiển thị tổng tiền
                 txt_thanhtien.Text = TinhTienSP().ToString();
             }
         }
-
+       
         private void HoaDonThanhToan_Load(object sender, EventArgs e)
         {
-            //Gợi ý mã sản phẩm
-            AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
-
-            var SPList = from item in db.SanPhams
-                         select item;
-            foreach (var item in SPList)
-            {
-                autoComplete.Add(item.MaSp);
-            }
-            txt_masp.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txt_masp.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txt_masp.AutoCompleteCustomSource = autoComplete;
+            autoCompleteSP();
+            //Gợi ý tên khách hàng
+            autoCompleteKH();
             //Đặt giá trị mặc định
             txt_giamgia.Text = "0";
             txt_dongia.Text = "0";
-            txt_soluong.Text = "1";
             ThongTinHoaDon();
         }
-        private void ThongTinHoaDon()
-        {
-            //tự sinh thông tin hóa đơn
-            var hoadon = from item in db.HoaDonBanHangs select item;   
-            lb_mahd.Text = "Mã hóa đơn: " + maHD();
-            lb_ngaylap.Text = "Ngày lập:" + DateTime.Now.ToString("dd/MM/yyyy");
-            hd.MaHd = maHD();
-            hd.NgayBan = DateTime.Now;
-        }
-        private string maHD()
-        {
-            //Tự sinh mã hóa đơn
-            var hoadon = from item in db.HoaDonBanHangs select item;
-            string maHD = "";
-            int soHD = hoadon.Count();
-            if (soHD < 10)
-            {
-                maHD = "HD00" + (soHD + 1).ToString();
-            }
-            else if (soHD < 100) maHD = "HD0" + (soHD + 1).ToString();
-            return maHD;
-        }
-        private void cb_mausac_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //thay đổi combobox kích cỡ
-            var kichco = from item in db.SanPhamChiTiets
-                        where (item.MaSp == txt_masp.Text && item.MaMau == cb_mausac.Text)
-                        select item;
-            cb_kichco.Items.Clear();
-            foreach (var item in kichco)
-            {
-                if (!cb_kichco.Items.Contains(item.MaKc))
-                    cb_kichco.Items.Add(item.MaKc);
-            }
-            
-        }
-
-        private void cb_kichco_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Thay đổi combobox màu sắc
-            var mausac = from item in db.SanPhamChiTiets
-                        where (item.MaSp == txt_masp.Text && item.MaKc == cb_kichco.Text)
-                        select item;
-            cb_mausac.Items.Clear();
-            foreach (var item in mausac)
-            {
-                if (!cb_mausac.Items.Contains(item.MaMau))
-                    cb_mausac.Items.Add(item.MaMau);
-            }
-            
-        }
-
-        private void txt_soluong_TextChanged(object sender, EventArgs e)
-        {
-            //Hiển thị tổng tiền cho 1 mã sản phẩm
-            txt_thanhtien.Text = TinhTienSP().ToString();
-        }
-        private double TinhTienSP()
-        {
-            //Tính tổng tiền 1 sản phẩm
-            return ((double.Parse(txt_dongia.Text) * double.Parse(txt_soluong.Text)) * double.Parse(txt_giamgia.Text) / 100);
-        }
-
+        
+        //Thêm sản phẩm vào danh sách sản phẩm
         private void btn_them_Click(object sender, EventArgs e)
         {
-           var MaSpCt = (from item in db.SanPhamChiTiets
-                      where (item.MaSp == txt_masp.Text && item.MaMau == cb_mausac.Text && item.MaKc == cb_kichco.Text)
-                      select item.MaSpCt).FirstOrDefault();
-            HoaDonBanHangSanPham sp = new HoaDonBanHangSanPham();
-            sp.MaHd = maHD();
-            sp.MaSpCt = MaSpCt.ToString();
-            sp.SoLuongBan = int.Parse(txt_soluong.Text);
-            bool check = false;
-            foreach (var item in listsp)
-                if (item.MaSpCt == sp.MaSpCt) check = true;
-            if (!check) listsp.Add(sp);
-            HienThiDataGrid();
-        }
+            var list = from item in db.SanPhams select item.MaSp;
+            if (!list.Contains(txt_masp.Text))
+            {
+                MessageBox.Show("Bạn phải nhập mã sản phẩm Chính xác");
+                txt_masp.Focus();
+                return;
+            }
+            else
+            {
+                var MaSpCt = (from item in db.SanPhamChiTiets
+                              where (item.MaSp == txt_masp.Text && item.MaMau == cb_mausac.SelectedValue.ToString() && item.MaKc == cb_kichco.SelectedValue.ToString())
+                              select item.MaSpCt).FirstOrDefault();
+                if (MaSpCt == null)
+                {
+                    MessageBox.Show("Không tồn tại sản phẩm có mã " + txt_masp.Text + " màu " + cb_mausac.SelectedValue.ToString() + " kích cỡ " + cb_kichco.SelectedValue.ToString());
+                    return;
+                }
+                HoaDonBanHangSanPham sp = new HoaDonBanHangSanPham();
+                sp.MaHd = maHD();
+                sp.MaSpCt = MaSpCt.ToString();
+                if ((int)num_soluong.Value != 0)
+                    sp.SoLuongBan = ((int)num_soluong.Value);
+                else
+                {
+                    MessageBox.Show("Số lượng phải khác 0");
+                    num_soluong.Focus();
+                    return;
+                }
+                bool check = false;
+                foreach (var item in listsp)
+                    if (item.MaSpCt == sp.MaSpCt) check = true;
+                if (!check) listsp.Add(sp);
 
+
+                HienThiDataGrid();
+            }
+           
+
+        }
+        //Hiển thị lên datagridview
         private void HienThiDataGrid()
         {
-            
+
             dgv_dssp.DataSource = listsp.ToList();
         }
-
+        //Lưu hóa đơn vào csdl
         private void btn_luu_Click(object sender, EventArgs e)
         {
             db.HoaDonBanHangs.Add(hd);
             foreach (var item in listsp)
             {
                 db.HoaDonBanHangSanPhams.Add(item);
-            }    
+            }
+            MessageBox.Show("Lưu thành công");
+         
             db.SaveChanges();
+        }
+
+        private void num_soluong_ValueChanged(object sender, EventArgs e)
+        {
+           txt_thanhtien.Text = TinhTienSP().ToString();
+        }
+
+        private void cb_mausac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DatSoLuongMax();
+        }
+
+        private void cb_kichco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DatSoLuongMax();
+        }
+
+        private void DatSoLuongMax()
+        {
+            if (cb_mausac.SelectedValue != null && cb_kichco.SelectedValue != null)
+            {
+                int slmax = (from item in db.SanPhamChiTiets
+                             where (item.MaSp == txt_masp.Text && item.MaMau == cb_mausac.SelectedValue.ToString() && item.MaKc == cb_kichco.SelectedValue.ToString())
+                             select item.SoLuongTon).FirstOrDefault();
+                num_soluong.Maximum = slmax;
+                num_soluong.Minimum = 1;
+                lb_soluong.Text = "Số lượng (tối đa " + slmax + ")";
+
+            }
+        }
+        private void autoCompleteSP()
+        {
+            //Gợi ý mã sản phẩm
+            AutoCompleteStringCollection autoCompleteSP = new AutoCompleteStringCollection();
+
+            var SPList = from item in db.SanPhams
+                         select item;
+            foreach (var item in SPList)
+            {
+                autoCompleteSP.Add(item.MaSp);
+            }
+            txt_masp.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt_masp.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_masp.AutoCompleteCustomSource = autoCompleteSP;
+        }
+        private void autoCompleteKH()
+        {
+            AutoCompleteStringCollection autoCompleteKH = new AutoCompleteStringCollection();
+            var KHList = from item in db.KhachHangs select item;
+            foreach (var item in KHList)
+            {
+                autoCompleteKH.Add(item.HoTenKh);
+            }
+            txt_hotenKH.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt_hotenKH.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_hotenKH.AutoCompleteCustomSource = autoCompleteKH;
+        }
+        private void ThongTinHoaDon()
+        {
+            //tự sinh thông tin hóa đơn
+            var hoadon = from item in db.HoaDonBanHangs select item;
+            lb_mahd.Text = "Mã hóa đơn: " + maHD();
+            lb_ngaylap.Text = "Ngày lập:" + DateTime.Now.ToString("dd/MM/yyyy");
+            hd.MaHd = maHD();
+            hd.NgayBan = DateTime.Now;
+            hd.MaKh = "KH001";
+            hd.MaNv = "NV001";
+            hd.MaGg = "GG002";
+        }
+        private string maHD()
+        {
+            //Tự sinh mã hóa đơn
+            var hoadon = from item in db.HoaDonBanHangs select item;
+            int soHD = hoadon.Count();
+            string maHD = "HD" + (soHD + 1).ToString();
+            return maHD;
+        }
+        private double TinhTienSP()
+        {
+            //Tính tổng tiền 1 sản phẩm
+            return ((double.Parse(txt_dongia.Text) * ((double)num_soluong.Value)) * double.Parse(txt_giamgia.Text) / 100);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txt_masp.Text = null;
+            txt_tensp.Text = null;
+            cb_kichco.DataSource = null;
+            cb_mausac.DataSource = null;
+            cb_kichco.Text = "Kích cỡ";
+            cb_mausac.Text = "Màu sắc";
+            lb_soluong.Text = "Số lượng";
+            txt_dongia.Text = "0";
+            txt_giamgia.Text = "0";
+            txt_thanhtien.Text = "0";
+            num_soluong.Value = 1;
         }
     }
 }
