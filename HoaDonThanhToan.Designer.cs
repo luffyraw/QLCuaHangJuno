@@ -45,14 +45,14 @@ namespace QLCuaHangJuno
             this.label1 = new System.Windows.Forms.Label();
             this.txt_tensp = new System.Windows.Forms.TextBox();
             this.cb_mausac = new System.Windows.Forms.ComboBox();
-            this.db_kichco = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cb_kichco = new System.Windows.Forms.ComboBox();
+            this.txt_soluong = new System.Windows.Forms.TextBox();
             this.btn_them = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_dongia = new System.Windows.Forms.TextBox();
+            this.txt_giamgia = new System.Windows.Forms.TextBox();
+            this.txt_thanhtien = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -217,25 +217,27 @@ namespace QLCuaHangJuno
             this.cb_mausac.Size = new System.Drawing.Size(141, 30);
             this.cb_mausac.TabIndex = 3;
             this.cb_mausac.Text = "Màu sắc";
+            this.cb_mausac.SelectedIndexChanged += new System.EventHandler(this.cb_mausac_SelectedIndexChanged);
             // 
-            // db_kichco
+            // cb_kichco
             // 
-            this.db_kichco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.db_kichco.FormattingEnabled = true;
-            this.db_kichco.Location = new System.Drawing.Point(195, 230);
-            this.db_kichco.Name = "db_kichco";
-            this.db_kichco.Size = new System.Drawing.Size(141, 30);
-            this.db_kichco.TabIndex = 3;
-            this.db_kichco.Text = "Kích cỡ";
+            this.cb_kichco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_kichco.FormattingEnabled = true;
+            this.cb_kichco.Location = new System.Drawing.Point(195, 230);
+            this.cb_kichco.Name = "cb_kichco";
+            this.cb_kichco.Size = new System.Drawing.Size(141, 30);
+            this.cb_kichco.TabIndex = 3;
+            this.cb_kichco.Text = "Kích cỡ";
+            this.cb_kichco.SelectedIndexChanged += new System.EventHandler(this.cb_kichco_SelectedIndexChanged);
             // 
-            // textBox1
+            // txt_soluong
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(346, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Số lượng";
-            this.textBox1.Size = new System.Drawing.Size(141, 28);
-            this.textBox1.TabIndex = 4;
+            this.txt_soluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_soluong.Location = new System.Drawing.Point(346, 230);
+            this.txt_soluong.Name = "txt_soluong";
+            this.txt_soluong.PlaceholderText = "Số lượng";
+            this.txt_soluong.Size = new System.Drawing.Size(141, 28);
+            this.txt_soluong.TabIndex = 4;
             // 
             // btn_them
             // 
@@ -267,32 +269,32 @@ namespace QLCuaHangJuno
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txt_dongia
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(497, 230);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Đơn giá";
-            this.textBox2.Size = new System.Drawing.Size(141, 28);
-            this.textBox2.TabIndex = 4;
+            this.txt_dongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_dongia.Location = new System.Drawing.Point(497, 230);
+            this.txt_dongia.Name = "txt_dongia";
+            this.txt_dongia.PlaceholderText = "Đơn giá";
+            this.txt_dongia.Size = new System.Drawing.Size(141, 28);
+            this.txt_dongia.TabIndex = 4;
             // 
-            // textBox3
+            // txt_giamgia
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(648, 230);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "Giảm giá";
-            this.textBox3.Size = new System.Drawing.Size(141, 28);
-            this.textBox3.TabIndex = 4;
+            this.txt_giamgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_giamgia.Location = new System.Drawing.Point(648, 230);
+            this.txt_giamgia.Name = "txt_giamgia";
+            this.txt_giamgia.PlaceholderText = "Giảm giá";
+            this.txt_giamgia.Size = new System.Drawing.Size(141, 28);
+            this.txt_giamgia.TabIndex = 4;
             // 
-            // textBox4
+            // txt_thanhtien
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(799, 230);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PlaceholderText = "Thành tiền";
-            this.textBox4.Size = new System.Drawing.Size(141, 28);
-            this.textBox4.TabIndex = 4;
+            this.txt_thanhtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_thanhtien.Location = new System.Drawing.Point(799, 230);
+            this.txt_thanhtien.Name = "txt_thanhtien";
+            this.txt_thanhtien.PlaceholderText = "Thành tiền";
+            this.txt_thanhtien.Size = new System.Drawing.Size(141, 28);
+            this.txt_thanhtien.TabIndex = 4;
             // 
             // HoaDonThanhToan
             // 
@@ -302,11 +304,11 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_them);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.db_kichco);
+            this.Controls.Add(this.txt_thanhtien);
+            this.Controls.Add(this.txt_giamgia);
+            this.Controls.Add(this.txt_dongia);
+            this.Controls.Add(this.txt_soluong);
+            this.Controls.Add(this.cb_kichco);
             this.Controls.Add(this.cb_mausac);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
@@ -330,8 +332,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_tensp;
         private System.Windows.Forms.ComboBox cb_mausac;
-        private System.Windows.Forms.ComboBox db_kichco;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cb_kichco;
+        private System.Windows.Forms.TextBox txt_soluong;
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -346,8 +348,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_dongia;
+        private System.Windows.Forms.TextBox txt_giamgia;
+        private System.Windows.Forms.TextBox txt_thanhtien;
     }
 }
