@@ -210,6 +210,7 @@ namespace QLCuaHangJuno
             // 
             // cb_mausac
             // 
+            this.cb_mausac.Cursor = System.Windows.Forms.Cursors.Default;
             this.cb_mausac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_mausac.FormattingEnabled = true;
             this.cb_mausac.Location = new System.Drawing.Point(44, 230);
@@ -315,7 +316,7 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.txt_tensp);
             this.Controls.Add(this.txt_masp);
             this.Name = "HoaDonThanhToan";
-            this.Text = "HoaDonThanhToan";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.HoaDonThanhToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
