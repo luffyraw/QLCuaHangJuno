@@ -17,6 +17,10 @@ namespace QLCuaHangJuno
             InitializeComponent();
         }
 
-      
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HoaDonThanhToan hd = new HoaDonThanhToan();
+            hd.Show();
+        }
     }
 }

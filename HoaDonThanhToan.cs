@@ -132,8 +132,7 @@ namespace QLCuaHangJuno
             var list = from item in listsp
                        join a in db.SanPhamChiTiets on item.MaSpCt equals a.MaSpCt
                        join b in db.SanPhams on a.MaSp equals b.MaSp
-                       join e in db.KhuyenMaiSanPhams on a.MaSp equals e.MaSp into kmGroup
-                            from km in kmGroup.DefaultIfEmpty()
+                       join e in db.KhuyenMaiSanPhams on a.MaSp equals e.MaSp 
                        join c in db.Maus on a.MaMau equals c.MaMau
                        join d in db.KichCos on a.MaKc equals d.MaKc
                        select new
@@ -144,7 +143,7 @@ namespace QLCuaHangJuno
                            kichco = d.KichCo1,
                            soluong = item.SoLuongBan,
                            dongia = b.DonGia,
-                           khuyenmai = (km.MaKm == null)? 0 : km.TyLeKhuyenMai,
+                           khuyenmai = e.TyLeKhuyenMai,
                            thanhtien = (double)item.SoLuongBan * (double)b.DonGia, 
                        };
         
@@ -158,9 +157,13 @@ namespace QLCuaHangJuno
             {
                 db.HoaDonBanHangSanPhams.Add(item);
             }
-            MessageBox.Show("Lưu thành công");
          
             db.SaveChanges();
+            MessageBox.Show("Lưu thành công");
+            HoaDonThanhToan hdtt = new HoaDonThanhToan();
+            hdtt.Show();
+            this.Close();
+
         }
 
         private void num_soluong_ValueChanged(object sender, EventArgs e)
