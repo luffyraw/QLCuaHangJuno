@@ -64,11 +64,11 @@ namespace QLCuaHangJuno
             this.MaPhieu,
             this.NgayDat,
             this.ThoiHanGiaoHang});
-            this.dgvPhieuDat.Location = new System.Drawing.Point(23, 143);
+            this.dgvPhieuDat.Location = new System.Drawing.Point(29, 143);
             this.dgvPhieuDat.Name = "dgvPhieuDat";
             this.dgvPhieuDat.RowHeadersWidth = 51;
             this.dgvPhieuDat.RowTemplate.Height = 29;
-            this.dgvPhieuDat.Size = new System.Drawing.Size(516, 321);
+            this.dgvPhieuDat.Size = new System.Drawing.Size(516, 235);
             this.dgvPhieuDat.TabIndex = 0;
             this.dgvPhieuDat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuDat_CellClick);
             // 
@@ -147,7 +147,7 @@ namespace QLCuaHangJuno
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThem.Location = new System.Drawing.Point(36, 498);
+            this.btnThem.Location = new System.Drawing.Point(112, 400);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 29);
             this.btnThem.TabIndex = 12;
@@ -158,7 +158,7 @@ namespace QLCuaHangJuno
             // btnChiTietPh
             // 
             this.btnChiTietPh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChiTietPh.Location = new System.Drawing.Point(170, 498);
+            this.btnChiTietPh.Location = new System.Drawing.Point(246, 400);
             this.btnChiTietPh.Name = "btnChiTietPh";
             this.btnChiTietPh.Size = new System.Drawing.Size(94, 29);
             this.btnChiTietPh.TabIndex = 13;
@@ -169,7 +169,7 @@ namespace QLCuaHangJuno
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnReload.Location = new System.Drawing.Point(292, 498);
+            this.btnReload.Location = new System.Drawing.Point(368, 400);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(94, 29);
             this.btnReload.TabIndex = 14;
@@ -181,7 +181,7 @@ namespace QLCuaHangJuno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 634);
+            this.ClientSize = new System.Drawing.Size(575, 462);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnChiTietPh);
             this.Controls.Add(this.btnThem);

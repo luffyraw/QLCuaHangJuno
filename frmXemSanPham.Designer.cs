@@ -228,6 +228,7 @@ namespace QLCuaHangJuno
             // 
             // cboLoaiSp
             // 
+            this.cboLoaiSp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiSp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboLoaiSp.FormattingEnabled = true;
             this.cboLoaiSp.Location = new System.Drawing.Point(6, 26);
