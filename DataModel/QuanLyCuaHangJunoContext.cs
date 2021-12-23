@@ -40,7 +40,7 @@ namespace QLCuaHangJuno.DataModel
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-94IFOHB\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-517PNF4;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
                 // Tai: DESKTOP-517PNF4
             }
         }

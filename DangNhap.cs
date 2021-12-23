@@ -19,7 +19,6 @@ namespace QLCuaHangJuno
             InitializeComponent();
         }
 
-        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
         private void DangNhap_Load(object sender, EventArgs e)
         {
             txtTenDangNhap.Focus();
@@ -27,7 +26,7 @@ namespace QLCuaHangJuno
 
         private void btDangNhap_Click(object sender, EventArgs e)
         {
-            var user = (from item in jn.NhanViens
+            var user = (from item in db.NhanViens
                         where txtTenDangNhap.Text == item.TenTk && txtMatKhau.Text == item.MatKhau
                         select item).FirstOrDefault();
             if (user == null)

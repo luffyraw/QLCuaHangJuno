@@ -15,9 +15,9 @@ namespace QLCuaHangJuno
     
     public partial class DSPhieuTH : Form
     {
-        string connectString = @"Data Source=DESKTOP-94IFOHB\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True";
-        SqlConnection connect;
-        SqlCommand cm;
+        //string connectString = @"Data Source=DESKTOP-94IFOHB\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True";
+        //SqlConnection connect;
+        //SqlCommand cm;
         string query = "";
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         public DSPhieuTH()
