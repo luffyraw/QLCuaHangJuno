@@ -280,6 +280,7 @@ namespace QLCuaHangJuno
             this.txt_sdtKH.PlaceholderText = "Số điện thoại";
             this.txt_sdtKH.Size = new System.Drawing.Size(216, 27);
             this.txt_sdtKH.TabIndex = 3;
+            this.txt_sdtKH.TextChanged += new System.EventHandler(this.txt_sdtKH_TextChanged);
             // 
             // txt_hotenKH
             // 
@@ -288,6 +289,7 @@ namespace QLCuaHangJuno
             this.txt_hotenKH.PlaceholderText = "Họ tên khách hàng";
             this.txt_hotenKH.Size = new System.Drawing.Size(216, 27);
             this.txt_hotenKH.TabIndex = 3;
+            this.txt_hotenKH.TextChanged += new System.EventHandler(this.txt_hotenKH_TextChanged);
             // 
             // label9
             // 

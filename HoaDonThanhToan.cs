@@ -72,9 +72,8 @@ namespace QLCuaHangJuno
                 DatSoLuongMax();
                 //Khuyến mãi
                 var km = (from item in db.KhuyenMaiSanPhams where item.MaSp == txt_masp.Text select item).FirstOrDefault();
-                if (km != null) txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
-                if (txt_giamgia.Text == null) txt_giamgia.Text = "0";
-
+                txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
+                
                 //Hiển thị tổng tiền
                 txt_thanhtien.Text = TinhTienSP().ToString();
             }
@@ -174,7 +173,7 @@ namespace QLCuaHangJuno
             var list = from item in listsp
                        join a in db.SanPhamChiTiets on item.MaSpCt equals a.MaSpCt
                        join b in db.SanPhams on a.MaSp equals b.MaSp
-                       join e in db.KhuyenMaiSanPhams on a.MaSp equals e.MaSp
+                       join e in db.KhuyenMaiSanPhams on b.MaSp equals e.MaSp
                        join c in db.Maus on a.MaMau equals c.MaMau
                        join d in db.KichCos on a.MaKc equals d.MaKc
                        select new
@@ -432,6 +431,14 @@ namespace QLCuaHangJuno
             kh.HoTenKh = txt_hotenKH.Text;
             kh.Sdt = txt_sdtKH.Text;
             kh.DiaChi = txt_diachiKH.Text;
+
+            var KH = db.KhachHangs.SingleOrDefault(item => item.HoTenKh == txt_hotenKH.Text && item.Sdt == txt_sdtKH.Text);
+            if (KH != null)
+            {
+                MessageBox.Show("Khách hàng này đã có trong cơ sở dữ liệu");
+                return;
+            }
+
             DialogResult dialogResult = MessageBox.Show("Thêm khách hàng:\n Mã khách hàng: " + kh.MaKh + "\nHọ tên: " + kh.HoTenKh + "\nSố điện thoại: " + kh.Sdt + "\n Địa chỉ: " + kh.DiaChi, "Xác nhận", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -445,6 +452,26 @@ namespace QLCuaHangJuno
 
 
 
+        }
+
+        private void txt_hotenKH_TextChanged(object sender, EventArgs e)
+        {
+            var KH = db.KhachHangs.SingleOrDefault(item => item.HoTenKh == txt_hotenKH.Text);
+            if (KH != null)
+            {
+                txt_sdtKH.Text = KH.Sdt;
+                txt_diachiKH.Text = KH.DiaChi;
+            }
+        }
+
+        private void txt_sdtKH_TextChanged(object sender, EventArgs e)
+        {
+            var KH = db.KhachHangs.SingleOrDefault(item => item.Sdt == txt_sdtKH.Text);
+            if (KH != null)
+            {
+                txt_hotenKH.Text = KH.HoTenKh;
+                txt_diachiKH.Text = KH.DiaChi;
+            }
         }
     }
 }
