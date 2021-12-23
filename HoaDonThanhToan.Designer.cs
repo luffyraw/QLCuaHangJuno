@@ -412,24 +412,23 @@ namespace QLCuaHangJuno
             // cb_mausac
             // 
             this.cb_mausac.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cb_mausac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_mausac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cb_mausac.FormattingEnabled = true;
             this.cb_mausac.Location = new System.Drawing.Point(19, 138);
             this.cb_mausac.Name = "cb_mausac";
             this.cb_mausac.Size = new System.Drawing.Size(141, 28);
             this.cb_mausac.TabIndex = 1;
-            this.cb_mausac.Text = "Màu sắc";
             this.cb_mausac.SelectedIndexChanged += new System.EventHandler(this.cb_mausac_SelectedIndexChanged);
             // 
             // cb_kichco
             // 
+            this.cb_kichco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_kichco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_kichco.FormattingEnabled = true;
             this.cb_kichco.Location = new System.Drawing.Point(181, 138);
             this.cb_kichco.Name = "cb_kichco";
             this.cb_kichco.Size = new System.Drawing.Size(115, 28);
             this.cb_kichco.TabIndex = 2;
-            this.cb_kichco.Text = "Kích cỡ";
             this.cb_kichco.SelectedIndexChanged += new System.EventHandler(this.cb_kichco_SelectedIndexChanged);
             // 
             // btn_them

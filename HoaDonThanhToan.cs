@@ -19,9 +19,9 @@ namespace QLCuaHangJuno
         double tongtien = 0;
         double gghd = 0;
         double thanhtien = 0;
-        NhanVien nv = new NhanVien();
         KhachHang kh = new KhachHang();
 
+        NhanVien nv = new NhanVien();
         public HoaDonThanhToan(NhanVien nv)
         {
             this.nv = nv;
