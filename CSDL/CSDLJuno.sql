@@ -44,6 +44,7 @@ INSERT INTO GiamGiaHoaDon VALUES('GG001','2021-11-11','2021-11-30',10,500000)
 INSERT INTO GiamGiaHoaDon VALUES('GG002','2021-12-01','2021-12-30',10,500000)
 
 GO
+
 --Tạo bảng Khách hàng
 CREATE TABLE KhachHang
 (
@@ -59,6 +60,17 @@ INSERT INTO KhachHang VALUES('KH4',N'Trần Thu D', '0123456787',N'Hà Nội')
 INSERT INTO KhachHang VALUES('KH5',N'Lê Văn E', '0123456786',N'Hà Nội')
 
 GO
+
+INSERT INTO KhachHang
+VALUES('KH001',N'Nguyễn Hùng Tình', '0984138630',N'Hà Nội')
+INSERT INTO KhachHang
+VALUES('KH002',N'Nguyễn Thế Tài', '0912345678',N'Hà Nội')
+INSERT INTO KhachHang
+VALUES('KH003',N'Nguyễn Quang Thắng', '0981234567',N'Bắc Ninh')
+INSERT INTO KhachHang
+VALUES('KH004',N'Lê Hoàng Tú', '0984138600',N'Hà Nội')
+INSERT INTO KhachHang
+VALUES('KH005',N'Trần Văn Thìn', '0984456765',N'Hải Dương')
 --Tạo bảng Loại Sản Phẩm
 CREATE TABLE LoaiSanPham
 (
@@ -336,6 +348,25 @@ CREATE TABLE HoaDonBanHang
 	CONSTRAINT fk_HoaDonBanHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 )
 GO
+
+SELECt * FROM HoaDonBanHang Where MaHD='HD001'
+
+--- Sửa MaGG null----
+Alter Table HoaDonBanHang
+Alter Column MaGG varchar(10);
+
+INSERT INTO HoaDonBanHang(MaHD,NgayBan,MaKH,MaNV)
+VALUES('HD001','2000-01-05 00:00:00.000','KH001','NV001')
+INSERT INTO HoaDonBanHang(MaHD,NgayBan,MaKH,MaNV)
+VALUES('HD002','2021-01-05 00:00:00.000','KH002','NV001')
+INSERT INTO HoaDonBanHang(MaHD,NgayBan,MaKH,MaNV)
+VALUES('HD003','2021-02-05 00:00:00.000','KH003','NV002')
+INSERT INTO HoaDonBanHang(MaHD,NgayBan,MaKH,MaNV)
+VALUES('HD004','2021-03-05 00:00:00.000','KH004','NV002')
+INSERT INTO HoaDonBanHang(MaHD,NgayBan,MaKH,MaNV)
+VALUES('HD005','2021-04-05 00:00:00.000','KH005','NV002')
+
+
 --Tạo bảng HoaDonBanHang_SanPham
 CREATE TABLE HoaDonBanHang_SanPham
 (
@@ -347,6 +378,53 @@ CREATE TABLE HoaDonBanHang_SanPham
 	CONSTRAINT fk_HoaDonBanHang_SanPham_ChiTiet FOREIGN KEY (MaSP_CT) REFERENCES SanPham_ChiTiet(MaSP_CT)
 )
 GO
+
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD001','CT001',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD001','CT002',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD001','CT003',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD001','CT004',2)
+
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD002','CT005',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD002','CT006',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD002','CT007',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD002','CT008',2)
+
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD003','CT009',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD003','CT010',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD003','CT011',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD003','CT012',2)
+
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD004','CT013',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD004','CT014',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD004','CT015',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD005','CT016',2)
+
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD005','CT017',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD005','CT018',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD005','CT019',2)
+INSERT INTO HoaDonBanHang_SanPham
+VALUES('HD005','CT020',2)
+
+
 --Tạo bảng Phiếu Bảo Hành
 CREATE TABLE PhieuBaoHanh
 (
@@ -375,6 +453,8 @@ CREATE TABLE PhieuTraHang
 	CONSTRAINT fk_PhieuTraHang_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT))
 GO
 
+INSERT INTO PhieuTraHang
+VALUES('PT001','2000-01-15 00:00:00.000','NV001','CT001','HD001',N'Sản phẩm hỏng')
 
 --Tạo bảng PhieuDatHang
 CREATE TABLE PhieuDatHang

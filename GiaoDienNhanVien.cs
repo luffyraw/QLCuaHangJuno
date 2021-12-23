@@ -25,5 +25,10 @@ namespace QLCuaHangJuno
             HoaDonThanhToan hd = new HoaDonThanhToan(nv);
             hd.Show();
         }
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            DSPhieuTH form = new DSPhieuTH();
+            form.Show();
+        }
     }
 }
