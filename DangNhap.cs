@@ -13,26 +13,42 @@ namespace QLCuaHangJuno
 {
     public partial class DangNhap : Form
     {
-        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext(); 
+        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         public DangNhap()
         {
             InitializeComponent();
         }
 
+        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
         private void DangNhap_Load(object sender, EventArgs e)
         {
+            txtTenDangNhap.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btDangNhap_Click(object sender, EventArgs e)
         {
-            GiaoDienAdmin admin = new GiaoDienAdmin();
-            admin.Show();
-        }
+            var user = (from item in jn.NhanViens
+                        where txtTenDangNhap.Text == item.TenTk && txtMatKhau.Text == item.MatKhau
+                        select item).FirstOrDefault();
+            if (user == null)
+            {
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            GiaoDienNhanVien admin = new GiaoDienNhanVien();
-            admin.Show();
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác không chính xác");
+
+            }
+            else
+            {
+                if (user.Quyen == "Quản lý")
+                {
+                    GiaoDienAdmin admin = new GiaoDienAdmin();
+                    admin.Show();
+                }
+                else if (user.Quyen == "Nhân viên")
+                {
+                    GiaoDienNhanVien nhanVien = new GiaoDienNhanVien();
+                    nhanVien.Show();
+                }
+            }
         }
     }
 }

@@ -21,5 +21,11 @@ namespace QLCuaHangJuno
         {
 
         }
+
+        private void quảnLíNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLiNhanVien qlNV = new frmQuanLiNhanVien();
+            qlNV.Show();
+        }
     }
 }
