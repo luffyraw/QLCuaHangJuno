@@ -18,8 +18,9 @@ namespace QLCuaHangJuno
         List<HoaDonBanHangSanPham> listsp = new List<HoaDonBanHangSanPham>();
         double tongtien = 0;
         NhanVien nv = new NhanVien();
-        public HoaDonThanhToan()
+        public HoaDonThanhToan(NhanVien nv)
         {
+            this.nv = nv;
             InitializeComponent();
         }
 
@@ -169,7 +170,7 @@ namespace QLCuaHangJuno
          
             db.SaveChanges();
             MessageBox.Show("Lưu thành công");
-            HoaDonThanhToan hdtt = new HoaDonThanhToan();
+            HoaDonThanhToan hdtt = new HoaDonThanhToan(nv);
             hdtt.Show();
             this.Close();
 

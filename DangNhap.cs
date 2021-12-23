@@ -45,7 +45,7 @@ namespace QLCuaHangJuno
                 }
                 else if (user.Quyen == "Nhân viên")
                 {
-                    GiaoDienNhanVien nhanVien = new GiaoDienNhanVien();
+                    GiaoDienNhanVien nhanVien = new GiaoDienNhanVien(user);
                     nhanVien.Show();
                 }
             }

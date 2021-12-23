@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangJuno.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace QLCuaHangJuno
 {
     public partial class GiaoDienNhanVien : Form
     {
-        public GiaoDienNhanVien()
+        NhanVien nv = new NhanVien();
+        public GiaoDienNhanVien(NhanVien nv)
         {
+            this.nv = nv;
             InitializeComponent();
         }
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HoaDonThanhToan hd = new HoaDonThanhToan();
+            HoaDonThanhToan hd = new HoaDonThanhToan(nv);
             hd.Show();
         }
     }
