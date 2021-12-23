@@ -17,6 +17,10 @@ namespace QLCuaHangJuno
             InitializeComponent();
         }
 
-      
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            DSPhieuTH form = new DSPhieuTH();
+            form.Show();
+        }
     }
 }
