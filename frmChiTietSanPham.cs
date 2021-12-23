@@ -53,5 +53,10 @@ namespace QLCuaHangJuno
             dgvChiTietSP.DataSource = query.ToList();
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

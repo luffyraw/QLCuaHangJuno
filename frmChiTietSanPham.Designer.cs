@@ -29,7 +29,7 @@ namespace QLCuaHangJuno
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvChiTietSP = new System.Windows.Forms.DataGridView();
             this.Mau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KichCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,19 +51,21 @@ namespace QLCuaHangJuno
             this.txtBaoHanh = new System.Windows.Forms.TextBox();
             this.txtTraHang = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietSP)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvChiTietSP
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChiTietSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvChiTietSP.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChiTietSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvChiTietSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Mau,
@@ -254,11 +256,23 @@ namespace QLCuaHangJuno
             this.label9.TabIndex = 17;
             this.label9.Text = "CHI TIẾT SẢN PHẨM";
             // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Location = new System.Drawing.Point(335, 413);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(94, 29);
+            this.btnClose.TabIndex = 18;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmChiTietSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 414);
+            this.ClientSize = new System.Drawing.Size(820, 460);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTraHang);
             this.Controls.Add(this.txtBaoHanh);
@@ -309,5 +323,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn Mau;
         private System.Windows.Forms.DataGridViewTextBoxColumn KichCo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongCon;
+        private System.Windows.Forms.Button btnClose;
     }
 }

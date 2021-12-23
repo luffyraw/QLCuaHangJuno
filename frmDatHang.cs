@@ -15,6 +15,7 @@ namespace QLCuaHangJuno
     {
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();    
         int index = 0;
+        int rowDelete = -1;
         public frmDatHang()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace QLCuaHangJuno
         private void frmDatHang_Load(object sender, EventArgs e)
         {
             txtMaPhieuD.Text = MaPhieuDat();
-            txtNgayLap.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            dtpNgayLap.Value = DateTime.Now;
             dtpThoiHanGiaoHang.Value = DateTime.Now.AddDays(7);
         }
 
@@ -135,12 +136,16 @@ namespace QLCuaHangJuno
                     dgvSanPhamDat.Rows.Add();
                     dgvSanPhamDat.Rows[index].Cells[0].Value = txtMaSp.Text;
                     dgvSanPhamDat.Rows[index].Cells[1].Value = txtTenSp.Text;
-                    dgvSanPhamDat.Rows[index].Cells[2].Value = cboMau.SelectedValue.ToString();
-                    dgvSanPhamDat.Rows[index].Cells[3].Value = cboKichCo.SelectedValue.ToString();
+                    dgvSanPhamDat.Rows[index].Cells[2].Value = cboMau.Text;
+                    dgvSanPhamDat.Rows[index].Cells[2].Tag = cboMau.SelectedValue.ToString();
+                    dgvSanPhamDat.Rows[index].Cells[3].Value = cboKichCo.Text;
+                    dgvSanPhamDat.Rows[index].Cells[3].Tag = cboKichCo.SelectedValue.ToString();
                     dgvSanPhamDat.Rows[index].Cells[4].Value = txtSoLuongDat.Text;
                     index++;
+                    
                 }     
             }
+            
         }
         private int CheckDataGrid(string maSP, string maMau, string maKC)
         {
@@ -193,7 +198,55 @@ namespace QLCuaHangJuno
             txtDonGia.Clear();
             txtMaSp.Clear();
             txtSoLuongDat.Clear();
+            cboMau.Text = "";
+            cboKichCo.Text = "";
             txtMaSp.Focus();
+        }
+
+        private void dgvSanPhamDat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowDelete = e.RowIndex;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if(rowDelete >= 0)
+            {
+                dgvSanPhamDat.Rows.RemoveAt(rowDelete);
+            }
+        }
+
+        private void btnDatHang_Click(object sender, EventArgs e)
+        {
+            if (index == 0)
+            {
+                MessageBox.Show("Không có sản phẩm nào được đặt hàng.");
+            }
+            else
+            {
+                PhieuDatHang phieu = new PhieuDatHang();
+                phieu.MaPhieuDat = txtMaPhieuD.Text;
+                phieu.NgayDat = dtpNgayLap.Value;
+                phieu.ThoiHanGiaoHang = dtpThoiHanGiaoHang.Value;
+                db.PhieuDatHangs.Add(phieu);
+                
+                for(int i = 0; i < index; i++)
+                {
+                    string maSPCT = (from spct in db.SanPhamChiTiets
+                                     where (spct.MaSp == dgvSanPhamDat.Rows[i].Cells[0].Value.ToString()
+                                             && spct.MaMau == dgvSanPhamDat.Rows[i].Cells[2].Tag.ToString()
+                                             && spct.MaKc == dgvSanPhamDat.Rows[i].Cells[3].Tag.ToString())
+                                     select spct).FirstOrDefault().MaSpCt;
+                    DatHangSanPham dhsp = new DatHangSanPham();
+                    dhsp.MaPhieuDat = phieu.MaPhieuDat;
+                    dhsp.MaSpCt = maSPCT;
+                    dhsp.SoLuongDat = int.Parse(dgvSanPhamDat.Rows[i].Cells[4].Value.ToString());
+                    db.DatHangSanPhams.Add(dhsp);  
+                }
+                db.SaveChanges();
+                this.Close();
+                
+            }
         }
     }
 }
