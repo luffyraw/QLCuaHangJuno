@@ -61,6 +61,7 @@ namespace QLCuaHangJuno
             this.hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
             this.hóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.hóaĐơnToolStripMenuItem.Text = "Bán hàng";
+            this.hóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem_Click);
             // 
             // đặtHàngToolStripMenuItem
             // 
