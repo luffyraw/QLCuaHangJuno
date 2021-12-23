@@ -43,7 +43,7 @@ namespace QLCuaHangJuno
             this.btn_luu = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lb_tongtien = new System.Windows.Forms.Label();
             this.txt_diachiKH = new System.Windows.Forms.TextBox();
             this.txt_sdtKH = new System.Windows.Forms.TextBox();
             this.txt_hotenKH = new System.Windows.Forms.TextBox();
@@ -162,24 +162,24 @@ namespace QLCuaHangJuno
             // Column10
             // 
             this.Column10.DataPropertyName = "dongia";
-            this.Column10.HeaderText = "Đơn giá";
+            this.Column10.HeaderText = "Đơn giá (VND)";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
-            this.Column10.Width = 125;
+            this.Column10.Width = 150;
             // 
             // Column11
             // 
             this.Column11.DataPropertyName = "khuyenmai";
-            this.Column11.HeaderText = "Khuyến mãi";
+            this.Column11.HeaderText = "Khuyến mãi (%)";
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
-            this.Column11.Width = 120;
+            this.Column11.Width = 150;
             // 
             // Column12
             // 
             this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column12.DataPropertyName = "thanhtien";
-            this.Column12.HeaderText = "Thành tiền";
+            this.Column12.HeaderText = "Thành tiền (VND)";
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             // 
@@ -190,7 +190,7 @@ namespace QLCuaHangJuno
             this.panel1.Controls.Add(this.btn_luu);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.lb_tongtien);
             this.panel1.Controls.Add(this.txt_diachiKH);
             this.panel1.Controls.Add(this.txt_sdtKH);
             this.panel1.Controls.Add(this.txt_hotenKH);
@@ -242,15 +242,15 @@ namespace QLCuaHangJuno
             this.label13.TabIndex = 4;
             this.label13.Text = "Giảm giá theo hóa đơn";
             // 
-            // label10
+            // lb_tongtien
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(48, 561);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 22);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Tổng tiền hóa đơn";
+            this.lb_tongtien.AutoSize = true;
+            this.lb_tongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_tongtien.Location = new System.Drawing.Point(48, 561);
+            this.lb_tongtien.Name = "lb_tongtien";
+            this.lb_tongtien.Size = new System.Drawing.Size(156, 22);
+            this.lb_tongtien.TabIndex = 4;
+            this.lb_tongtien.Text = "Tổng tiền hóa đơn";
             // 
             // txt_diachiKH
             // 
@@ -390,7 +390,7 @@ namespace QLCuaHangJuno
             this.txt_tensp.Name = "txt_tensp";
             this.txt_tensp.PlaceholderText = "Tên sản phẩm";
             this.txt_tensp.ReadOnly = true;
-            this.txt_tensp.Size = new System.Drawing.Size(782, 27);
+            this.txt_tensp.Size = new System.Drawing.Size(876, 27);
             this.txt_tensp.TabIndex = 0;
             // 
             // cb_mausac
@@ -419,7 +419,7 @@ namespace QLCuaHangJuno
             // btn_them
             // 
             this.btn_them.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_them.Location = new System.Drawing.Point(1008, 105);
+            this.btn_them.Location = new System.Drawing.Point(1092, 105);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(68, 68);
             this.btn_them.TabIndex = 5;
@@ -430,7 +430,7 @@ namespace QLCuaHangJuno
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(1008, 30);
+            this.button1.Location = new System.Drawing.Point(1092, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 68);
             this.button1.TabIndex = 5;
@@ -441,7 +441,7 @@ namespace QLCuaHangJuno
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(1082, 30);
+            this.button2.Location = new System.Drawing.Point(1166, 30);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 68);
             this.button2.TabIndex = 5;
@@ -452,31 +452,31 @@ namespace QLCuaHangJuno
             // txt_dongia
             // 
             this.txt_dongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dongia.Location = new System.Drawing.Point(518, 138);
+            this.txt_dongia.Location = new System.Drawing.Point(509, 135);
             this.txt_dongia.Name = "txt_dongia";
             this.txt_dongia.PlaceholderText = "Đơn giá";
             this.txt_dongia.ReadOnly = true;
-            this.txt_dongia.Size = new System.Drawing.Size(141, 27);
+            this.txt_dongia.Size = new System.Drawing.Size(171, 27);
             this.txt_dongia.TabIndex = 4;
             // 
             // txt_giamgia
             // 
             this.txt_giamgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_giamgia.Location = new System.Drawing.Point(669, 138);
+            this.txt_giamgia.Location = new System.Drawing.Point(694, 135);
             this.txt_giamgia.Name = "txt_giamgia";
             this.txt_giamgia.PlaceholderText = "Giảm giá";
             this.txt_giamgia.ReadOnly = true;
-            this.txt_giamgia.Size = new System.Drawing.Size(141, 27);
+            this.txt_giamgia.Size = new System.Drawing.Size(171, 27);
             this.txt_giamgia.TabIndex = 4;
             // 
             // txt_thanhtien
             // 
             this.txt_thanhtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_thanhtien.Location = new System.Drawing.Point(820, 138);
+            this.txt_thanhtien.Location = new System.Drawing.Point(886, 135);
             this.txt_thanhtien.Name = "txt_thanhtien";
             this.txt_thanhtien.PlaceholderText = "Thành tiền";
             this.txt_thanhtien.ReadOnly = true;
-            this.txt_thanhtien.Size = new System.Drawing.Size(141, 27);
+            this.txt_thanhtien.Size = new System.Drawing.Size(167, 27);
             this.txt_thanhtien.TabIndex = 4;
             // 
             // label15
@@ -533,31 +533,31 @@ namespace QLCuaHangJuno
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(518, 108);
+            this.label20.Location = new System.Drawing.Point(509, 105);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(66, 20);
+            this.label20.Size = new System.Drawing.Size(119, 20);
             this.label20.TabIndex = 6;
-            this.label20.Text = "Đơn giá";
+            this.label20.Text = "Đơn giá (VND)";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(669, 108);
+            this.label21.Location = new System.Drawing.Point(694, 105);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(76, 20);
+            this.label21.Size = new System.Drawing.Size(108, 20);
             this.label21.TabIndex = 6;
-            this.label21.Text = "Giảm giá";
+            this.label21.Text = "Giảm giá (%)";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(820, 108);
+            this.label22.Location = new System.Drawing.Point(886, 108);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(87, 20);
+            this.label22.Size = new System.Drawing.Size(140, 20);
             this.label22.TabIndex = 6;
-            this.label22.Text = "Thành tiền";
+            this.label22.Text = "Thành tiền (VND)";
             // 
             // panel2
             // 
@@ -620,12 +620,13 @@ namespace QLCuaHangJuno
             // btn_sua
             // 
             this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_sua.Location = new System.Drawing.Point(1082, 105);
+            this.btn_sua.Location = new System.Drawing.Point(1166, 105);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(68, 68);
             this.btn_sua.TabIndex = 5;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // Column1
             // 
@@ -698,7 +699,7 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.TextBox txt_thanhtien;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lb_tongtien;
         private System.Windows.Forms.TextBox txt_diachiKH;
         private System.Windows.Forms.TextBox txt_sdtKH;
         private System.Windows.Forms.TextBox txt_hotenKH;

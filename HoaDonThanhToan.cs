@@ -16,7 +16,8 @@ namespace QLCuaHangJuno
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         HoaDonBanHang hd = new HoaDonBanHang();
         List<HoaDonBanHangSanPham> listsp = new List<HoaDonBanHangSanPham>();
-    
+        double tongtien = 0;
+        NhanVien nv = new NhanVien();
         public HoaDonThanhToan()
         {
             InitializeComponent();
@@ -117,6 +118,10 @@ namespace QLCuaHangJuno
                 foreach (var item in listsp)
                     if (item.MaSpCt == sp.MaSpCt) check = true;
                 if (!check) listsp.Add(sp);
+                else
+                {
+                    MessageBox.Show("Đã có sản phẩm này");
+                }
 
 
                 HienThiDataGrid();
@@ -146,7 +151,11 @@ namespace QLCuaHangJuno
                            khuyenmai = e.TyLeKhuyenMai,
                            thanhtien = (double)item.SoLuongBan * (double)b.DonGia, 
                        };
-        
+            foreach (var item in list)
+            {
+                tongtien = tongtien + item.thanhtien;
+            }
+            lb_tongtien.Text = "Tiền hàng: " + tongtien.ToString() + "VND";
             dgv_dssp.DataSource = list.ToList();
         }
         //Lưu hóa đơn vào csdl
@@ -209,6 +218,7 @@ namespace QLCuaHangJuno
             txt_masp.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txt_masp.AutoCompleteCustomSource = autoCompleteSP;
         }
+        //Gợi ý tên khác hàng
         private void autoCompleteKH()
         {
             AutoCompleteStringCollection autoCompleteKH = new AutoCompleteStringCollection();
@@ -272,7 +282,7 @@ namespace QLCuaHangJuno
             var num = dgv_dssp.Rows[numrow].Cells[4].Value.ToString();
             num_soluong.Value = int.Parse(num);
         }
-
+        // Xóa sản phẩm khỏi danh sách
         private void button2_Click(object sender, EventArgs e)
         {
             var sp1 = (from item in db.SanPhamChiTiets
@@ -282,7 +292,7 @@ namespace QLCuaHangJuno
                        select item.MaSpCt).FirstOrDefault();
             if (sp1 == null)
             {
-                MessageBox.Show("Ko tìm thấy sản phẩm nào trong danh sách");
+                MessageBox.Show("Ko có sản phẩm này");
                 txt_masp.Focus();
                 return;
             }
@@ -302,5 +312,12 @@ namespace QLCuaHangJuno
                 return;
             }
         }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
     }
 }
