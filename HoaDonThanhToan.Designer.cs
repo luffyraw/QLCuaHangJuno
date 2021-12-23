@@ -31,7 +31,6 @@ namespace QLCuaHangJuno
         {
             this.txt_masp = new System.Windows.Forms.TextBox();
             this.dgv_dssp = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,10 +79,10 @@ namespace QLCuaHangJuno
             this.panel2 = new System.Windows.Forms.Panel();
             this.num_soluong = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
+            this.btn_sua = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_sua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssp)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -104,7 +103,6 @@ namespace QLCuaHangJuno
             // 
             this.dgv_dssp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dssp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column7,
@@ -119,14 +117,7 @@ namespace QLCuaHangJuno
             this.dgv_dssp.RowTemplate.Height = 29;
             this.dgv_dssp.Size = new System.Drawing.Size(1222, 543);
             this.dgv_dssp.TabIndex = 1;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "STT";
-            this.Column4.HeaderText = "STT";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
+            this.dgv_dssp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dssp_CellContentClick);
             // 
             // Column5
             // 
@@ -456,6 +447,7 @@ namespace QLCuaHangJuno
             this.button2.TabIndex = 5;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_dongia
             // 
@@ -625,6 +617,16 @@ namespace QLCuaHangJuno
             this.label23.TabIndex = 8;
             this.label23.Text = "Danh sách sản phẩm";
             // 
+            // btn_sua
+            // 
+            this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_sua.Location = new System.Drawing.Point(1082, 105);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(68, 68);
+            this.btn_sua.TabIndex = 5;
+            this.btn_sua.Text = "Sửa";
+            this.btn_sua.UseVisualStyleBackColor = true;
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MaSP";
@@ -648,16 +650,6 @@ namespace QLCuaHangJuno
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.Width = 125;
-            // 
-            // btn_sua
-            // 
-            this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_sua.Location = new System.Drawing.Point(1082, 105);
-            this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(68, 68);
-            this.btn_sua.TabIndex = 5;
-            this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
             // 
             // HoaDonThanhToan
             // 
@@ -725,7 +717,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btn_luu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.NumericUpDown num_soluong;
+        private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -734,7 +727,5 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.NumericUpDown num_soluong;
-        private System.Windows.Forms.Button btn_sua;
     }
 }

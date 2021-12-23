@@ -88,8 +88,10 @@ namespace QLCuaHangJuno
         //Thêm sản phẩm vào danh sách sản phẩm
         private void btn_them_Click(object sender, EventArgs e)
         {
-            var list = from item in db.SanPhams select item.MaSp;
-            if (!list.Contains(txt_masp.Text))
+            var sp1 = (from item in db.SanPhams
+                        where item.MaSp == txt_masp.Text
+                        select item.MaSp).FirstOrDefault();
+            if (sp1==null)
             {
                 MessageBox.Show("Bạn phải nhập mã sản phẩm Chính xác");
                 txt_masp.Focus();
@@ -98,24 +100,19 @@ namespace QLCuaHangJuno
             else
             {
                 var MaSpCt = (from item in db.SanPhamChiTiets
-                              where (item.MaSp == txt_masp.Text && item.MaMau == cb_mausac.SelectedValue.ToString() && item.MaKc == cb_kichco.SelectedValue.ToString())
+                              where (item.MaSp == txt_masp.Text 
+                              && item.MaMau == cb_mausac.SelectedValue.ToString() 
+                              && item.MaKc == cb_kichco.SelectedValue.ToString())
                               select item.MaSpCt).FirstOrDefault();
                 if (MaSpCt == null)
                 {
-                    MessageBox.Show("Không tồn tại sản phẩm có mã " + txt_masp.Text + " màu " + cb_mausac.SelectedValue.ToString() + " kích cỡ " + cb_kichco.SelectedValue.ToString());
+                    MessageBox.Show("Không tồn tại sản phẩm có mã " + txt_masp.Text + " màu " + cb_mausac.Text + " kích cỡ " + cb_kichco.Text);
                     return;
                 }
                 HoaDonBanHangSanPham sp = new HoaDonBanHangSanPham();
                 sp.MaHd = maHD();
                 sp.MaSpCt = MaSpCt.ToString();
-                if ((int)num_soluong.Value != 0)
-                    sp.SoLuongBan = ((int)num_soluong.Value);
-                else
-                {
-                    MessageBox.Show("Số lượng phải khác 0");
-                    num_soluong.Focus();
-                    return;
-                }
+                sp.SoLuongBan = ((int)num_soluong.Value);       
                 bool check = false;
                 foreach (var item in listsp)
                     if (item.MaSpCt == sp.MaSpCt) check = true;
@@ -130,8 +127,28 @@ namespace QLCuaHangJuno
         //Hiển thị lên datagridview
         private void HienThiDataGrid()
         {
-
-            dgv_dssp.DataSource = listsp.ToList();
+            var listct = from item in listsp
+                         select item.MaSpCt;
+            var list = from item in listsp
+                       join a in db.SanPhamChiTiets on item.MaSpCt equals a.MaSpCt
+                       join b in db.SanPhams on a.MaSp equals b.MaSp
+                       join e in db.KhuyenMaiSanPhams on a.MaSp equals e.MaSp into kmGroup
+                            from km in kmGroup.DefaultIfEmpty()
+                       join c in db.Maus on a.MaMau equals c.MaMau
+                       join d in db.KichCos on a.MaKc equals d.MaKc
+                       select new
+                       {
+                           masp = a.MaSp,
+                           ten = b.TenSp,
+                           mausac = c.Mau1,
+                           kichco = d.KichCo1,
+                           soluong = item.SoLuongBan,
+                           dongia = b.DonGia,
+                           khuyenmai = (km.MaKm == null)? 0 : km.TyLeKhuyenMai,
+                           thanhtien = (double)item.SoLuongBan * (double)b.DonGia, 
+                       };
+        
+            dgv_dssp.DataSource = list.ToList();
         }
         //Lưu hóa đơn vào csdl
         private void btn_luu_Click(object sender, EventArgs e)
@@ -179,7 +196,7 @@ namespace QLCuaHangJuno
             //Gợi ý mã sản phẩm
             AutoCompleteStringCollection autoCompleteSP = new AutoCompleteStringCollection();
 
-            var SPList = from item in db.SanPhams
+            var SPList = from item in db.SanPhamChiTiets
                          select item;
             foreach (var item in SPList)
             {
@@ -224,9 +241,9 @@ namespace QLCuaHangJuno
         private double TinhTienSP()
         {
             //Tính tổng tiền 1 sản phẩm
-            return ((double.Parse(txt_dongia.Text) * ((double)num_soluong.Value)) * double.Parse(txt_giamgia.Text) / 100);
+            return ((double.Parse(txt_dongia.Text) * ((double)num_soluong.Value)) * (100 + double.Parse(txt_giamgia.Text) )/ 100);
         }
-
+        //xóa thông tin trong các hộp
         private void button1_Click(object sender, EventArgs e)
         {
             txt_masp.Text = null;
@@ -240,6 +257,47 @@ namespace QLCuaHangJuno
             txt_giamgia.Text = "0";
             txt_thanhtien.Text = "0";
             num_soluong.Value = 1;
+        }
+        //Hiển thị thông tin từ datagrid lên text
+        private void dgv_dssp_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numrow;
+            numrow = e.RowIndex;
+            txt_masp.Text = dgv_dssp.Rows[numrow].Cells[0].Value.ToString();
+            cb_mausac.Text = dgv_dssp.Rows[numrow].Cells[2].Value.ToString();
+            cb_kichco.Text = dgv_dssp.Rows[numrow].Cells[3].Value.ToString();
+            var num = dgv_dssp.Rows[numrow].Cells[4].Value.ToString();
+            num_soluong.Value = int.Parse(num);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var sp1 = (from item in db.SanPhamChiTiets
+                       where item.MaSp == txt_masp.Text
+                       && item.MaMau == cb_mausac.SelectedValue.ToString()
+                       && item.MaKc == cb_kichco.SelectedValue.ToString()
+                       select item.MaSpCt).FirstOrDefault();
+            if (sp1 == null)
+            {
+                MessageBox.Show("Ko tìm thấy sản phẩm nào trong danh sách");
+                txt_masp.Focus();
+                return;
+            }
+            else
+            { 
+                foreach (var item in listsp)
+                {
+                    if (item.MaSpCt == sp1)
+                    {
+                        listsp.Remove(item);
+                        HienThiDataGrid();
+                        return;
+                    }
+                }
+                MessageBox.Show("Không có sản phẩm này trong danh sách");
+                txt_masp.Focus();
+                return;
+            }
         }
     }
 }
