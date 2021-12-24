@@ -426,7 +426,9 @@ namespace QLCuaHangJuno
             kh.Sdt = txt_sdtKH.Text;
             kh.DiaChi = txt_diachiKH.Text;
 
-            var KH = db.KhachHangs.SingleOrDefault(item => item.HoTenKh == txt_hotenKH.Text && item.Sdt == txt_sdtKH.Text);
+            var KH = (from item in db.KhachHangs
+                      where item.HoTenKh == txt_hotenKH.Text
+                      select item).FirstOrDefault();
             if (KH != null)
             {
                 MessageBox.Show("Khách hàng này đã có trong cơ sở dữ liệu");
