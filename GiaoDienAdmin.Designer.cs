@@ -37,6 +37,10 @@ namespace QLCuaHangJuno
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mãKhuyễnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
@@ -85,12 +89,46 @@ namespace QLCuaHangJuno
             this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
             this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
+            this.kháchHàngToolStripMenuItem.Click += new System.EventHandler(this.kháchHàngToolStripMenuItem_Click);
             // 
             // khuyếnMãiToolStripMenuItem
             // 
+            this.khuyếnMãiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem,
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem});
             this.khuyếnMãiToolStripMenuItem.Name = "khuyếnMãiToolStripMenuItem";
             this.khuyếnMãiToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.khuyếnMãiToolStripMenuItem.Text = "Khuyến mãi";
+            // 
+            // khuyễnMãiTheoHóaĐơnToolStripMenuItem
+            // 
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem.Name = "khuyễnMãiTheoHóaĐơnToolStripMenuItem";
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem.Text = "Khuyến mãi theo hóa đơn";
+            this.khuyễnMãiTheoHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.khuyễnMãiTheoHóaĐơnToolStripMenuItem_Click);
+            // 
+            // khuyếnMãiTheoSảnPhẩmToolStripMenuItem
+            // 
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mãKhuyễnMãiToolStripMenuItem,
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem});
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem.Name = "khuyếnMãiTheoSảnPhẩmToolStripMenuItem";
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.khuyếnMãiTheoSảnPhẩmToolStripMenuItem.Text = "Khuyến mãi theo sản phẩm";
+            // 
+            // mãKhuyễnMãiToolStripMenuItem
+            // 
+            this.mãKhuyễnMãiToolStripMenuItem.Name = "mãKhuyễnMãiToolStripMenuItem";
+            this.mãKhuyễnMãiToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
+            this.mãKhuyễnMãiToolStripMenuItem.Text = "Mã khuyễn mãi";
+            this.mãKhuyễnMãiToolStripMenuItem.Click += new System.EventHandler(this.mãKhuyễnMãiToolStripMenuItem_Click);
+            // 
+            // danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem
+            // 
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem.Name = "danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem";
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem.Text = "Danh sách sản phẩm khuyến mãi";
+            this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem.Click += new System.EventHandler(this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -158,5 +196,9 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem khuyễnMãiTheoHóaĐơnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem khuyếnMãiTheoSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mãKhuyễnMãiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem;
     }
 }
