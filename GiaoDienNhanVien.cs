@@ -25,5 +25,10 @@ namespace QLCuaHangJuno
             HoaDonThanhToan hd = new HoaDonThanhToan(nv);
             hd.Show();
         }
+
+        private void GiaoDienNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
