@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -12,6 +13,7 @@ namespace QLCuaHangJuno.DataModel
             HoaDonBanHangs = new HashSet<HoaDonBanHang>();
         }
 
+        
         public string MaKh { get; set; }
         public string HoTenKh { get; set; }
         public string Sdt { get; set; }
