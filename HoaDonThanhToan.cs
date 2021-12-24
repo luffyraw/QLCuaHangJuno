@@ -15,7 +15,9 @@ namespace QLCuaHangJuno
         //Cơ sở dữ liệu
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         HoaDonBanHang hd = new HoaDonBanHang();
+
         List<HoaDonBanHangSanPham> listsp = new List<HoaDonBanHangSanPham>();
+
         double tongtien = 0;
         double gghd = 0;
         double thanhtien = 0;
