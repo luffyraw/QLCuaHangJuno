@@ -318,7 +318,7 @@ namespace QLCuaHangJuno
             //tự sinh thông tin hóa đơn
             var hoadon = from item in db.HoaDonBanHangs select item;
             lb_mahd.Text = "Mã hóa đơn: " + maHD();
-            lb_ngaylap.Text = "Ngày lập: " + DateTime.Now.ToString("dd/MM/yyyy");
+            lb_ngaylap.Text = "Ngày lập: " + DateTime.Now.ToString("dd/MM/yyyy hh:mm;ss");
             hd.MaHd = maHD();
             hd.NgayBan = DateTime.Now;
             hd.MaNv = nv.MaNv;
