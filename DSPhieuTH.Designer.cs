@@ -48,7 +48,6 @@ namespace QLCuaHangJuno
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -207,25 +206,13 @@ namespace QLCuaHangJuno
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Blue;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(190, 154);
+            this.btnSearch.Location = new System.Drawing.Point(518, 154);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(94, 41);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(357, 154);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 41);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Thêm mới";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClose
             // 
@@ -276,7 +263,6 @@ namespace QLCuaHangJuno
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.txtMaNV);
@@ -298,7 +284,7 @@ namespace QLCuaHangJuno
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(632, 154);
+            this.button1.Location = new System.Drawing.Point(657, 154);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 41);
             this.button1.TabIndex = 14;
@@ -345,7 +331,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtMaNV;

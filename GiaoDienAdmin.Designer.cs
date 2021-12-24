@@ -39,6 +39,7 @@ namespace QLCuaHangJuno
             this.khuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.traHangToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,12 +111,19 @@ namespace QLCuaHangJuno
             this.nhậpHàngToolStripMenuItem,
             this.kháchHàngToolStripMenuItem,
             this.khuyếnMãiToolStripMenuItem,
-            this.thốngKêToolStripMenuItem});
+            this.thốngKêToolStripMenuItem,
+            this.traHangToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1902, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // traHangToolStripMenuItem1
+            // 
+            this.traHangToolStripMenuItem1.Name = "traHangToolStripMenuItem1";
+            this.traHangToolStripMenuItem1.Size = new System.Drawing.Size(80, 24);
+            this.traHangToolStripMenuItem1.Text = "Trả hàng";
             // 
             // label1
             // 
@@ -158,5 +166,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem traHangToolStripMenuItem1;
     }
 }

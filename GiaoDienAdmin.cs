@@ -21,5 +21,11 @@ namespace QLCuaHangJuno
         {
 
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            DSPhieuTH ds = new DSPhieuTH();
+            ds.Show();
+        }
     }
 }
