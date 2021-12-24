@@ -17,7 +17,9 @@ namespace QLCuaHangJuno
             InitializeComponent();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+     
+
+        private void trảHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPhieuTH form = new AddPhieuTH();
             form.Show();

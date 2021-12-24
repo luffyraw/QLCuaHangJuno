@@ -117,13 +117,13 @@ namespace QLCuaHangJuno
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1902, 28);
             this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // traHangToolStripMenuItem1
             // 
             this.traHangToolStripMenuItem1.Name = "traHangToolStripMenuItem1";
             this.traHangToolStripMenuItem1.Size = new System.Drawing.Size(80, 24);
             this.traHangToolStripMenuItem1.Text = "Trả hàng";
+            this.traHangToolStripMenuItem1.Click += new System.EventHandler(this.traHangToolStripMenuItem1_Click);
             // 
             // label1
             // 
