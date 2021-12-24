@@ -72,6 +72,9 @@ namespace QLCuaHangJuno
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             KhuyenMaiSanPham kmsp = new KhuyenMaiSanPham();
+            List<SanPham> lstsp = (from sp in db.SanPhams
+                                   where sp.MaLoaiSp == cbMaLoaiSP.Text
+                                   select sp).ToList();
             if (KiemTraDuLieu())
             {
                 kmsp.MaKm = cbMaKM.Text;
@@ -162,6 +165,7 @@ namespace QLCuaHangJuno
                 dgvKMSP.CurrentRow.Selected = true;
                 cbMaKM.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
                 cbMaSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["Masanpham"].FormattedValue.ToString();
+                cb.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
                 txtTyLe.Text = dgvKMSP.Rows[e.RowIndex].Cells["TyLeKhuyenMai"].FormattedValue.ToString();
             }
         }
@@ -169,6 +173,19 @@ namespace QLCuaHangJuno
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChitiet_Click(object sender, EventArgs e)
+        {
+            frmChiTietKMHD chitiet = new frmChiTietKMHD();
+            KhuyenMaiSanPham kmShow = (from km in db.KhuyenMaiSanPhams
+                                    where km.MaKm == cbMaKM.Text
+                                    select km).FirstOrDefault();
+            if (kmShow != null)
+            {
+                chitiet.Tag = kmShow;
+                chitiet.Show();
+            }
         }
     }
 }
