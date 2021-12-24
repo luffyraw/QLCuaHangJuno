@@ -410,25 +410,17 @@ namespace QLCuaHangJuno
                 txt_hotenKH.Focus();
                 return;
             }
-            if (txt_sdtKH.Text == "")
+            if (txt_sdtKH.Text != "")
             {
-                MessageBox.Show("Bạn chưa nhập số điện thoại");
-                txt_sdtKH.Focus();
-                return;
-            }
-            double sdt;
-            if (!double.TryParse(txt_sdtKH.Text, out sdt) && txt_sdtKH.Text.Length != 10)
-            {
-                MessageBox.Show("Số điện thoại phải là 10 ký tự số");
-                txt_sdtKH.Focus();
-                return;
-            }
-            if (txt_diachiKH.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập địa chỉ");
-                txt_diachiKH.Focus();
-                return;
-            }
+                double sdt;
+                if (!double.TryParse(txt_sdtKH.Text, out sdt) && txt_sdtKH.Text.Length < 10)
+                {
+                    MessageBox.Show("Số điện thoại phải lớn 10 ký tự số");
+                    txt_sdtKH.Focus();
+                    return;
+                }
+            }           
+
             kh.MaKh = "KH" + (db.KhachHangs.Count() + 1).ToString();
             kh.HoTenKh = txt_hotenKH.Text;
             kh.Sdt = txt_sdtKH.Text;

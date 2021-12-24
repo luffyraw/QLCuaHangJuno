@@ -49,8 +49,8 @@ CREATE TABLE KhachHang
 (
 	MaKH varchar(10) PRIMARY KEY,
 	HoTenKH nvarchar(50) NOT NULL,
-	SDT varchar(15) NOT NULL,
-	DiaChi nvarchar(100) NOT NULL
+	SDT varchar(15),
+	DiaChi nvarchar(100)
 )
 INSERT INTO KhachHang VALUES('KH1',N'Nguyễn Văn A', '0123123123',N'Hà Nội')
 INSERT INTO KhachHang VALUES('KH2',N'Nguyễn Văn B', '0123456789',N'Hà Nội')
@@ -290,16 +290,6 @@ CREATE TABLE KhuyenMai_SanPham
 )
 INSERT INTO KhuyenMai_SanPham (MaKM,MaSP,TyLeKhuyenMai)
 VAlUES
-('KM0','SP001',0),
-('KM0','SP002',0),
-('KM0','SP003',0),
-('KM0','SP004',0),
-('KM0','SP005',0),
-('KM0','SP006',0),
-('KM0','SP007',0),
-('KM0','SP008',0),
-('KM0','SP009',0),
-('KM0','SP010',0),
 ('KM0','SP011',0),
 ('KM0','SP012',0),
 ('KM0','SP013',0),
@@ -316,8 +306,6 @@ VAlUES
 ('KM2','SP007',20),
 ('KM2','SP008',20),
 ('KM3','SP009',30),
-('KM3','SP010',30),
-('KM3','SP010',30),
 ('KM3','SP010',30)
 
 
