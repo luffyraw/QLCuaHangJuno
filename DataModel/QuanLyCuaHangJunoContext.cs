@@ -40,8 +40,8 @@ namespace QLCuaHangJuno.DataModel
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-08B1JD4\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-517PNF4;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
+                // Tai: DESKTOP-517PNF4
             }
         }
 
@@ -114,7 +114,7 @@ namespace QLCuaHangJuno.DataModel
                     .HasColumnName("MaHD");
 
                 entity.Property(e => e.MaGg)
-                    .IsRequired()
+                    /*.IsRequired()*/
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("MaGG");
