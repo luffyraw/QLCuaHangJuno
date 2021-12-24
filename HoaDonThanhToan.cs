@@ -226,17 +226,17 @@ namespace QLCuaHangJuno
                 return;
             }    
             //Kiểm tra khách hàng
-            kh = (from item in db.KhachHangs
+            var kh1 = (from item in db.KhachHangs
                   where txt_hotenKH.Text == item.HoTenKh && txt_sdtKH.Text == item.Sdt
                   select item).FirstOrDefault();
-            if (kh == null)
+            if (kh1 == null)
             {
                 MessageBox.Show("Không tìm thấy khách hàng này.\n Bạn cần thêm khách hàng trước");
                 return;
             }
             else
             {
-                hd.MaKh = kh.MaKh;
+                hd.MaKh = kh1.MaKh;
             }
             //Thêm hóa đơn vào csdl
             db.HoaDonBanHangs.Add(hd);
@@ -410,8 +410,6 @@ namespace QLCuaHangJuno
                 txt_hotenKH.Focus();
                 return;
             }
-            if (txt_sdtKH.Text != "")
-            {
                 double sdt;
                 if (!double.TryParse(txt_sdtKH.Text, out sdt) && txt_sdtKH.Text.Length < 10)
                 {
@@ -419,9 +417,10 @@ namespace QLCuaHangJuno
                     txt_sdtKH.Focus();
                     return;
                 }
-            }           
+                   
 
             kh.MaKh = "KH" + (db.KhachHangs.Count() + 1).ToString();
+
             kh.HoTenKh = txt_hotenKH.Text;
             kh.Sdt = txt_sdtKH.Text;
             kh.DiaChi = txt_diachiKH.Text;
@@ -439,12 +438,12 @@ namespace QLCuaHangJuno
             if (dialogResult == DialogResult.Yes)
             {
                 db.KhachHangs.Add(kh);
-                db.SaveChanges();
             }
             else if (dialogResult == DialogResult.No)
             {
 
             }
+            db.SaveChanges();
 
 
 
@@ -452,7 +451,9 @@ namespace QLCuaHangJuno
 
         private void txt_hotenKH_TextChanged(object sender, EventArgs e)
         {
-            var KH = db.KhachHangs.SingleOrDefault(item => item.HoTenKh == txt_hotenKH.Text);
+            var KH = (from item in db.KhachHangs
+                      where item.HoTenKh == txt_hotenKH.Text
+                      select item).FirstOrDefault();
             if (KH != null)
             {
                 txt_sdtKH.Text = KH.Sdt;
