@@ -22,17 +22,23 @@ namespace QLCuaHangJuno
         private void HienThiDuLieu()
         {
             var query = from km in db.KhuyenMaiSanPhams
-                        join km1 in db.KhuyenMais on km.MaKm equals km1.MaKm
-                        join sp in db.SanPhams on km.MaSp equals sp.MaSp
                         select new { 
                             km.MaKm,
                             km.MaSp,
                             km.TyLeKhuyenMai,
-                            km1.NgayBatDau,
-                            km1.NgayKetThuc,
-                            sp.MaLoaiSp,
+                            km.MaKmNavigation.NgayBatDau,
+                            km.MaKmNavigation.NgayKetThuc,
+                            km.MaSpNavigation.MaLoaiSp,
                         };
             dgvKMSP.DataSource = query.ToList();
+            
+            foreach(var item in db.KhuyenMais)
+            {
+                if(item.NgayKetThuc.Day < DateTime.Now.Day)
+                {
+                    db.Remove(item);
+                }
+            }
 
         }
         private bool KiemTraDuLieu()
@@ -72,24 +78,51 @@ namespace QLCuaHangJuno
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             KhuyenMaiSanPham kmsp = new KhuyenMaiSanPham();
-            List<SanPham> lstsp = (from sp in db.SanPhams
-                                   where sp.MaLoaiSp == cbMaLoaiSP.Text
-                                   select sp).ToList();
+            var lstsp = (from sp in db.SanPhams
+                         where sp.MaLoaiSp == cbMaLoaiSP.Text
+                         select new {
+                             sp.MaSp,
+                         }).ToList();
             if (KiemTraDuLieu())
             {
-                kmsp.MaKm = cbMaKM.Text;
-                kmsp.MaSp = cbMaSP.Text;
-                kmsp.TyLeKhuyenMai = int.Parse(txtTyLe.Text);
-                if (!db.KhuyenMaiSanPhams.Contains(kmsp))
+                if (cbMaSP.Text != "")
                 {
-                    db.KhuyenMaiSanPhams.Add(kmsp);
+                    kmsp.MaKm = cbMaKM.Text;
+                    kmsp.MaSp = cbMaSP.Text;
+                    kmsp.TyLeKhuyenMai = int.Parse(txtTyLe.Text);
+                    if (!db.KhuyenMaiSanPhams.Contains(kmsp))
+                    {
+                        db.KhuyenMaiSanPhams.Add(kmsp);
+                        db.SaveChanges();
+                        HienThiDuLieu();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
+                    }
+                }
+                else if(cbMaLoaiSP.Text != "")
+                {
+                   
+                    foreach(var item in lstsp)
+                    {
+                        if (!db.KhuyenMaiSanPhams.Contains(kmsp))
+                        {
+                            kmsp.MaKm = cbMaKM.Text;
+                            kmsp.TyLeKhuyenMai =int.Parse( txtTyLe.Text);
+                            kmsp.MaSp = item.MaSp;
+                            db.KhuyenMaiSanPhams.Add(kmsp);
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
+                        }
+                    }
                     db.SaveChanges();
                     HienThiDuLieu();
                 }
-                else
-                {
-                    MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
-                }
+                
             }
         }
 
@@ -97,7 +130,7 @@ namespace QLCuaHangJuno
         {
             var query = (from km in db.KhuyenMaiSanPhams
                          join sp in db.SanPhams on km.MaSp equals sp.MaSp
-                         where km.MaKm == cbMaKM.Text
+                         where km.MaKm == cbMaKM.Text 
                          select km).FirstOrDefault();
             if (KiemTraDuLieu())
             {
@@ -165,7 +198,7 @@ namespace QLCuaHangJuno
                 dgvKMSP.CurrentRow.Selected = true;
                 cbMaKM.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
                 cbMaSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["Masanpham"].FormattedValue.ToString();
-                cb.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
+                cbMaLoaiSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
                 txtTyLe.Text = dgvKMSP.Rows[e.RowIndex].Cells["TyLeKhuyenMai"].FormattedValue.ToString();
             }
         }
@@ -185,6 +218,41 @@ namespace QLCuaHangJuno
             {
                 chitiet.Tag = kmShow;
                 chitiet.Show();
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            cbMaKM.Text = "";
+            cbMaSP.Text = "";
+            cbMaLoaiSP.Text = "";
+            txtTyLe.Text = "";
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = from km in db.KhuyenMaiSanPhams
+                        where (km.MaKm == txtTimkiem.Text
+                            || km.MaSp == txtTimkiem.Text
+                            || km.TyLeKhuyenMai == int.Parse(txtTimkiem.Text)
+                            )
+                        select new
+                        {
+                            MaKm = km.MaKm,
+                            MaSp = km.MaSp,
+                            TyLeKhuyenMai = km.TyLeKhuyenMai,
+                            NgayBatDau = km.MaKmNavigation.NgayBatDau,
+                            NgayKetThuc = km.MaKmNavigation.NgayKetThuc,
+                            MaLoaiSp = km.MaSpNavigation.MaLoaiSp,
+                        };
+            if (query != null)
+            {
+                dgvKMSP.DataSource = query.ToList();
+                
+            }
+            else
+            {
+                MessageBox.Show("Không tồn tại mã " + txtTimkiem.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
             }
         }
     }

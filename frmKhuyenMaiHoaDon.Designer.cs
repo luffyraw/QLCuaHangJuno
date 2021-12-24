@@ -54,6 +54,9 @@ namespace QLCuaHangJuno
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnThoat = new System.Windows.Forms.Button();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKMHD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -135,7 +138,7 @@ namespace QLCuaHangJuno
             this.dtpNgayKT.Name = "dtpNgayKT";
             this.dtpNgayKT.Size = new System.Drawing.Size(134, 27);
             this.dtpNgayKT.TabIndex = 4;
-            this.dtpNgayKT.Value = new System.DateTime(2021, 12, 23, 14, 44, 53, 0);
+            this.dtpNgayKT.Value = new System.DateTime(2021, 12, 24, 0, 0, 0, 0);
             // 
             // dgvKMHD
             // 
@@ -154,11 +157,11 @@ namespace QLCuaHangJuno
             this.TgketThuc,
             this.TyLeGiamGia,
             this.DieuKienApDung});
-            this.dgvKMHD.Location = new System.Drawing.Point(45, 346);
+            this.dgvKMHD.Location = new System.Drawing.Point(59, 388);
             this.dgvKMHD.Name = "dgvKMHD";
             this.dgvKMHD.RowHeadersWidth = 51;
             this.dgvKMHD.RowTemplate.Height = 29;
-            this.dgvKMHD.Size = new System.Drawing.Size(885, 275);
+            this.dgvKMHD.Size = new System.Drawing.Size(885, 312);
             this.dgvKMHD.TabIndex = 9;
             this.dgvKMHD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKMHD_CellContentClick);
             // 
@@ -230,7 +233,7 @@ namespace QLCuaHangJuno
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(266, 269);
+            this.btnSua.Location = new System.Drawing.Point(245, 269);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(97, 36);
             this.btnSua.TabIndex = 6;
@@ -240,7 +243,7 @@ namespace QLCuaHangJuno
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(451, 269);
+            this.btnXoa.Location = new System.Drawing.Point(399, 269);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(97, 36);
             this.btnXoa.TabIndex = 7;
@@ -250,7 +253,7 @@ namespace QLCuaHangJuno
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(643, 269);
+            this.btnChiTiet.Location = new System.Drawing.Point(562, 269);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(97, 36);
             this.btnChiTiet.TabIndex = 8;
@@ -264,7 +267,7 @@ namespace QLCuaHangJuno
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(809, 269);
+            this.btnThoat.Location = new System.Drawing.Point(879, 269);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(99, 36);
             this.btnThoat.TabIndex = 9;
@@ -272,11 +275,41 @@ namespace QLCuaHangJuno
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // txtTimkiem
+            // 
+            this.txtTimkiem.Location = new System.Drawing.Point(633, 351);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(190, 27);
+            this.txtTimkiem.TabIndex = 11;
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.Location = new System.Drawing.Point(721, 269);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(97, 36);
+            this.btnLamMoi.TabIndex = 12;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(847, 346);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(97, 36);
+            this.btnTimKiem.TabIndex = 13;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // frmKhuyenMaiHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 655);
+            this.ClientSize = new System.Drawing.Size(1123, 723);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.btnLamMoi);
+            this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.btnXoa);
@@ -329,5 +362,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn TyLeGiamGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn DieuKienApDung;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }

@@ -203,5 +203,32 @@ namespace QLCuaHangJuno
             
             this.Close();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = from km in db.GiamGiaHoaDons
+                        where (km.MaGg == txtTimkiem.Text 
+                               || km.TyLeGiamGia == int.Parse(txtTimkiem.Text)
+                               || km.DieuKienApDung== int.Parse(txtTimkiem.Text))
+                        select km;
+            if (query!=null)
+            {
+                dgvKMHD.DataSource = query.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Không tồn tại mã " + txtTimkiem.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
+            }
+           
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtMaKM.Text = "";
+            txtTiLe.Text = "";
+            txtDK.Text = "";
+            dtpNgayBD.Value = DateTime.Now;
+            dtpNgayKT.Value = DateTime.Now;
+        }
     }
 }

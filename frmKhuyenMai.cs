@@ -147,5 +147,20 @@ namespace QLCuaHangJuno
 
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtMaKM.Text = "";
+            dtpNgayBD.Value = DateTime.Now;
+            dtpNgayKT.Value = DateTime.Now;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = from km in db.KhuyenMais
+                        where km.MaKm == txtTimkiem.Text
+                        select km;
+            dgvKM.DataSource = query.ToList();
+        }
     }
 }

@@ -30,9 +30,15 @@ namespace QLCuaHangJuno
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvKMSP = new System.Windows.Forms.DataGridView();
+            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Masanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TyLeKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -47,13 +53,10 @@ namespace QLCuaHangJuno
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbMaKM = new System.Windows.Forms.ComboBox();
-            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Masanpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TyLeKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnChitiet = new System.Windows.Forms.Button();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKMSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -72,14 +75,14 @@ namespace QLCuaHangJuno
             // dgvKMSP
             // 
             this.dgvKMSP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKMSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKMSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKMSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKMSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKM,
@@ -96,9 +99,57 @@ namespace QLCuaHangJuno
             this.dgvKMSP.TabIndex = 15;
             this.dgvKMSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKMSP_CellContentClick);
             // 
+            // MaKM
+            // 
+            this.MaKM.DataPropertyName = "MaKm";
+            this.MaKM.HeaderText = "Mã khuyễn mãi";
+            this.MaKM.MinimumWidth = 6;
+            this.MaKM.Name = "MaKM";
+            this.MaKM.Width = 150;
+            // 
+            // Masanpham
+            // 
+            this.Masanpham.DataPropertyName = "MaSp";
+            this.Masanpham.HeaderText = "Mã sản phẩm";
+            this.Masanpham.MinimumWidth = 6;
+            this.Masanpham.Name = "Masanpham";
+            this.Masanpham.Width = 150;
+            // 
+            // MaLoai
+            // 
+            this.MaLoai.DataPropertyName = "MaLoaiSp";
+            this.MaLoai.HeaderText = "Mã loại sản phẩm";
+            this.MaLoai.MinimumWidth = 6;
+            this.MaLoai.Name = "MaLoai";
+            this.MaLoai.Width = 170;
+            // 
+            // NgayBatDau
+            // 
+            this.NgayBatDau.DataPropertyName = "NgayBatDau";
+            this.NgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.NgayBatDau.MinimumWidth = 6;
+            this.NgayBatDau.Name = "NgayBatDau";
+            this.NgayBatDau.Width = 140;
+            // 
+            // NgayKetThuc
+            // 
+            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
+            this.NgayKetThuc.HeaderText = "Ngày kết thúc";
+            this.NgayKetThuc.MinimumWidth = 6;
+            this.NgayKetThuc.Name = "NgayKetThuc";
+            this.NgayKetThuc.Width = 140;
+            // 
+            // TyLeKhuyenMai
+            // 
+            this.TyLeKhuyenMai.DataPropertyName = "TyLeKhuyenMai";
+            this.TyLeKhuyenMai.HeaderText = "Tỷ lệ khuyến mãi (%)";
+            this.TyLeKhuyenMai.MinimumWidth = 6;
+            this.TyLeKhuyenMai.Name = "TyLeKhuyenMai";
+            this.TyLeKhuyenMai.Width = 160;
+            // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(85, 279);
+            this.btnThem.Location = new System.Drawing.Point(0, 166);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 29);
             this.btnThem.TabIndex = 16;
@@ -108,7 +159,7 @@ namespace QLCuaHangJuno
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(247, 279);
+            this.btnSua.Location = new System.Drawing.Point(140, 166);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(94, 29);
             this.btnSua.TabIndex = 17;
@@ -118,7 +169,7 @@ namespace QLCuaHangJuno
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(419, 279);
+            this.btnXoa.Location = new System.Drawing.Point(311, 166);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(94, 29);
             this.btnXoa.TabIndex = 18;
@@ -128,7 +179,7 @@ namespace QLCuaHangJuno
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(767, 279);
+            this.btnThoat.Location = new System.Drawing.Point(860, 166);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(94, 29);
             this.btnThoat.TabIndex = 20;
@@ -203,12 +254,18 @@ namespace QLCuaHangJuno
             // 
             this.groupBox2.Controls.Add(this.cbMaKM);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnLamMoi);
+            this.groupBox2.Controls.Add(this.btnThoat);
             this.groupBox2.Controls.Add(this.txtTyLe);
             this.groupBox2.Controls.Add(this.cbMaLoaiSP);
             this.groupBox2.Controls.Add(this.cbMaSP);
+            this.groupBox2.Controls.Add(this.btnChitiet);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Location = new System.Drawing.Point(85, 78);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(954, 195);
@@ -224,57 +281,19 @@ namespace QLCuaHangJuno
             this.cbMaKM.Size = new System.Drawing.Size(175, 28);
             this.cbMaKM.TabIndex = 15;
             // 
-            // MaKM
+            // btnLamMoi
             // 
-            this.MaKM.DataPropertyName = "MaKm";
-            this.MaKM.HeaderText = "Mã khuyễn mãi";
-            this.MaKM.MinimumWidth = 6;
-            this.MaKM.Name = "MaKM";
-            this.MaKM.Width = 150;
-            // 
-            // Masanpham
-            // 
-            this.Masanpham.DataPropertyName = "MaSp";
-            this.Masanpham.HeaderText = "Mã sản phẩm";
-            this.Masanpham.MinimumWidth = 6;
-            this.Masanpham.Name = "Masanpham";
-            this.Masanpham.Width = 150;
-            // 
-            // MaLoai
-            // 
-            this.MaLoai.DataPropertyName = "MaLoaiSp";
-            this.MaLoai.HeaderText = "Mã loại sản phẩm";
-            this.MaLoai.MinimumWidth = 6;
-            this.MaLoai.Name = "MaLoai";
-            this.MaLoai.Width = 170;
-            // 
-            // NgayBatDau
-            // 
-            this.NgayBatDau.DataPropertyName = "NgayBatDau";
-            this.NgayBatDau.HeaderText = "Ngày bắt đầu";
-            this.NgayBatDau.MinimumWidth = 6;
-            this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.Width = 140;
-            // 
-            // NgayKetThuc
-            // 
-            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
-            this.NgayKetThuc.HeaderText = "Ngày kết thúc";
-            this.NgayKetThuc.MinimumWidth = 6;
-            this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.Width = 140;
-            // 
-            // TyLeKhuyenMai
-            // 
-            this.TyLeKhuyenMai.DataPropertyName = "TyLeKhuyenMai";
-            this.TyLeKhuyenMai.HeaderText = "Tỷ lệ khuyến mãi (%)";
-            this.TyLeKhuyenMai.MinimumWidth = 6;
-            this.TyLeKhuyenMai.Name = "TyLeKhuyenMai";
-            this.TyLeKhuyenMai.Width = 160;
+            this.btnLamMoi.Location = new System.Drawing.Point(667, 166);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(94, 29);
+            this.btnLamMoi.TabIndex = 23;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnChitiet
             // 
-            this.btnChitiet.Location = new System.Drawing.Point(587, 279);
+            this.btnChitiet.Location = new System.Drawing.Point(490, 166);
             this.btnChitiet.Name = "btnChitiet";
             this.btnChitiet.Size = new System.Drawing.Size(94, 29);
             this.btnChitiet.TabIndex = 19;
@@ -282,17 +301,31 @@ namespace QLCuaHangJuno
             this.btnChitiet.UseVisualStyleBackColor = true;
             this.btnChitiet.Click += new System.EventHandler(this.btnChitiet_Click);
             // 
+            // txtTimkiem
+            // 
+            this.txtTimkiem.Location = new System.Drawing.Point(696, 324);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(190, 27);
+            this.txtTimkiem.TabIndex = 24;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(895, 322);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(94, 29);
+            this.btnTimKiem.TabIndex = 25;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // frmKhuyenMaiSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 648);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnChitiet);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dgvKMSP);
             this.Controls.Add(this.label1);
             this.Name = "frmKhuyenMaiSanPham";
@@ -332,5 +365,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn TyLeKhuyenMai;
         private System.Windows.Forms.Button btnChitiet;
+        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }
