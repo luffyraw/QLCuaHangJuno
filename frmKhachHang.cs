@@ -48,6 +48,7 @@ namespace QLCuaHangJuno
                 {
                     db.KhachHangs.Add(khNew);
                     db.SaveChanges();
+                    MessageBox.Show("Đã thêm khách hàng " + txtMa.Text);
                     HienThiDuLieu();
                 }
                 else
@@ -67,13 +68,15 @@ namespace QLCuaHangJuno
                 {
                     if(txtTen.Text != "")
                     {
+                        
                         errorProvider1.SetError(txtTen, null);
+                        try
                         {
-                            if(txtSdt.Text != "")
+                            if (txtSdt.Text != "")
                             {
                                 errorProvider1.SetError(txtSdt, null);
                                 {
-                                    if(txtDC.Text != "")
+                                    if (txtDC.Text != "")
                                     {
                                         errorProvider1.SetError(txtDC, null);
                                         duLieuHopLe = true;
@@ -88,6 +91,11 @@ namespace QLCuaHangJuno
                             {
                                 errorProvider1.SetError(txtSdt, "SĐT không được để trống!");
                             }
+
+                        }
+                        catch (Exception)
+                        {
+                            errorProvider1.SetError(txtSdt, "SĐT là một số");
                         }
                     }
                     else
@@ -176,6 +184,29 @@ namespace QLCuaHangJuno
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            var query = from kh in db.KhachHangs
+                        where kh.MaKh == txtTim.Text || kh.HoTenKh == txtTim.Text
+                        select new
+                        {
+                            kh.MaKh,
+                            kh.HoTenKh,
+                            kh.Sdt,
+                            kh.DiaChi,
+                        };
+
+            if (query.Count()>0)
+            {
+                dgvKhachHang.DataSource = query.ToList();
+            }
+            else
+            {
+                HienThiDuLieu();
+                MessageBox.Show("Không có khách hàng " + txtTim.Text);
+            }
         }
     }
 }

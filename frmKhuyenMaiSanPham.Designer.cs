@@ -57,6 +57,7 @@ namespace QLCuaHangJuno
             this.btnChitiet = new System.Windows.Forms.Button();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnKM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKMSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -149,7 +150,7 @@ namespace QLCuaHangJuno
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(0, 166);
+            this.btnThem.Location = new System.Drawing.Point(165, 166);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 29);
             this.btnThem.TabIndex = 16;
@@ -159,7 +160,7 @@ namespace QLCuaHangJuno
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(140, 166);
+            this.btnSua.Location = new System.Drawing.Point(295, 166);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(94, 29);
             this.btnSua.TabIndex = 17;
@@ -169,7 +170,7 @@ namespace QLCuaHangJuno
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(311, 166);
+            this.btnXoa.Location = new System.Drawing.Point(443, 166);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(94, 29);
             this.btnXoa.TabIndex = 18;
@@ -252,6 +253,7 @@ namespace QLCuaHangJuno
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnKM);
             this.groupBox2.Controls.Add(this.cbMaKM);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.btnLamMoi);
@@ -283,7 +285,7 @@ namespace QLCuaHangJuno
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(667, 166);
+            this.btnLamMoi.Location = new System.Drawing.Point(733, 166);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(94, 29);
             this.btnLamMoi.TabIndex = 23;
@@ -293,7 +295,7 @@ namespace QLCuaHangJuno
             // 
             // btnChitiet
             // 
-            this.btnChitiet.Location = new System.Drawing.Point(490, 166);
+            this.btnChitiet.Location = new System.Drawing.Point(595, 166);
             this.btnChitiet.Name = "btnChitiet";
             this.btnChitiet.Size = new System.Drawing.Size(94, 29);
             this.btnChitiet.TabIndex = 19;
@@ -317,6 +319,16 @@ namespace QLCuaHangJuno
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnKM
+            // 
+            this.btnKM.Location = new System.Drawing.Point(0, 166);
+            this.btnKM.Name = "btnKM";
+            this.btnKM.Size = new System.Drawing.Size(119, 29);
+            this.btnKM.TabIndex = 26;
+            this.btnKM.Text = "Thêm mã KM";
+            this.btnKM.UseVisualStyleBackColor = true;
+            this.btnKM.Click += new System.EventHandler(this.btnKM_Click);
             // 
             // frmKhuyenMaiSanPham
             // 
@@ -368,5 +380,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.TextBox txtTimkiem;
         private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnKM;
     }
 }

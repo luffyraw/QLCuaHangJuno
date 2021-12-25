@@ -30,15 +30,16 @@ namespace QLCuaHangJuno
                             km.MaKmNavigation.NgayKetThuc,
                             km.MaSpNavigation.MaLoaiSp,
                         };
-            dgvKMSP.DataSource = query.ToList();
             
-            foreach(var item in db.KhuyenMais)
+           /* foreach (var item in query)
             {
-                if(item.NgayKetThuc.Day < DateTime.Now.Day)
+                if (item.NgayKetThuc < DateTime.Now)
                 {
                     db.Remove(item);
+                    
                 }
-            }
+            }*/
+            dgvKMSP.DataSource = query.ToList();
 
         }
         private bool KiemTraDuLieu()
@@ -94,6 +95,7 @@ namespace QLCuaHangJuno
                     {
                         db.KhuyenMaiSanPhams.Add(kmsp);
                         db.SaveChanges();
+                        MessageBox.Show("Đã thêm khuyễn mãi ");
                         HienThiDuLieu();
                     }
                     else
@@ -129,8 +131,7 @@ namespace QLCuaHangJuno
         private void btnSua_Click(object sender, EventArgs e)
         {
             var query = (from km in db.KhuyenMaiSanPhams
-                         join sp in db.SanPhams on km.MaSp equals sp.MaSp
-                         where km.MaKm == cbMaKM.Text 
+                         where km.MaSp == cbMaSP.Text 
                          select km).FirstOrDefault();
             if (KiemTraDuLieu())
             {
@@ -168,20 +169,23 @@ namespace QLCuaHangJuno
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            KhuyenMaiSanPham kmXoa = (from km in db.KhuyenMaiSanPhams
-                                   where km.MaKm == cbMaKM.Text
-                                   select km).FirstOrDefault();
+            KhuyenMaiSanPham kmXoa = (from kmsp in db.KhuyenMaiSanPhams
+                                      
+                                      where kmsp.MaKm == cbMaKM.Text
+                                   select kmsp).FirstOrDefault();
 
             if (kmXoa != null)
             {
                 DialogResult kq = MessageBox.Show("Bạn muốn xóa mã giảm giá " + kmXoa.MaKm + "? ", "CẬP NHẬT DỮ LIỆU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (kq == DialogResult.Yes)
                 {
+                    
+                    db.Remove(kmXoa);
+                    db.SaveChanges();
                     cbMaKM.Text = "";
                     cbMaSP.Text = "";
                     txtTyLe.Text = "";
-                    db.Remove(kmXoa);
-                    db.SaveChanges();
+                    cbMaLoaiSP.Text = "";
                     HienThiDuLieu();
                 }
             }
@@ -198,7 +202,6 @@ namespace QLCuaHangJuno
                 dgvKMSP.CurrentRow.Selected = true;
                 cbMaKM.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
                 cbMaSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["Masanpham"].FormattedValue.ToString();
-                cbMaLoaiSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
                 txtTyLe.Text = dgvKMSP.Rows[e.RowIndex].Cells["TyLeKhuyenMai"].FormattedValue.ToString();
             }
         }
@@ -210,15 +213,8 @@ namespace QLCuaHangJuno
 
         private void btnChitiet_Click(object sender, EventArgs e)
         {
-            frmChiTietKMHD chitiet = new frmChiTietKMHD();
-            KhuyenMaiSanPham kmShow = (from km in db.KhuyenMaiSanPhams
-                                    where km.MaKm == cbMaKM.Text
-                                    select km).FirstOrDefault();
-            if (kmShow != null)
-            {
-                chitiet.Tag = kmShow;
-                chitiet.Show();
-            }
+            frmChiTietKhuyenMaiSanPham chitiet = new frmChiTietKhuyenMaiSanPham( cbMaSP.Text);
+            chitiet.Show();
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -234,7 +230,7 @@ namespace QLCuaHangJuno
             var query = from km in db.KhuyenMaiSanPhams
                         where (km.MaKm == txtTimkiem.Text
                             || km.MaSp == txtTimkiem.Text
-                            || km.TyLeKhuyenMai == int.Parse(txtTimkiem.Text)
+                            || km.TyLeKhuyenMai.ToString() == txtTimkiem.Text
                             )
                         select new
                         {
@@ -245,15 +241,20 @@ namespace QLCuaHangJuno
                             NgayKetThuc = km.MaKmNavigation.NgayKetThuc,
                             MaLoaiSp = km.MaSpNavigation.MaLoaiSp,
                         };
-            if (query != null)
+            if (query.Count()>0)
             {
                 dgvKMSP.DataSource = query.ToList();
-                
             }
             else
             {
                 MessageBox.Show("Không tồn tại mã " + txtTimkiem.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
             }
+        }
+
+        private void btnKM_Click(object sender, EventArgs e)
+        {
+            frmKhuyenMai km = new frmKhuyenMai();
+            km.Show();
         }
     }
 }

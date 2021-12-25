@@ -27,6 +27,7 @@ namespace QLCuaHangJuno
         {
             var query = from km in db.KhuyenMais
                         select km;
+            
             dgvKM.DataSource = query.ToList();
 
         }
@@ -39,25 +40,25 @@ namespace QLCuaHangJuno
                 
                 {
                     var ngaybd = dtpNgayBD.Value;
-                    if (dtpNgayBD.Text != "")
+                    if (ngaybd.Day>=DateTime.Now.Day && ngaybd.Month>=DateTime.Now.Month)
                     {
                         errorProvider1.SetError(dtpNgayBD, null);
                         {
                             var ngaykt = dtpNgayKT.Value;
-                            if (dtpNgayKT.Text != "" && ngaykt >= ngaybd)
+                            if ( ngaykt.Day >= ngaybd.Day && ngaykt.Month>=ngaybd.Month)
                             {
                                 errorProvider1.SetError(dtpNgayKT, null);
                                 duLieuHopLe = true;
                             }
                             else
                             {
-                                errorProvider1.SetError(dtpNgayKT, "Ngày kết thúc phải lơn hơn ngày bắt đầu!");
+                                errorProvider1.SetError(dtpNgayKT, "Ngày kết thúc phải lơn hơn hoặc bằng ngày bắt đầu và ngày hiện tại!");
                             }
                         }
                     }
                     else
                     {
-                        errorProvider1.SetError(dtpNgayBD, "Ngày bắt đầu không được để trống!");
+                        errorProvider1.SetError(dtpNgayBD, "Ngày bắt đầu phải lơn hơn hoặc bằng ngày hiện tại!");
                     }
                  }
             }
@@ -82,6 +83,7 @@ namespace QLCuaHangJuno
                 {
                     db.KhuyenMais.Add(km);
                     db.SaveChanges();
+                    MessageBox.Show("Đã thêm mã khuyễn mãi " + txtMaKM.Text);
                     HienThiDuLieu();
                 }
                 else
@@ -160,7 +162,15 @@ namespace QLCuaHangJuno
             var query = from km in db.KhuyenMais
                         where km.MaKm == txtTimkiem.Text
                         select km;
-            dgvKM.DataSource = query.ToList();
+            if (query.Count() > 0)
+            {
+                dgvKM.DataSource = query.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Không tồn tại mã " + txtTimkiem.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
+            }
+            
         }
     }
 }

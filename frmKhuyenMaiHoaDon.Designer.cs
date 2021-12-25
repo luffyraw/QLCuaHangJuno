@@ -30,7 +30,7 @@ namespace QLCuaHangJuno
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@ namespace QLCuaHangJuno
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 101);
+            this.label2.Location = new System.Drawing.Point(150, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 20);
             this.label2.TabIndex = 1;
@@ -101,7 +101,7 @@ namespace QLCuaHangJuno
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(79, 161);
+            this.label5.Location = new System.Drawing.Point(150, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 20);
             this.label5.TabIndex = 4;
@@ -109,14 +109,14 @@ namespace QLCuaHangJuno
             // 
             // txtMaKM
             // 
-            this.txtMaKM.Location = new System.Drawing.Point(217, 94);
+            this.txtMaKM.Location = new System.Drawing.Point(288, 101);
             this.txtMaKM.Name = "txtMaKM";
             this.txtMaKM.Size = new System.Drawing.Size(125, 27);
             this.txtMaKM.TabIndex = 0;
             // 
             // txtTiLe
             // 
-            this.txtTiLe.Location = new System.Drawing.Point(217, 154);
+            this.txtTiLe.Location = new System.Drawing.Point(288, 154);
             this.txtTiLe.Name = "txtTiLe";
             this.txtTiLe.Size = new System.Drawing.Size(125, 27);
             this.txtTiLe.TabIndex = 1;
@@ -142,14 +142,14 @@ namespace QLCuaHangJuno
             // 
             // dgvKMHD
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKMHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKMHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKMHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKMHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaGg,
@@ -207,7 +207,7 @@ namespace QLCuaHangJuno
             // 
             // txtDK
             // 
-            this.txtDK.Location = new System.Drawing.Point(217, 213);
+            this.txtDK.Location = new System.Drawing.Point(288, 206);
             this.txtDK.Name = "txtDK";
             this.txtDK.Size = new System.Drawing.Size(125, 27);
             this.txtDK.TabIndex = 2;
@@ -215,7 +215,7 @@ namespace QLCuaHangJuno
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 220);
+            this.label6.Location = new System.Drawing.Point(127, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 20);
             this.label6.TabIndex = 10;
@@ -223,7 +223,7 @@ namespace QLCuaHangJuno
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(103, 269);
+            this.btnThem.Location = new System.Drawing.Point(175, 269);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(97, 36);
             this.btnThem.TabIndex = 5;
@@ -233,7 +233,7 @@ namespace QLCuaHangJuno
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(245, 269);
+            this.btnSua.Location = new System.Drawing.Point(316, 269);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(97, 36);
             this.btnSua.TabIndex = 6;
@@ -243,7 +243,7 @@ namespace QLCuaHangJuno
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(399, 269);
+            this.btnXoa.Location = new System.Drawing.Point(476, 269);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(97, 36);
             this.btnXoa.TabIndex = 7;
@@ -253,7 +253,7 @@ namespace QLCuaHangJuno
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(562, 269);
+            this.btnChiTiet.Location = new System.Drawing.Point(633, 269);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(97, 36);
             this.btnChiTiet.TabIndex = 8;
@@ -267,7 +267,7 @@ namespace QLCuaHangJuno
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(879, 269);
+            this.btnThoat.Location = new System.Drawing.Point(947, 269);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(99, 36);
             this.btnThoat.TabIndex = 9;
@@ -284,7 +284,7 @@ namespace QLCuaHangJuno
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(721, 269);
+            this.btnLamMoi.Location = new System.Drawing.Point(785, 269);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(97, 36);
             this.btnLamMoi.TabIndex = 12;

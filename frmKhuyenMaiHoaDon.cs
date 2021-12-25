@@ -31,6 +31,13 @@ namespace QLCuaHangJuno
                             Gg.TgketThuc,
                         };
             dgvKMHD.DataSource = query.ToList();
+            foreach (var item in db.GiamGiaHoaDons)
+            {
+                if (item.TgketThuc < DateTime.Now)
+                {
+                    db.Remove(item);
+                }
+            }
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -79,7 +86,7 @@ namespace QLCuaHangJuno
                                         errorProvider1.SetError(dtpNgayBD, null);
                                         {
                                             var ngaykt = dtpNgayKT.Value;
-                                            if(dtpNgayKT.Text != "" && ngaykt>=ngaybd)
+                                            if(ngaykt>=DateTime.Now && ngaykt>=ngaybd)
                                             {
                                                 errorProvider1.SetError(dtpNgayKT, null);
                                                 duLieuHopLe = true;
@@ -207,19 +214,20 @@ namespace QLCuaHangJuno
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var query = from km in db.GiamGiaHoaDons
-                        where (km.MaGg == txtTimkiem.Text 
-                               || km.TyLeGiamGia == int.Parse(txtTimkiem.Text)
-                               || km.DieuKienApDung== int.Parse(txtTimkiem.Text))
+                        where (km.MaGg == txtTimkiem.Text
+                               || km.TyLeGiamGia.ToString() == txtTimkiem.Text
+                               || km.DieuKienApDung.ToString() == txtTimkiem.Text)
                         select km;
-            if (query!=null)
+            if (query.Count() > 0)
             {
                 dgvKMHD.DataSource = query.ToList();
             }
             else
             {
-                MessageBox.Show("Không tồn tại mã " + txtTimkiem.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
+                HienThiDuLieu();
+                MessageBox.Show("Không tồn tại " + txtTimkiem.Text);
             }
-           
+
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -230,5 +238,7 @@ namespace QLCuaHangJuno
             dtpNgayBD.Value = DateTime.Now;
             dtpNgayKT.Value = DateTime.Now;
         }
+
+
     }
 }

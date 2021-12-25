@@ -52,6 +52,9 @@ namespace QLCuaHangJuno
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnThoat = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtTim = new System.Windows.Forms.TextBox();
+            this.btnTim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -248,11 +251,30 @@ namespace QLCuaHangJuno
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(550, 401);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(280, 27);
+            this.txtTim.TabIndex = 11;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(856, 400);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(94, 29);
+            this.btnTim.TabIndex = 12;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 689);
+            this.Controls.Add(this.btnTim);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.btnXoa);
@@ -300,5 +322,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.TextBox txtTim;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
