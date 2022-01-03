@@ -27,5 +27,11 @@ namespace QLCuaHangJuno
             frmQuanLiNhanVien qlNV = new frmQuanLiNhanVien();
             qlNV.Show();
         }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongKe tk = new ThongKe();
+            tk.Show();
+        }
     }
 }
