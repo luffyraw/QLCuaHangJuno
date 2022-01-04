@@ -103,7 +103,7 @@ namespace QLCuaHangJuno
                         MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
                     }
                 }
-                else if(cbMaLoaiSP.Text != "")
+                else if(cbMaSP.Text == "" && cbMaLoaiSP.Text != "")
                 {
                    
                     foreach(var item in lstsp)
@@ -113,8 +113,7 @@ namespace QLCuaHangJuno
                             kmsp.MaKm = cbMaKM.Text;
                             kmsp.TyLeKhuyenMai =int.Parse( txtTyLe.Text);
                             kmsp.MaSp = item.MaSp;
-                            db.KhuyenMaiSanPhams.Add(kmsp);
-                            
+                            db.KhuyenMaiSanPhams.Add(kmsp);         
                         }
                         else
                         {
@@ -256,5 +255,7 @@ namespace QLCuaHangJuno
             frmKhuyenMai km = new frmKhuyenMai();
             km.Show();
         }
+
+        
     }
 }

@@ -52,12 +52,12 @@ namespace QLCuaHangJuno
             this.txtTyLe = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnKM = new System.Windows.Forms.Button();
             this.cbMaKM = new System.Windows.Forms.ComboBox();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnChitiet = new System.Windows.Forms.Button();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnKM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKMSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,7 +67,7 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(419, 20);
+            this.label1.Location = new System.Drawing.Point(837, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 31);
             this.label1.TabIndex = 0;
@@ -92,7 +92,7 @@ namespace QLCuaHangJuno
             this.NgayBatDau,
             this.NgayKetThuc,
             this.TyLeKhuyenMai});
-            this.dgvKMSP.Location = new System.Drawing.Point(46, 357);
+            this.dgvKMSP.Location = new System.Drawing.Point(491, 373);
             this.dgvKMSP.Name = "dgvKMSP";
             this.dgvKMSP.RowHeadersWidth = 51;
             this.dgvKMSP.RowTemplate.Height = 29;
@@ -268,12 +268,22 @@ namespace QLCuaHangJuno
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.btnThem);
-            this.groupBox2.Location = new System.Drawing.Point(85, 78);
+            this.groupBox2.Location = new System.Drawing.Point(485, 94);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(954, 195);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm sản phẩm khuyễn mãi";
+            // 
+            // btnKM
+            // 
+            this.btnKM.Location = new System.Drawing.Point(0, 166);
+            this.btnKM.Name = "btnKM";
+            this.btnKM.Size = new System.Drawing.Size(119, 29);
+            this.btnKM.TabIndex = 26;
+            this.btnKM.Text = "Thêm mã KM";
+            this.btnKM.UseVisualStyleBackColor = true;
+            this.btnKM.Click += new System.EventHandler(this.btnKM_Click);
             // 
             // cbMaKM
             // 
@@ -305,14 +315,14 @@ namespace QLCuaHangJuno
             // 
             // txtTimkiem
             // 
-            this.txtTimkiem.Location = new System.Drawing.Point(696, 324);
+            this.txtTimkiem.Location = new System.Drawing.Point(1131, 336);
             this.txtTimkiem.Name = "txtTimkiem";
             this.txtTimkiem.Size = new System.Drawing.Size(190, 27);
             this.txtTimkiem.TabIndex = 24;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(895, 322);
+            this.btnTimKiem.Location = new System.Drawing.Point(1340, 334);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(94, 29);
             this.btnTimKiem.TabIndex = 25;
@@ -320,21 +330,11 @@ namespace QLCuaHangJuno
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // btnKM
-            // 
-            this.btnKM.Location = new System.Drawing.Point(0, 166);
-            this.btnKM.Name = "btnKM";
-            this.btnKM.Size = new System.Drawing.Size(119, 29);
-            this.btnKM.TabIndex = 26;
-            this.btnKM.Text = "Thêm mã KM";
-            this.btnKM.UseVisualStyleBackColor = true;
-            this.btnKM.Click += new System.EventHandler(this.btnKM_Click);
-            // 
             // frmKhuyenMaiSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 648);
+            this.ClientSize = new System.Drawing.Size(1844, 759);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.groupBox2);
