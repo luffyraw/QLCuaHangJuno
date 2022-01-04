@@ -103,22 +103,21 @@ namespace QLCuaHangJuno
                         MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
                     }
                 }
-                else if(cbMaSP.Text == "" && cbMaLoaiSP.Text != "")
+                else if( cbMaLoaiSP.Text != "")
                 {
-                   
-                    foreach(var item in lstsp)
+                    if (!db.KhuyenMaiSanPhams.Contains(kmsp))
                     {
-                        if (!db.KhuyenMaiSanPhams.Contains(kmsp))
+                        foreach (var item in lstsp)
                         {
-                            kmsp.MaKm = cbMaKM.Text;
-                            kmsp.TyLeKhuyenMai =int.Parse( txtTyLe.Text);
-                            kmsp.MaSp = item.MaSp;
-                            db.KhuyenMaiSanPhams.Add(kmsp);         
+                                kmsp.MaKm = cbMaKM.Text;
+                                kmsp.TyLeKhuyenMai =int.Parse( txtTyLe.Text);
+                                kmsp.MaSp = item.MaSp;
+                                db.KhuyenMaiSanPhams.Add(kmsp);         
                         }
-                        else
-                        {
-                            MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
-                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có mã khuyễn mãi ", "THÊM DỮ LIỆU", MessageBoxButtons.OK);
                     }
                     db.SaveChanges();
                     HienThiDuLieu();
