@@ -17,7 +17,13 @@ namespace QLCuaHangJuno
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            using (DangNhap login = new DangNhap()) //if data ok, form will close it self!
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                    Application.Run(new GiaoDienAdmin());
+                if (login.ShowDialog() == DialogResult.Yes)
+                    Application.Run(new GiaoDienNhanVien());
+            }
         }
     }
 }

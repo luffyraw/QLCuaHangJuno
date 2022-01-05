@@ -40,14 +40,17 @@ namespace QLCuaHangJuno
             {
                 if (user.Quyen == "Quản lý")
                 {
+
                     GiaoDienAdmin admin = new GiaoDienAdmin();
-                    Application.Run(admin);
+                    admin.Show();
+                    this.DialogResult = DialogResult.OK;
 
                 }
                 else if (user.Quyen == "Nhân viên")
                 {
                     GiaoDienNhanVien nhanVien = new GiaoDienNhanVien(user);
-                    Application.Run(nhanVien);
+                    nhanVien.Show();
+                    this.DialogResult = DialogResult.Yes;
 
                 }
             }
