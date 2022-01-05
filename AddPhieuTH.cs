@@ -41,7 +41,7 @@ namespace QLCuaHangJuno
                 lbMaPhieuTH.Text = "PT" + (query.ToList().Count + 1);
             }
 
-            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
             txtMaNV.Text = "NV001";
             //txtMaNV.Enabled = false;
@@ -181,7 +181,7 @@ namespace QLCuaHangJuno
             txtTenSp.Text = null;
             txtTenKH.Text = null;
             txtDCKH.Text = null;
-            txtDCKH.Text = null;
+            
             txtSDTKH.Text = null;
             txtMaHD.Focus();
         }
@@ -204,13 +204,28 @@ namespace QLCuaHangJuno
                     var qr = (from pth in db.PhieuTraHangs
                               where pth.MaHd == txtMaHD.Text && pth.MaSpCt == cbMaSPCT.SelectedValue.ToString()
                               select pth).ToList();
-                    if (qr.Count > 0)
+                    var SL = (from hdsp in db.HoaDonBanHangSanPhams
+                              where hdsp.MaHd == txtMaHD.Text && hdsp.MaSpCt == cbMaSPCT.SelectedValue.ToString()
+                              select hdsp).ToList();
+                    if (qr.Count >= SL.FirstOrDefault().SoLuongBan)
                     {
-                        throw new Exception("Mặt hàng cùng hóa đơn này đã tồn tại trong 1 phiếu trả hàng!");
+                        throw new Exception("Mặt hàng đã quá số lượng bán của hóa đơn!");
                     }
                     else
                     {
                         db.PhieuTraHangs.Add(phieu);
+
+                        var query = from spct in db.SanPhamChiTiets
+                                    where spct.MaSpCt == cbMaSPCT.SelectedValue.ToString()
+                                    select spct;
+                        
+                        SanPhamChiTiet spSua = query.FirstOrDefault();
+                        int sl = spSua.SoLuongTon;
+                        spSua.SoLuongTon = sl + 1;
+                        //spSua.MaLoai = txtMaLoai.Text;
+                       /* db.SaveChanges();
+                        HienThiDuLieu();*/
+
                         db.SaveChanges();
 
                         MessageBox.Show("SCC: Thêm phiếu trả hàng thành công!");
@@ -272,15 +287,15 @@ namespace QLCuaHangJuno
 
         private void txtMaHD_TextChanged(object sender, EventArgs e)
         {
-           /* if (checkMaHoaDon())
-            {
-                btnAddSP.Enabled = true;
-            }
-            else
-            {
-                btnAddSP.Enabled = false;
-            }*/
+            cbMaSPCT.Enabled = true;
+            cbMaSPCT.DataSource = null;
+            txtKT.Text = null;
+            txtMS.Text = null;
+            txtTenSp.Text = null;
+            txtTenKH.Text = null;
+            txtDCKH.Text = null;
 
+            txtSDTKH.Text = null;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

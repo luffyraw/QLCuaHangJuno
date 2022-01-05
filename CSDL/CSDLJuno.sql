@@ -75,7 +75,7 @@ VALUES ('LSP001',N'Giày'),
 		('LSP005',N'Vớ'),
 		('LSP006',N'Áo thun')
 GO
---Tạo bảng Sản Phẩm
+
 CREATE TABLE SanPham
 (
 	MaSP varchar(10) PRIMARY KEY,
@@ -398,6 +398,43 @@ CREATE TABLE PhieuTraHang
 	LyDoTra nvarchar(100) NOT NULL,
 	CONSTRAINT fk_PhieuTraHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
 	CONSTRAINT fk_PhieuTraHang_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT))
+GO
+
+
+DROP TABLE PhieuDoiHang
+
+--Tạo bảng Phiếu Doi Hàng
+CREATE TABLE PhieuDoiHang
+(
+	MaPhieuDoi varchar(10) PRIMARY KEY,
+	NgayLap datetime NOT NULL,
+	MaNV varchar(10) NOT NULL,
+	MaHD varchar(10) NOT NULL,
+	LyDoDoi nvarchar(100) NOT NULL,
+	TienThua money NOT NULL,
+	TienThuLai money NOT NULL,
+	CONSTRAINT fk_PhieuTraHangg_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
+	CONSTRAINT fk_PhieuTraHangg_hoadonbanhang FOREIGN KEY (MaHD) REFERENCES HoaDonBanHang(MaHD))
+GO
+
+CREATE TABLE PhieuDoi_SanPhamHD
+(
+	ID int IDENTITY(1,1) primary key,
+	MaPD varchar(10) NOT NULL,
+	MaSPCT varchar(10) NOT NULL,
+	SL int NOT NULL,
+	CONSTRAINT fk_MaPhieuDoi FOREIGN KEY (MaPD) REFERENCES PhieuDoiHang(MaPhieuDoi)
+)
+GO
+
+CREATE TABLE PhieuDoi_SanPhamDoi
+(
+	ID int IDENTITY(1,1) primary key,
+	MaPD varchar(10) NOT NULL,
+	MaSPCT varchar(10) NOT NULL,
+	SL int NOT NULL,
+	CONSTRAINT fk_MaPhieuDoi1 FOREIGN KEY (MaPD) REFERENCES PhieuDoiHang(MaPhieuDoi)
+)
 GO
 
 INSERT INTO PhieuTraHang

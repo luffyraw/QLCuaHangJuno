@@ -29,5 +29,11 @@ namespace QLCuaHangJuno
             DSPhieuTH ds = new DSPhieuTH();
             ds.Show();
         }
+
+        private void đổiHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DSPhieuDoi ds = new DSPhieuDoi();
+            ds.Show();
+        }
     }
 }

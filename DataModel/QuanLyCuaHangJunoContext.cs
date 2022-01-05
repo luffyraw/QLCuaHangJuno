@@ -31,6 +31,9 @@ namespace QLCuaHangJuno.DataModel
         public virtual DbSet<NhapHangSanPham> NhapHangSanPhams { get; set; }
         public virtual DbSet<PhieuBaoHanh> PhieuBaoHanhs { get; set; }
         public virtual DbSet<PhieuDatHang> PhieuDatHangs { get; set; }
+        public virtual DbSet<PhieuDoiHang> PhieuDoiHangs { get; set; }
+        public virtual DbSet<PhieuDoiSanPhamDoi> PhieuDoiSanPhamDois { get; set; }
+        public virtual DbSet<PhieuDoiSanPhamHd> PhieuDoiSanPhamHds { get; set; }
         public virtual DbSet<PhieuNhapHang> PhieuNhapHangs { get; set; }
         public virtual DbSet<PhieuTraHang> PhieuTraHangs { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
@@ -40,8 +43,8 @@ namespace QLCuaHangJuno.DataModel
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-94IFOHB\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
-                // Tai: DESKTOP-517PNF4
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-94IFOHB\\SQLEXPRESS;Initial CataLog=QuanLyCuaHangJuno;Integrated Security=True");
             }
         }
 
@@ -52,7 +55,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<DatHangSanPham>(entity =>
             {
                 entity.HasKey(e => new { e.MaPhieuDat, e.MaSpCt })
-                    .HasName("PK__DatHang___23AD866ECAAD466F");
+                    .HasName("PK__DatHang___23AD866EF1D58CE1");
 
                 entity.ToTable("DatHang_SanPham");
 
@@ -81,7 +84,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<GiamGiaHoaDon>(entity =>
             {
                 entity.HasKey(e => e.MaGg)
-                    .HasName("PK__GiamGiaH__2725AE82DA1814AD");
+                    .HasName("PK__GiamGiaH__2725AE82E837B5D8");
 
                 entity.ToTable("GiamGiaHoaDon");
 
@@ -104,7 +107,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<HoaDonBanHang>(entity =>
             {
                 entity.HasKey(e => e.MaHd)
-                    .HasName("PK__HoaDonBa__2725A6E09CE0E4AE");
+                    .HasName("PK__HoaDonBa__2725A6E05C662CDA");
 
                 entity.ToTable("HoaDonBanHang");
 
@@ -114,7 +117,6 @@ namespace QLCuaHangJuno.DataModel
                     .HasColumnName("MaHD");
 
                 entity.Property(e => e.MaGg)
-                    /*.IsRequired()*/
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("MaGG");
@@ -136,7 +138,6 @@ namespace QLCuaHangJuno.DataModel
                 entity.HasOne(d => d.MaGgNavigation)
                     .WithMany(p => p.HoaDonBanHangs)
                     .HasForeignKey(d => d.MaGg)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_HoaDonBanHang_GiamGiaHoaDon");
 
                 entity.HasOne(d => d.MaKhNavigation)
@@ -155,7 +156,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<HoaDonBanHangSanPham>(entity =>
             {
                 entity.HasKey(e => new { e.MaHd, e.MaSpCt })
-                    .HasName("PK__HoaDonBa__05622DA5A80B3508");
+                    .HasName("PK__HoaDonBa__05622DA5311659C1");
 
                 entity.ToTable("HoaDonBanHang_SanPham");
 
@@ -185,7 +186,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<KhachHang>(entity =>
             {
                 entity.HasKey(e => e.MaKh)
-                    .HasName("PK__KhachHan__2725CF1E1FDD7038");
+                    .HasName("PK__KhachHan__2725CF1E18C5445C");
 
                 entity.ToTable("KhachHang");
 
@@ -213,7 +214,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<KhuyenMai>(entity =>
             {
                 entity.HasKey(e => e.MaKm)
-                    .HasName("PK__KhuyenMa__2725CF15CA4E46BE");
+                    .HasName("PK__KhuyenMa__2725CF15937AE90B");
 
                 entity.ToTable("KhuyenMai");
 
@@ -230,7 +231,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<KhuyenMaiSanPham>(entity =>
             {
                 entity.HasKey(e => new { e.MaKm, e.MaSp })
-                    .HasName("PK__KhuyenMa__F5579F946E99F021");
+                    .HasName("PK__KhuyenMa__F5579F943ADF1816");
 
                 entity.ToTable("KhuyenMai_SanPham");
 
@@ -260,7 +261,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<KichCo>(entity =>
             {
                 entity.HasKey(e => e.MaKc)
-                    .HasName("PK__KichCo__2725CF0365355B23");
+                    .HasName("PK__KichCo__2725CF035AB801B8");
 
                 entity.ToTable("KichCo");
 
@@ -277,7 +278,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<LoaiSanPham>(entity =>
             {
                 entity.HasKey(e => e.MaLoaiSp)
-                    .HasName("PK__LoaiSanP__1224CA7C1E0A3F17");
+                    .HasName("PK__LoaiSanP__1224CA7CC421F502");
 
                 entity.ToTable("LoaiSanPham");
 
@@ -295,7 +296,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<Mau>(entity =>
             {
                 entity.HasKey(e => e.MaMau)
-                    .HasName("PK__Mau__3A5BBB7DBCB39ACF");
+                    .HasName("PK__Mau__3A5BBB7D9AA50F42");
 
                 entity.ToTable("Mau");
 
@@ -312,7 +313,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<NhanVien>(entity =>
             {
                 entity.HasKey(e => e.MaNv)
-                    .HasName("PK__NhanVien__2725D70A1BF0CF5E");
+                    .HasName("PK__NhanVien__2725D70ABD0B82D1");
 
                 entity.ToTable("NhanVien");
 
@@ -371,7 +372,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<NhapHangSanPham>(entity =>
             {
                 entity.HasKey(e => new { e.MaPhNhap, e.MaSpCt })
-                    .HasName("PK__NhapHang__16A19ACC968B8386");
+                    .HasName("PK__NhapHang__16A19ACC295DE4CC");
 
                 entity.ToTable("NhapHang_SanPham");
 
@@ -400,7 +401,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<PhieuBaoHanh>(entity =>
             {
                 entity.HasKey(e => e.MaPhieu)
-                    .HasName("PK__PhieuBao__2660BFE0A0552AFA");
+                    .HasName("PK__PhieuBao__2660BFE03359702E");
 
                 entity.ToTable("PhieuBaoHanh");
 
@@ -450,7 +451,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<PhieuDatHang>(entity =>
             {
                 entity.HasKey(e => e.MaPhieuDat)
-                    .HasName("PK__PhieuDat__01EA0D2B791F5862");
+                    .HasName("PK__PhieuDat__01EA0D2BCB6D44B6");
 
                 entity.ToTable("PhieuDatHang");
 
@@ -463,10 +464,110 @@ namespace QLCuaHangJuno.DataModel
                 entity.Property(e => e.ThoiHanGiaoHang).HasColumnType("date");
             });
 
+            modelBuilder.Entity<PhieuDoiHang>(entity =>
+            {
+                entity.HasKey(e => e.MaPhieuDoi)
+                    .HasName("PK__PhieuDoi__01EABA5B4B67C2C0");
+
+                entity.ToTable("PhieuDoiHang");
+
+                entity.Property(e => e.MaPhieuDoi)
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LyDoDoi)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.MaHd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaHD");
+
+                entity.Property(e => e.MaNv)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaNV");
+
+                entity.Property(e => e.NgayLap).HasColumnType("datetime");
+
+                entity.Property(e => e.TienThuLai).HasColumnType("money");
+
+                entity.Property(e => e.TienThua).HasColumnType("money");
+
+                entity.HasOne(d => d.MaHdNavigation)
+                    .WithMany(p => p.PhieuDoiHangs)
+                    .HasForeignKey(d => d.MaHd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_PhieuTraHangg_hoadonbanhang");
+
+                entity.HasOne(d => d.MaNvNavigation)
+                    .WithMany(p => p.PhieuDoiHangs)
+                    .HasForeignKey(d => d.MaNv)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_PhieuTraHangg_NhanVien");
+            });
+
+            modelBuilder.Entity<PhieuDoiSanPhamDoi>(entity =>
+            {
+                entity.ToTable("PhieuDoi_SanPhamDoi");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.MaPd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaPD");
+
+                entity.Property(e => e.MaSpct)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaSPCT");
+
+                entity.Property(e => e.Sl).HasColumnName("SL");
+
+                entity.HasOne(d => d.MaPdNavigation)
+                    .WithMany(p => p.PhieuDoiSanPhamDois)
+                    .HasForeignKey(d => d.MaPd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaPhieuDoi1");
+            });
+
+            modelBuilder.Entity<PhieuDoiSanPhamHd>(entity =>
+            {
+                entity.ToTable("PhieuDoi_SanPhamHD");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.MaPd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaPD");
+
+                entity.Property(e => e.MaSpct)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaSPCT");
+
+                entity.Property(e => e.Sl).HasColumnName("SL");
+
+                entity.HasOne(d => d.MaPdNavigation)
+                    .WithMany(p => p.PhieuDoiSanPhamHds)
+                    .HasForeignKey(d => d.MaPd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaPhieuDoi");
+            });
+
             modelBuilder.Entity<PhieuNhapHang>(entity =>
             {
                 entity.HasKey(e => e.MaPhNhap)
-                    .HasName("PK__PhieuNha__34E6118966E3DC8F");
+                    .HasName("PK__PhieuNha__34E61189BFF798F4");
 
                 entity.ToTable("PhieuNhapHang");
 
@@ -507,7 +608,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<PhieuTraHang>(entity =>
             {
                 entity.HasKey(e => e.MaPhieuTra)
-                    .HasName("PK__PhieuTra__1D880A4672C1F71E");
+                    .HasName("PK__PhieuTra__1D880A46DD69A3CD");
 
                 entity.ToTable("PhieuTraHang");
 
@@ -555,7 +656,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<SanPham>(entity =>
             {
                 entity.HasKey(e => e.MaSp)
-                    .HasName("PK__SanPham__2725081C7790BE8F");
+                    .HasName("PK__SanPham__2725081C61CF59B5");
 
                 entity.ToTable("SanPham");
 
@@ -591,7 +692,7 @@ namespace QLCuaHangJuno.DataModel
             modelBuilder.Entity<SanPhamChiTiet>(entity =>
             {
                 entity.HasKey(e => e.MaSpCt)
-                    .HasName("PK__SanPham___2478B453EEA07FCF");
+                    .HasName("PK__SanPham___2478B45315CC1954");
 
                 entity.ToTable("SanPham_ChiTiet");
 
