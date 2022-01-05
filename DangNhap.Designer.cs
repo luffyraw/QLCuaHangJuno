@@ -29,6 +29,7 @@ namespace QLCuaHangJuno
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DangNhap));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,62 +37,69 @@ namespace QLCuaHangJuno
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.btDangNhap = new System.Windows.Forms.Button();
             this.btThoat = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(260, 64);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label1.Location = new System.Drawing.Point(797, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 46);
+            this.label1.Size = new System.Drawing.Size(267, 62);
             this.label1.TabIndex = 1;
             this.label1.Text = "Đăng nhập";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(196, 164);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(623, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 25);
+            this.label2.Size = new System.Drawing.Size(222, 41);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên đăng nhập:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(228, 213);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(696, 244);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 25);
+            this.label3.Size = new System.Drawing.Size(149, 41);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mật khẩu:";
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(331, 160);
+            this.txtTenDangNhap.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(861, 155);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(165, 27);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(260, 47);
             this.txtTenDangNhap.TabIndex = 0;
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(331, 209);
+            this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMatKhau.Location = new System.Drawing.Point(861, 244);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(165, 27);
+            this.txtMatKhau.Size = new System.Drawing.Size(260, 47);
             this.txtMatKhau.TabIndex = 1;
             // 
             // btDangNhap
             // 
-            this.btDangNhap.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btDangNhap.Location = new System.Drawing.Point(228, 280);
+            this.btDangNhap.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btDangNhap.Location = new System.Drawing.Point(878, 323);
             this.btDangNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDangNhap.Name = "btDangNhap";
-            this.btDangNhap.Size = new System.Drawing.Size(105, 47);
+            this.btDangNhap.Size = new System.Drawing.Size(186, 68);
             this.btDangNhap.TabIndex = 4;
             this.btDangNhap.Text = "Đăng nhập";
             this.btDangNhap.UseVisualStyleBackColor = true;
@@ -100,7 +108,7 @@ namespace QLCuaHangJuno
             // btThoat
             // 
             this.btThoat.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btThoat.Location = new System.Drawing.Point(364, 280);
+            this.btThoat.Location = new System.Drawing.Point(900, 489);
             this.btThoat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(105, 47);
@@ -109,22 +117,48 @@ namespace QLCuaHangJuno
             this.btThoat.UseVisualStyleBackColor = true;
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(42, 182);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(552, 380);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label4.Location = new System.Drawing.Point(42, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(393, 159);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "JUNO";
+            // 
             // DangNhap
             // 
             this.AcceptButton = this.btDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 451);
+            this.ClientSize = new System.Drawing.Size(1215, 635);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btThoat);
             this.Controls.Add(this.btDangNhap);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DangNhap";
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.DangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +172,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Button btDangNhap;
         private System.Windows.Forms.Button btThoat;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
 

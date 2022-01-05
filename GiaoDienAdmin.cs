@@ -30,8 +30,16 @@ namespace QLCuaHangJuno
 
         private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ThongKe tk = new ThongKe();
-            tk.Show();
+         
+            Form new_mdi_child = new ThongKe();
+            new_mdi_child.Text = "Cửa sổ con MDI";
+            new_mdi_child.MdiParent = this;
+            new_mdi_child.Show();
+        }
+
+        private void GiaoDienAdmin_Load(object sender, EventArgs e)
+        {
+            this.IsMdiContainer = true;
         }
     }
 }

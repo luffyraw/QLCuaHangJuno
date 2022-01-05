@@ -25,7 +25,7 @@ namespace QLCuaHangJuno
                        where item.NgayBan.Month == DateTime.Now.Month
                        && item.NgayBan.Year == DateTime.Now.Year
                        select item.MaHd;
-            lb_hoadon.Text = soHD.Count().ToString();
+         //   lb_hoadon.Text = soHD.Count().ToString();
 
             var sp = from item in db.HoaDonBanHangSanPhams
                      where soHD.Contains(item.MaHd)
@@ -35,7 +35,7 @@ namespace QLCuaHangJuno
             {
                 sosp += item.SoLuongBan;
             }
-            lb_sosp.Text = sosp.ToString();
+           // lb_sosp.Text = sosp.ToString();
         }
 
         private void btn_tim_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace QLCuaHangJuno
                        where item.NgayBan.Month == dtp_thangnam.Value.Month
                        && item.NgayBan.Year == dtp_thangnam.Value.Year
                        select item.MaHd;
-            lb_hoadon.Text = soHD.Count().ToString();
+         //   lb_hoadon.Text = soHD.Count().ToString();
 
             var sp = from item in db.HoaDonBanHangSanPhams
                      where soHD.Contains(item.MaHd)
@@ -55,7 +55,7 @@ namespace QLCuaHangJuno
             {
                 sosp += item.SoLuongBan;
             }
-            lb_sosp.Text = sosp.ToString();
+         //   lb_sosp.Text = sosp.ToString();
         }
     }
 }

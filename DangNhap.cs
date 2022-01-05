@@ -41,12 +41,14 @@ namespace QLCuaHangJuno
                 if (user.Quyen == "Quản lý")
                 {
                     GiaoDienAdmin admin = new GiaoDienAdmin();
-                    admin.Show();
+                    Application.Run(admin);
+
                 }
                 else if (user.Quyen == "Nhân viên")
                 {
                     GiaoDienNhanVien nhanVien = new GiaoDienNhanVien(user);
-                    nhanVien.Show();
+                    Application.Run(nhanVien);
+
                 }
             }
         }
