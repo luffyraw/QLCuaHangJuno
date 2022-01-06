@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangJuno.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace QLCuaHangJuno
 {
     public partial class GiaoDienAdmin : Form
     {
-        public GiaoDienAdmin()
+        NhanVien nv = new NhanVien();
+        public GiaoDienAdmin(NhanVien nv)
         {
+            this.nv = nv;
             InitializeComponent();
         }
 
@@ -40,6 +43,17 @@ namespace QLCuaHangJuno
         private void GiaoDienAdmin_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

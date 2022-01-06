@@ -40,25 +40,27 @@ namespace QLCuaHangJuno
             {
                 if (user.Quyen == "Quản lý")
                 {
-
-                    GiaoDienAdmin admin = new GiaoDienAdmin();
-                    admin.Show();
+                    this.Tag = user;
                     this.DialogResult = DialogResult.OK;
 
                 }
                 else if (user.Quyen == "Nhân viên")
                 {
-                    GiaoDienNhanVien nhanVien = new GiaoDienNhanVien(user);
-                    nhanVien.Show();
+                    this.Tag = user;
                     this.DialogResult = DialogResult.Yes;
 
                 }
             }
         }
 
-        private void btThoat_Click(object sender, EventArgs e)
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+
         }
     }
 }
