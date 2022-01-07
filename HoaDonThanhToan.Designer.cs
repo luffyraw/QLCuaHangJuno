@@ -209,14 +209,14 @@ namespace QLCuaHangJuno
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(1345, 31);
+            this.panel1.Location = new System.Drawing.Point(1298, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 783);
+            this.panel1.Size = new System.Drawing.Size(405, 783);
             this.panel1.TabIndex = 2;
             // 
             // btn_themKH
             // 
-            this.btn_themKH.Location = new System.Drawing.Point(220, 331);
+            this.btn_themKH.Location = new System.Drawing.Point(188, 331);
             this.btn_themKH.Name = "btn_themKH";
             this.btn_themKH.Size = new System.Drawing.Size(185, 39);
             this.btn_themKH.TabIndex = 6;
@@ -227,7 +227,7 @@ namespace QLCuaHangJuno
             // btn_luu
             // 
             this.btn_luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_luu.Location = new System.Drawing.Point(48, 712);
+            this.btn_luu.Location = new System.Drawing.Point(16, 712);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(89, 54);
             this.btn_luu.TabIndex = 5;
@@ -239,7 +239,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_thanhtien.AutoSize = true;
             this.lb_thanhtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_thanhtien.Location = new System.Drawing.Point(48, 664);
+            this.lb_thanhtien.Location = new System.Drawing.Point(16, 664);
             this.lb_thanhtien.Name = "lb_thanhtien";
             this.lb_thanhtien.Size = new System.Drawing.Size(96, 22);
             this.lb_thanhtien.TabIndex = 4;
@@ -249,7 +249,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_gghd.AutoSize = true;
             this.lb_gghd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_gghd.Location = new System.Drawing.Point(48, 616);
+            this.lb_gghd.Location = new System.Drawing.Point(16, 616);
             this.lb_gghd.Name = "lb_gghd";
             this.lb_gghd.Size = new System.Drawing.Size(191, 22);
             this.lb_gghd.TabIndex = 4;
@@ -259,7 +259,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_tongtien.AutoSize = true;
             this.lb_tongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_tongtien.Location = new System.Drawing.Point(48, 568);
+            this.lb_tongtien.Location = new System.Drawing.Point(16, 568);
             this.lb_tongtien.Name = "lb_tongtien";
             this.lb_tongtien.Size = new System.Drawing.Size(156, 22);
             this.lb_tongtien.TabIndex = 4;
@@ -267,7 +267,7 @@ namespace QLCuaHangJuno
             // 
             // txt_diachiKH
             // 
-            this.txt_diachiKH.Location = new System.Drawing.Point(189, 289);
+            this.txt_diachiKH.Location = new System.Drawing.Point(157, 289);
             this.txt_diachiKH.Name = "txt_diachiKH";
             this.txt_diachiKH.PlaceholderText = "Địa chỉ";
             this.txt_diachiKH.Size = new System.Drawing.Size(216, 27);
@@ -275,7 +275,7 @@ namespace QLCuaHangJuno
             // 
             // txt_sdtKH
             // 
-            this.txt_sdtKH.Location = new System.Drawing.Point(189, 241);
+            this.txt_sdtKH.Location = new System.Drawing.Point(157, 241);
             this.txt_sdtKH.Name = "txt_sdtKH";
             this.txt_sdtKH.PlaceholderText = "Số điện thoại";
             this.txt_sdtKH.Size = new System.Drawing.Size(216, 27);
@@ -284,7 +284,7 @@ namespace QLCuaHangJuno
             // 
             // txt_hotenKH
             // 
-            this.txt_hotenKH.Location = new System.Drawing.Point(189, 193);
+            this.txt_hotenKH.Location = new System.Drawing.Point(157, 193);
             this.txt_hotenKH.Name = "txt_hotenKH";
             this.txt_hotenKH.PlaceholderText = "Họ tên khách hàng";
             this.txt_hotenKH.Size = new System.Drawing.Size(216, 27);
@@ -295,7 +295,7 @@ namespace QLCuaHangJuno
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(48, 289);
+            this.label9.Location = new System.Drawing.Point(16, 289);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 22);
             this.label9.TabIndex = 2;
@@ -305,7 +305,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_hotennv.AutoSize = true;
             this.lb_hotennv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_hotennv.Location = new System.Drawing.Point(48, 472);
+            this.lb_hotennv.Location = new System.Drawing.Point(16, 472);
             this.lb_hotennv.Name = "lb_hotennv";
             this.lb_hotennv.Size = new System.Drawing.Size(63, 22);
             this.lb_hotennv.TabIndex = 2;
@@ -315,7 +315,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_manv.AutoSize = true;
             this.lb_manv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_manv.Location = new System.Drawing.Point(48, 424);
+            this.lb_manv.Location = new System.Drawing.Point(16, 424);
             this.lb_manv.Name = "lb_manv";
             this.lb_manv.Size = new System.Drawing.Size(117, 22);
             this.lb_manv.TabIndex = 2;
@@ -325,7 +325,7 @@ namespace QLCuaHangJuno
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(48, 241);
+            this.label8.Location = new System.Drawing.Point(16, 241);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 22);
             this.label8.TabIndex = 2;
@@ -335,7 +335,7 @@ namespace QLCuaHangJuno
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(48, 193);
+            this.label7.Location = new System.Drawing.Point(16, 193);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 22);
             this.label7.TabIndex = 2;
@@ -345,7 +345,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_ngaylap.AutoSize = true;
             this.lb_ngaylap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ngaylap.Location = new System.Drawing.Point(48, 104);
+            this.lb_ngaylap.Location = new System.Drawing.Point(16, 104);
             this.lb_ngaylap.Name = "lb_ngaylap";
             this.lb_ngaylap.Size = new System.Drawing.Size(81, 22);
             this.lb_ngaylap.TabIndex = 2;
@@ -355,7 +355,7 @@ namespace QLCuaHangJuno
             // 
             this.lb_mahd.AutoSize = true;
             this.lb_mahd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_mahd.Location = new System.Drawing.Point(48, 69);
+            this.lb_mahd.Location = new System.Drawing.Point(16, 69);
             this.lb_mahd.Name = "lb_mahd";
             this.lb_mahd.Size = new System.Drawing.Size(104, 22);
             this.lb_mahd.TabIndex = 2;
@@ -365,7 +365,7 @@ namespace QLCuaHangJuno
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(115, 514);
+            this.label4.Location = new System.Drawing.Point(83, 514);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(250, 29);
             this.label4.TabIndex = 1;
@@ -375,7 +375,7 @@ namespace QLCuaHangJuno
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(115, 373);
+            this.label3.Location = new System.Drawing.Point(83, 373);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(241, 29);
             this.label3.TabIndex = 1;
@@ -385,7 +385,7 @@ namespace QLCuaHangJuno
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(94, 142);
+            this.label2.Location = new System.Drawing.Point(62, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 29);
             this.label2.TabIndex = 1;
@@ -395,7 +395,7 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(126, 18);
+            this.label1.Location = new System.Drawing.Point(72, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 41);
             this.label1.TabIndex = 0;
@@ -602,7 +602,7 @@ namespace QLCuaHangJuno
             this.panel2.Controls.Add(this.txt_masp);
             this.panel2.Location = new System.Drawing.Point(14, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1288, 800);
+            this.panel2.Size = new System.Drawing.Size(1262, 800);
             this.panel2.TabIndex = 7;
             // 
             // num_soluong
@@ -662,9 +662,10 @@ namespace QLCuaHangJuno
             this.AcceptButton = this.btn_them;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 853);
+            this.ClientSize = new System.Drawing.Size(1730, 853);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HoaDonThanhToan";
             this.Text = " ";
             this.Load += new System.EventHandler(this.HoaDonThanhToan_Load);

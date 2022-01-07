@@ -23,11 +23,14 @@ namespace QLCuaHangJuno
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HoaDonThanhToan hd = new HoaDonThanhToan(nv);
+            hd.Text = "Tạo hóa đơn";
+            hd.MdiParent = this;
             hd.Show();
         }
 
         private void GiaoDienNhanVien_Load(object sender, EventArgs e)
         {
+            this.IsMdiContainer = true;
 
         }
 

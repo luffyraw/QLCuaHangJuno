@@ -24,6 +24,7 @@ namespace QLCuaHangJuno
         KhachHang kh = new KhachHang();
 
         NhanVien nv = new NhanVien();
+
         public HoaDonThanhToan(NhanVien nv)
         {
             this.nv = nv;
@@ -85,8 +86,6 @@ namespace QLCuaHangJuno
         {
             //Gợi ý mã sản phẩm
             autoCompleteSP();
-            //Gợi ý tên khách hàng
-            autoCompleteKH();
             //Gợi ý số điện thoại
             autoCompleteSDT();
             //Đặt giá trị mặc định
@@ -251,11 +250,17 @@ namespace QLCuaHangJuno
             }
 
             db.SaveChanges();
-            MessageBox.Show("Lưu thành công");
-            HoaDonThanhToan hdtt = new HoaDonThanhToan(nv);
-            hdtt.Show();
-            this.Close();
 
+            listsp = new List<HoaDonBanHangSanPham>();
+            HoaDonThanhToan_Load(sender, e);
+            HienThiDataGrid();
+            button1_Click(sender, e);
+            txt_diachiKH.Text = "";
+            txt_hotenKH.Text = "";
+            txt_sdtKH.Text = "";
+
+            MessageBox.Show("Lưu thành công");
+            
         }
 
         private void num_soluong_ValueChanged(object sender, EventArgs e)
@@ -301,19 +306,7 @@ namespace QLCuaHangJuno
             txt_masp.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txt_masp.AutoCompleteCustomSource = autoCompleteSP;
         }
-        //Gợi ý tên khác hàng
-        private void autoCompleteKH()
-        {
-            AutoCompleteStringCollection autoCompleteKH = new AutoCompleteStringCollection();
-            var KHList = from item in db.KhachHangs select item;
-            foreach (var item in KHList)
-            {
-                autoCompleteKH.Add(item.HoTenKh);
-            }
-            txt_hotenKH.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txt_hotenKH.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txt_hotenKH.AutoCompleteCustomSource = autoCompleteKH;
-        }
+       
         private void ThongTinHoaDon()
         {
             //tự sinh thông tin hóa đơn
@@ -326,6 +319,7 @@ namespace QLCuaHangJuno
             hd.MaGg = "GG000";
             lb_manv.Text = "Mã nhân viên: " + nv.MaNv;
             lb_hotennv.Text = "Họ tên: " + nv.HoTenNv;
+
         }
         private string maHD()
         {
@@ -451,14 +445,7 @@ namespace QLCuaHangJuno
 
         private void txt_hotenKH_TextChanged(object sender, EventArgs e)
         {
-            var KH = (from item in db.KhachHangs
-                      where item.HoTenKh == txt_hotenKH.Text
-                      select item).FirstOrDefault();
-            if (KH != null)
-            {
-                txt_sdtKH.Text = KH.Sdt;
-                txt_diachiKH.Text = KH.DiaChi;
-            }
+            
         }
 
         private void txt_sdtKH_TextChanged(object sender, EventArgs e)
