@@ -58,6 +58,7 @@ namespace QLCuaHangJuno
             this.btnChitiet = new System.Windows.Forms.Button();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKMSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,7 +68,7 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(837, 36);
+            this.label1.Location = new System.Drawing.Point(436, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 31);
             this.label1.TabIndex = 0;
@@ -92,7 +93,7 @@ namespace QLCuaHangJuno
             this.NgayBatDau,
             this.NgayKetThuc,
             this.TyLeKhuyenMai});
-            this.dgvKMSP.Location = new System.Drawing.Point(491, 373);
+            this.dgvKMSP.Location = new System.Drawing.Point(90, 377);
             this.dgvKMSP.Name = "dgvKMSP";
             this.dgvKMSP.RowHeadersWidth = 51;
             this.dgvKMSP.RowTemplate.Height = 29;
@@ -268,7 +269,7 @@ namespace QLCuaHangJuno
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.btnThem);
-            this.groupBox2.Location = new System.Drawing.Point(485, 94);
+            this.groupBox2.Location = new System.Drawing.Point(84, 98);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(954, 195);
             this.groupBox2.TabIndex = 22;
@@ -315,14 +316,14 @@ namespace QLCuaHangJuno
             // 
             // txtTimkiem
             // 
-            this.txtTimkiem.Location = new System.Drawing.Point(1131, 336);
+            this.txtTimkiem.Location = new System.Drawing.Point(730, 340);
             this.txtTimkiem.Name = "txtTimkiem";
             this.txtTimkiem.Size = new System.Drawing.Size(190, 27);
             this.txtTimkiem.TabIndex = 24;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(1340, 334);
+            this.btnTimKiem.Location = new System.Drawing.Point(939, 338);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(94, 29);
             this.btnTimKiem.TabIndex = 25;
@@ -330,11 +331,21 @@ namespace QLCuaHangJuno
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(1149, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(377, 347);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thống kê";
+            // 
             // frmKhuyenMaiSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1844, 759);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.groupBox2);
@@ -381,5 +392,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.TextBox txtTimkiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnKM;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
