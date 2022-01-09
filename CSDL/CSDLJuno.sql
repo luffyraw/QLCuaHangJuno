@@ -403,6 +403,9 @@ GO
 
 DROP TABLE PhieuDoiHang
 
+
+
+----Tình thêm mới bảng PhieuDoiHang
 --Tạo bảng Phiếu Doi Hàng
 CREATE TABLE PhieuDoiHang
 (
@@ -417,6 +420,7 @@ CREATE TABLE PhieuDoiHang
 	CONSTRAINT fk_PhieuTraHangg_hoadonbanhang FOREIGN KEY (MaHD) REFERENCES HoaDonBanHang(MaHD))
 GO
 
+---- Tình thêm mới bảng PhieuDoi_SanPhamHD
 CREATE TABLE PhieuDoi_SanPhamHD
 (
 	ID int IDENTITY(1,1) primary key,
@@ -427,6 +431,7 @@ CREATE TABLE PhieuDoi_SanPhamHD
 )
 GO
 
+--- Tình thêm mới bảng PhieuDoi_SanPhamDoi
 CREATE TABLE PhieuDoi_SanPhamDoi
 (
 	ID int IDENTITY(1,1) primary key,
