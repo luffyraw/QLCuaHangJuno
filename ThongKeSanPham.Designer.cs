@@ -1,7 +1,7 @@
 ﻿
 namespace QLCuaHangJuno
 {
-    partial class ThongKe
+    partial class ThongKeSanPham
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,11 @@ namespace QLCuaHangJuno
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.panel9 = new System.Windows.Forms.Panel();
-            this.lb_doanhthu = new System.Windows.Forms.Label();
+            this.lb_bansp = new System.Windows.Forms.Label();
             this.lb_tongsp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lb_tongdh = new System.Windows.Forms.Label();
             this.cb_year = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -52,41 +51,40 @@ namespace QLCuaHangJuno
             this.columnHeader14 = new System.Windows.Forms.ColumnHeader();
             this.btn_tim = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel9.Controls.Add(this.lb_doanhthu);
+            this.panel9.Controls.Add(this.lb_bansp);
             this.panel9.Controls.Add(this.lb_tongsp);
             this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.lb_tongdh);
             this.panel9.Controls.Add(this.cb_year);
             this.panel9.Controls.Add(this.listView1);
             this.panel9.Controls.Add(this.btn_tim);
             this.panel9.Controls.Add(this.label5);
-            this.panel9.Location = new System.Drawing.Point(38, 31);
+            this.panel9.Location = new System.Drawing.Point(35, 46);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1509, 651);
-            this.panel9.TabIndex = 0;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            this.panel9.TabIndex = 1;
             // 
-            // lb_doanhthu
+            // lb_bansp
             // 
-            this.lb_doanhthu.AutoSize = true;
-            this.lb_doanhthu.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lb_doanhthu.Location = new System.Drawing.Point(972, 201);
-            this.lb_doanhthu.Name = "lb_doanhthu";
-            this.lb_doanhthu.Size = new System.Drawing.Size(138, 38);
-            this.lb_doanhthu.TabIndex = 7;
-            this.lb_doanhthu.Text = "Tổng thu:";
+            this.lb_bansp.AutoSize = true;
+            this.lb_bansp.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lb_bansp.Location = new System.Drawing.Point(32, 265);
+            this.lb_bansp.Name = "lb_bansp";
+            this.lb_bansp.Size = new System.Drawing.Size(306, 38);
+            this.lb_bansp.TabIndex = 7;
+            this.lb_bansp.Text = "Số sản phẩm bán được";
             // 
             // lb_tongsp
             // 
             this.lb_tongsp.AutoSize = true;
             this.lb_tongsp.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lb_tongsp.Location = new System.Drawing.Point(498, 201);
+            this.lb_tongsp.Location = new System.Drawing.Point(32, 204);
             this.lb_tongsp.Name = "lb_tongsp";
             this.lb_tongsp.Size = new System.Drawing.Size(257, 38);
             this.lb_tongsp.TabIndex = 7;
@@ -96,21 +94,11 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(339, 1);
+            this.label1.Location = new System.Drawing.Point(245, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(825, 80);
+            this.label1.Size = new System.Drawing.Size(1145, 80);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Báo cáo tài chính năm 2022";
-            // 
-            // lb_tongdh
-            // 
-            this.lb_tongdh.AutoSize = true;
-            this.lb_tongdh.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lb_tongdh.Location = new System.Drawing.Point(21, 201);
-            this.lb_tongdh.Name = "lb_tongdh";
-            this.lb_tongdh.Size = new System.Drawing.Size(260, 38);
-            this.lb_tongdh.TabIndex = 7;
-            this.lb_tongdh.Text = "Tổng số đơn hàng: ";
+            this.label1.Text = "Báo cáo doanh số sản phẩm năm 2022";
             // 
             // cb_year
             // 
@@ -132,6 +120,7 @@ namespace QLCuaHangJuno
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
+            this.columnHeader6,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
@@ -148,17 +137,17 @@ namespace QLCuaHangJuno
             this.listView1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(21, 249);
+            listViewItem1});
+            this.listView1.Location = new System.Drawing.Point(21, 329);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1443, 182);
+            this.listView1.Size = new System.Drawing.Size(1443, 299);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "";
+            this.columnHeader1.Text = "MSP";
             this.columnHeader1.Width = 100;
             // 
             // columnHeader2
@@ -230,7 +219,6 @@ namespace QLCuaHangJuno
             this.btn_tim.TabIndex = 2;
             this.btn_tim.Text = "Tìm";
             this.btn_tim.UseVisualStyleBackColor = true;
-            this.btn_tim.Click += new System.EventHandler(this.btn_tim_Click);
             // 
             // label5
             // 
@@ -243,16 +231,20 @@ namespace QLCuaHangJuno
             this.label5.TabIndex = 0;
             this.label5.Text = "Năm";
             // 
-            // ThongKe
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "MCT";
+            this.columnHeader6.Width = 100;
+            // 
+            // ThongKeSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 800);
+            this.ClientSize = new System.Drawing.Size(1582, 753);
             this.Controls.Add(this.panel9);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ThongKe";
-            this.Text = "ThongKe";
-            this.Load += new System.EventHandler(this.ThongKe_Load);
+            this.Name = "ThongKeSanPham";
+            this.Text = "ThongKeSanPham";
+            this.Load += new System.EventHandler(this.ThongKeSanPham_Load);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.ResumeLayout(false);
@@ -260,9 +252,12 @@ namespace QLCuaHangJuno
         }
 
         #endregion
+
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_tim;
+        private System.Windows.Forms.Label lb_bansp;
+        private System.Windows.Forms.Label lb_tongsp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cb_year;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -277,10 +272,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ComboBox cb_year;
-        private System.Windows.Forms.Label lb_doanhthu;
-        private System.Windows.Forms.Label lb_tongsp;
-        private System.Windows.Forms.Label lb_tongdh;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_tim;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

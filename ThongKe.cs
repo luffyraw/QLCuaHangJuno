@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace QLCuaHangJuno
 {
-    
+
     public partial class ThongKe : Form
     {
-       
+
         public ThongKe()
         {
             InitializeComponent();
@@ -24,64 +24,142 @@ namespace QLCuaHangJuno
         private void ThongKe_Load(object sender, EventArgs e)
         {
             QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
-            var hd = from item in db.HoaDonBanHangs
-                     where item.NgayBan.Year == dtp_thangnam.Value.Year
-                     select item;
+            var tk = from item in db.HoaDonBanHangs
+                     join s in db.HoaDonBanHangSanPhams on item.MaHd equals s.MaHd
+                     join d in db.SanPhamChiTiets on s.MaSpCt equals d.MaSpCt
+                     join g in db.SanPhams on d.MaSp equals g.MaSp
+                     where item.NgayBan.Year == DateTime.Now.Year
+                     select new
+                     {
+                         thang = item.NgayBan.Month,
+                         gia = g.DonGia * s.SoLuongBan,
+                         sl = s.SoLuongBan
+                     };
+            double tonghd=0, tongsp=0, tongdt=0;
             string[] tkhd = new string[12];
+            string[] tksp = new string[12];
+            string[] tkdt = new string[12];
+
             for (int i = 1; i <= 12; i++)
             {
-                //int sohd = 0;
-                //foreach (var item in hd.ToList())
-                //{
-                //    if (item.NgayBan.Month == i)
-                //    {
-                //        sohd++;
-                //    }
-                //}
-                tkhd[i - 1] = i.ToString();
-                
+                int sohd = 0;
+                int sosp = 0;
+                double dt = 0;
+                foreach (var item in tk.ToList())
+                {
+                    if (item.thang == i)
+                    {
+                        sohd++;
+                        sosp += item.sl;
+                        dt += ((double)item.gia);
+                    }
+                }
+                tonghd += sohd;
+                tongsp += sosp;
+                tongdt += dt;
+                tkhd[i - 1] = sohd.ToString();
+                tksp[i - 1] = sosp.ToString();
+                tkdt[i - 1] = dt.ToString();
+
             }
-            listView1.Columns.Add("Tháng 1",100);
-            listView1.Columns.Add("Tháng 2",100);
-            listView1.Columns.Add("Tháng 3",100);
-            listView1.Columns.Add("Tháng 4",100);
-            listView1.Columns.Add("Tháng 5",100);
-            listView1.Columns.Add("Tháng 6",100);
-            listView1.Columns.Add("Tháng 7",100);
-            listView1.Columns.Add("Tháng 8",100);
-            listView1.Columns.Add("Tháng 9",100);
-            listView1.Columns.Add("Tháng 10",100);
-            listView1.Columns.Add("Tháng 11",100);
-            listView1.Columns.Add("Tháng 12",100);
-
-            ListViewItem itm;
-            //thêm Item vào ListView
-           
-            itm = new ListViewItem(tkhd);
-            listView1.Items.Add(itm);
-
-
+            //Hiển thị tổng
+            lb_tongdh.Text = "Tổng số hóa đơn: " + tonghd;
+            lb_tongsp.Text = "Tổng số sản phẩm: " + tongsp;
+            lb_doanhthu.Text = "Tổng doanh thu: " + tongdt +" VND";
+            //THống kê số hóa đơn
+            listView1.Items[0].Text = "Hóa đơn";
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[0].SubItems.Add(tkhd[i]);
+            }
+            //THống kê số sản phẩm
+      
+            listView1.Items.Add("Số sản phẩm");
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[1].SubItems.Add(tksp[i]);
+            }
+            //THống kê doanh thu
+            listView1.Items.Add("Doanh thu");
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[2].SubItems.Add(tkdt[i]);
+            }
 
         }
 
         private void btn_tim_Click(object sender, EventArgs e)
         {
-            QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
-            var soHD = from item in db.HoaDonBanHangs
-                       where item.NgayBan.Month == dtp_thangnam.Value.Month
-                       && item.NgayBan.Year == dtp_thangnam.Value.Year
-                       select item.MaHd;
-            //   lb_hoadon.Text = soHD.Count().ToString();
-
-            var sp = from item in db.HoaDonBanHangSanPhams
-                     where soHD.Contains(item.MaHd)
-                     select item;
-            int sosp = 0;
-            foreach (var item in sp)
+            label1.Text = "Báo cáo tài chính năm " + cb_year.Text;
+            for (int i = 0; i < listView1.Items.Count; i++)
             {
-                sosp += item.SoLuongBan;
+                if (listView1.Items[i].Selected)
+                {
+                    listView1.Items[i].Remove();
+                    i--;
+                }
             }
-            //   lb_sosp.Text = sosp.ToString();
+            QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
+            var tk = from item in db.HoaDonBanHangs
+                     join s in db.HoaDonBanHangSanPhams on item.MaHd equals s.MaHd
+                     join d in db.SanPhamChiTiets on s.MaSpCt equals d.MaSpCt
+                     join g in db.SanPhams on d.MaSp equals g.MaSp
+                     where item.NgayBan.Year == int.Parse(cb_year.Text)
+                     select new
+                     {
+                         thang = item.NgayBan.Month,
+                         gia = g.DonGia * s.SoLuongBan,
+                         sl = s.SoLuongBan
+                     };
+            double tonghd = 0, tongsp = 0, tongdt = 0;
+
+            string[] tkhd = new string[12];
+            string[] tksp = new string[12];
+            string[] tkdt = new string[12];
+
+            for (int i = 1; i <= 12; i++)
+            {
+                int sohd = 0;
+                int sosp = 0;
+                double dt = 0;
+                foreach (var item in tk.ToList())
+                {
+                    if (item.thang == i)
+                    {
+                        sohd++;
+                        sosp += item.sl;
+                        dt += ((double)item.gia);
+                    }
+                }
+                tonghd += sohd;
+                tongsp += sosp;
+                tongdt += dt;
+                tkhd[i - 1] = sohd.ToString();
+                tksp[i - 1] = sosp.ToString();
+                tkdt[i - 1] = dt.ToString();
+
+            }
+            //Hiển thị tổng
+            lb_tongdh.Text = "Tổng số hóa đơn: " + tonghd;
+            lb_tongsp.Text = "Tổng số sản phẩm: " + tongsp;
+            lb_doanhthu.Text = "Tổng doanh thu: " + tongdt + " VND";
+            //THống kê số hóa đơn
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[0].SubItems[i + 1].Text = tkhd[i];
+            }
+            //THống kê số sản phẩm
+
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[1].SubItems[i + 1].Text = tksp[i];
+
+            }
+            //THống kê doanh thu
+            for (int i = 0; i < 12; i++)
+            {
+                listView1.Items[2].SubItems[i + 1].Text = tkdt[i];
+            }
         }
 
         private void dtp_thangnam_ValueChanged(object sender, EventArgs e)
@@ -89,6 +167,9 @@ namespace QLCuaHangJuno
 
         }
 
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
