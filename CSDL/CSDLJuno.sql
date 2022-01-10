@@ -38,6 +38,9 @@ CREATE TABLE GiamGiaHoaDon
 	DieuKienApDung money NOT NULL
 )
 GO
+--T INSERT CÁI NÀY NÈ
+INSERT INTO GiamGiaHoaDon (MaGG, TGBatDau, TGKetThuc, TyLeGiamGia, DieuKienApDung)
+VALUES ('GG1', '2021-01-01T00:00:00', '2021-12-31T00:00:00', 0.1, 3000000)
 --Tạo bảng Khách hàng
 CREATE TABLE KhachHang
 (
@@ -47,6 +50,12 @@ CREATE TABLE KhachHang
 	DiaChi nvarchar(100) NOT NULL
 )
 GO
+--T INSERT CÁI NÀY NÈ
+INSERT INTO KhachHang(MaKH,HoTenKH,SDT,DiaChi)
+VALUES ('KH1',N'Nguyễn Văn A','0123456789',N'Hà Nội'),
+		('KH2',N'Trần Văn B','0987654321',N'Hải Phòng')
+GO
+
 --Tạo bảng Loại Sản Phẩm
 CREATE TABLE LoaiSanPham
 (
@@ -283,6 +292,12 @@ CREATE TABLE HoaDonBanHang
 	CONSTRAINT fk_HoaDonBanHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 )
 GO
+INSERT INTO HoaDonBanHang(MaHD, NgayBan, MaKH, MaGG, MaNV)
+--T INSERT CÁI NÀY NÈ
+VALUES ('HD1', '2021-12-21T00:00:00', 'KH1', 'GG1','NV001'),
+		('HD2', '2021-06-21T00:00:00', 'KH2', 'GG1','NV001')
+GO
+
 --Tạo bảng HoaDonBanHang_SanPham
 CREATE TABLE HoaDonBanHang_SanPham
 (
@@ -294,20 +309,43 @@ CREATE TABLE HoaDonBanHang_SanPham
 	CONSTRAINT fk_HoaDonBanHang_SanPham_ChiTiet FOREIGN KEY (MaSP_CT) REFERENCES SanPham_ChiTiet(MaSP_CT)
 )
 GO
+INSERT INTO HoaDonBanHang_SanPham(MaHD, MaSP_CT, SoLuongBan)
+--T INSERT CÁI NÀY NÈ
+VALUES ('HD1','CT001',2),
+		('HD1','CT011',1),
+		('HD2','CT016',3),
+		('HD2','CT026',1)
+GO
+
 --Tạo bảng Phiếu Bảo Hành
+
+--T SỬA LẠI BẢNG NÀY NÈ
 CREATE TABLE PhieuBaoHanh
 (
 	MaPhieu varchar(10) PRIMARY KEY,
 	NgayLapPhieu datetime NOT NULL,
-	NgayTra date NOT NULL,
-	MaNV varchar(10) NOT NULL,
-	MaSP_CT varchar(10) NOT NULL,
 	MaHD varchar(10) NOT NULL,
-	Loi nvarchar(100) NOT NULL,
+	MaNV varchar(10) NOT NULL,
+	NgayTra date NOT NULL,
 	CONSTRAINT fk_PhieuBaoHanh_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
-	CONSTRAINT fk_PhieuBaoHanh_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT)
+	CONSTRAINT fk_PhieuBaoHanh_SanPham_hoadonbanhang FOREIGN KEY (MaHD) REFERENCES HoaDonBanHang(MaHD)
 )
 GO
+
+--T THÊM BẢNG NÀY NÈ
+CREATE TABLE PhieuBaohanh_SanPham
+(
+	MaPhieu varchar(10) NOT NULL,
+	MaHD varchar(10) NOT NULL,
+	MaSP_CT varchar(10) NOT NULL,
+	Loi nvarchar(100) NOT NULL,
+	ChiTietLoi nvarchar(100) NOT NULL,
+	SoLuong int NOT NULL,
+	PRIMARY KEY(MaPhieu, MaSP_CT),
+	CONSTRAINT fk_PhieubaoHanh_SanPham_HoaDon FOREIGN KEY (MaPhieu) REFERENCES PhieuBaoHanh(MaPhieu),
+	CONSTRAINT fk_PhieuBaoHanh_SanPham_hoadonbanhang_sanpham FOREIGN KEY (MaHD,MaSP_CT) REFERENCES HoaDonBanHang_SanPham(MaHD,MaSP_CT)
+
+)
 
 --Tạo bảng Phiếu Trả Hàng
 CREATE TABLE PhieuTraHang

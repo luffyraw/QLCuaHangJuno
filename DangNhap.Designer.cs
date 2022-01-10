@@ -79,6 +79,7 @@ namespace QLCuaHangJuno
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(313, 180);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(145, 23);
             this.txtMatKhau.TabIndex = 3;
             // 
@@ -102,6 +103,7 @@ namespace QLCuaHangJuno
             this.btThoat.TabIndex = 5;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = true;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // DangNhap
             // 

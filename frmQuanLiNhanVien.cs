@@ -26,41 +26,152 @@ namespace QLCuaHangJuno
                              select quyen;
             cbQuyen.DataSource = queryCombo.ToList();
             cbQuyen.DisplayMember = "Quyen";
-
+            cbQuyen.ValueMember = "Quyen";
         }
 
         private void HienThiDuLieu()
         {
-            var query = from nv in db.NhanViens
-                        select nv;
-            dgvNhanVien.DataSource = query.ToList();
+            var nhanVien = from nv in db.NhanViens
+                           select new
+                           {
+                               nv.MaNv,
+                               nv.HoTenNv,
+                               nv.GioiTinh,
+                               nv.NgaySinh,
+                               nv.Cmt,
+                               nv.DiaChi,
+                               nv.Sdt,
+                               nv.Email,
+                               nv.TenTk,
+                               nv.MatKhau,
+                               nv.Quyen
+                           };
+            dgvNhanVien.DataSource = nhanVien.ToList();
+        }
+
+        private bool kiemTraNgoaiLe()
+        {
+            bool dulieuhople = false;
+            var user = (from item in db.NhanViens
+                        where txtMaNV.Text == item.MaNv
+                        select item).FirstOrDefault();
+            var tkuser = (from tentk in db.NhanViens
+                          where txtTenTaiKhoan.Text == tentk.TenTk
+                          select tentk).FirstOrDefault();
+            if (txtMaNV.Text != "")
+            {
+                if (txtHoTen.Text != "")
+                {
+                    int tuoi = DateTime.Now.Year - dtNgaySinh.Value.Year;
+                    if (tuoi >= 18)
+                    {
+                        if (txtCMT.Text != "")
+                        {
+                            if (txtDiaChi.Text != "")
+                            {
+                                if (txtSDT.Text != "")
+                                {
+                                    if (txtEmail.Text != "")
+                                    {
+                                        if (txtTenTaiKhoan.Text != "")
+                                        {
+                                            if (txtMatKhau.Text != "")
+                                            {
+                                                if (user == null)
+                                                {
+                                                    if (tkuser == null)
+                                                    {
+                                                        dulieuhople = true;
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Tên tài khoản đã tồn tại");
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Mã nhân viên đã tồn tại");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Bạn chưa nhập mật khẩu cho tài khoản nhân viên");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Bạn chưa nhập tên tài khoản nhân viên");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Bạn chưa nhập email nhân viên");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Bạn chưa nhập số điện thoại nhân viên");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Bạn chưa nhập địa chỉ nhân viên");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn chưa nhập số chứng minh thư của nhân viên");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tuổi phải lớn hơn 18");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa nhập họ tên nhân viên");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa nhập mã nhân viên");
+                txtMaNV.Focus();
+            }
+            return dulieuhople;
         }
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            NhanVien nvMoi = new NhanVien();
-            nvMoi.MaNv = txtMaNV.Text;
-            nvMoi.HoTenNv = txtHoTen.Text;
-            if (radNam.Checked == true)
+            if (kiemTraNgoaiLe())
             {
-                nvMoi.GioiTinh = "Nam";
-            }
-            else if (radNu.Checked == true)
-            {
-                nvMoi.GioiTinh = "Nữ";
-            }
-            nvMoi.NgaySinh = dtNgaySinh.Value;
-            nvMoi.Cmt = txtCMT.Text;
-            nvMoi.DiaChi = txtDiaChi.Text;
-            nvMoi.Sdt = txtSDT.Text;
-            nvMoi.Email = txtEmail.Text;
-            nvMoi.TenTk = txtTenTaiKhoan.Text;
-            nvMoi.MatKhau = txtMatKhau.Text;
-            nvMoi.Quyen = cbQuyen.SelectedValue.ToString();
+                NhanVien nvMoi = new NhanVien();
+                nvMoi.MaNv = txtMaNV.Text;
+                nvMoi.HoTenNv = txtHoTen.Text;
+                if (radNam.Checked == true)
+                {
+                    nvMoi.GioiTinh = "Nam";
+                }
+                else if (radNu.Checked == true)
+                {
+                    nvMoi.GioiTinh = "Nữ";
+                }
+                nvMoi.NgaySinh = dtNgaySinh.Value;
+                nvMoi.Cmt = txtCMT.Text;
+                nvMoi.DiaChi = txtDiaChi.Text;
+                nvMoi.Sdt = txtSDT.Text;
+                nvMoi.Email = txtEmail.Text;
+                nvMoi.TenTk = txtTenTaiKhoan.Text;
+                nvMoi.MatKhau = txtMatKhau.Text;
+                nvMoi.Quyen = cbQuyen.SelectedValue.ToString();
 
-            db.NhanViens.Add(nvMoi);
-            db.SaveChanges();
-            HienThiDuLieu();
+                db.NhanViens.Add(nvMoi);
+                db.SaveChanges();
+                HienThiDuLieu();
+                MessageBox.Show("Thêm thành công");
+            }
         }
 
         private void btSua_Click(object sender, EventArgs e)
@@ -97,9 +208,21 @@ namespace QLCuaHangJuno
                               where nv.MaNv == txtMaNV.Text
                               select nv).FirstOrDefault();
 
-            db.Remove(nvXoa);
-            db.SaveChanges();
-            HienThiDuLieu();
+            if (nvXoa != null)
+            {
+                DialogResult tl = MessageBox.Show("Bạn muốn xóa nhân viên " + nvXoa.HoTenNv + "?", "Cập nhật dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (tl == DialogResult.Yes)
+                {
+                    db.Remove(nvXoa);
+                    db.SaveChanges();
+                    HienThiDuLieu();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có nhân viên " + txtMaNV.Text);
+            }
         }
     }
 }

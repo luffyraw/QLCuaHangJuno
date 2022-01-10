@@ -13,13 +13,12 @@ namespace QLCuaHangJuno
 {
     public partial class DangNhap : Form
     {
-        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
+        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
+        NhanVien nv = new NhanVien();
         public DangNhap()
         {
             InitializeComponent();
         }
-
-        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
         private void DangNhap_Load(object sender, EventArgs e)
         {
             txtTenDangNhap.Focus();
@@ -30,25 +29,46 @@ namespace QLCuaHangJuno
             var user = (from item in jn.NhanViens
                         where txtTenDangNhap.Text == item.TenTk && txtMatKhau.Text == item.MatKhau
                         select item).FirstOrDefault();
-            if (user == null)
+            if (txtTenDangNhap.Text != "")
             {
+                if (txtMatKhau.Text != "")
+                {
+                    if (user == null)
+                    {
 
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác không chính xác");
+                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác");
 
+                    }
+                    else
+                    {
+                        if (user.Quyen == "Quản lý")
+                        {
+                            GiaoDienAdmin admin = new GiaoDienAdmin();
+                            admin.Show();
+                        }
+                        else if (user.Quyen == "Nhân viên")
+                        {
+                            GiaoDienNhanVien nhanVien = new GiaoDienNhanVien(user);
+                            nhanVien.Show();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu không được để trống");
+                    txtMatKhau.Focus();
+                }
             }
             else
             {
-                if (user.Quyen == "Quản lý")
-                {
-                    GiaoDienAdmin admin = new GiaoDienAdmin();
-                    admin.Show();
-                }
-                else if (user.Quyen == "Nhân viên")
-                {
-                    GiaoDienNhanVien nhanVien = new GiaoDienNhanVien();
-                    nhanVien.Show();
-                }
+                MessageBox.Show("Tên đăng nhập không được để trống");
+                txtTenDangNhap.Focus();
             }
+        }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }

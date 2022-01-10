@@ -10,6 +10,7 @@ namespace QLCuaHangJuno.DataModel
         public HoaDonBanHang()
         {
             HoaDonBanHangSanPhams = new HashSet<HoaDonBanHangSanPham>();
+            PhieuBaoHanhs = new HashSet<PhieuBaoHanh>();
         }
 
         public string MaHd { get; set; }
@@ -22,5 +23,6 @@ namespace QLCuaHangJuno.DataModel
         public virtual KhachHang MaKhNavigation { get; set; }
         public virtual NhanVien MaNvNavigation { get; set; }
         public virtual ICollection<HoaDonBanHangSanPham> HoaDonBanHangSanPhams { get; set; }
+        public virtual ICollection<PhieuBaoHanh> PhieuBaoHanhs { get; set; }
     }
 }
