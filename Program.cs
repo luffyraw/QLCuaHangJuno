@@ -19,7 +19,7 @@ namespace QLCuaHangJuno
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-               Application.Run(new ThongKeNhanVien());
+               Application.Run(new ThongKeSanPham());
 
 
             //do

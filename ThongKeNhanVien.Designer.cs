@@ -76,11 +76,11 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(133, 18);
+            this.label1.Location = new System.Drawing.Point(152, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1009, 60);
+            this.label1.Size = new System.Drawing.Size(1020, 59);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Báo cáo hoạt động nhân viên tháng 1 năm 2022";
+            this.label1.Text = "Thống kê hoạt động nhân viên tháng 1 năm 2022";
             // 
             // cb_thang
             // 
