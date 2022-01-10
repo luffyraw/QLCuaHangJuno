@@ -335,8 +335,6 @@ VAlUES
 ('KM2','SP007',20),
 ('KM2','SP008',20),
 ('KM3','SP009',30),
-('KM3','SP010',30),
-('KM3','SP010',30),
 ('KM3','SP010',30)
 
 
@@ -468,7 +466,10 @@ CREATE TABLE PhieuDatHang
 (
 	MaPhieuDat varchar(10) PRIMARY KEY,
 	NgayDat datetime NOT NULL,
-	ThoiHanGiaoHang date NOT NULL
+	ThoiHanGiaoHang date NOT NULL,
+	TrangThai nvarchar(100) NOT NULL,
+	MaNV varchar(10) NOT NULL,
+	CONSTRAINT fk_PhieuDatHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 )
 GO
 --Tạo bảng DatHang_SanPham

@@ -26,7 +26,5 @@ namespace QLCuaHangJuno.DataModel
         public virtual ICollection<DatHangSanPham> DatHangSanPhams { get; set; }
         public virtual ICollection<HoaDonBanHangSanPham> HoaDonBanHangSanPhams { get; set; }
         public virtual ICollection<NhapHangSanPham> NhapHangSanPhams { get; set; }
-
-
     }
 }

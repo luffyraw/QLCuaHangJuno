@@ -39,7 +39,7 @@ namespace QLCuaHangJuno
             {
                 if (user.Quyen == "Quản lý")
                 {
-                    GiaoDienAdmin admin = new GiaoDienAdmin();
+                    GiaoDienAdmin admin = new GiaoDienAdmin(user);
                     admin.Show();
                 }
                 else if (user.Quyen == "Nhân viên")

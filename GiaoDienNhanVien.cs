@@ -22,13 +22,19 @@ namespace QLCuaHangJuno
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HoaDonThanhToan hd = new HoaDonThanhToan(nv);
-            hd.Show();
+            //HoaDonThanhToan hd = new HoaDonThanhToan(nv);
+            //hd.Show();
         }
         private void trảHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DSPhieuTH form = new DSPhieuTH();
             form.Show();
+        }
+
+        private void đặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTaoPhieuNhapHang frm = new frmTaoPhieuNhapHang(nv);
+            frm.Show();
         }
     }
 }

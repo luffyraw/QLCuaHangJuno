@@ -33,19 +33,28 @@ namespace QLCuaHangJuno
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPhieuDat = new System.Windows.Forms.DataGridView();
-            this.MaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayDat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiHanGiaoHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboTrangThai = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.txtSearchMaPh = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnChiTietPh = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpDateEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateStart = new System.Windows.Forms.DateTimePicker();
+            this.btnSearchByDate = new System.Windows.Forms.Button();
+            this.MaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayDat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiHanGiaoHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuDat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPhieuDat
@@ -63,51 +72,21 @@ namespace QLCuaHangJuno
             this.dgvPhieuDat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhieu,
             this.NgayDat,
-            this.ThoiHanGiaoHang});
+            this.ThoiHanGiaoHang,
+            this.TrangThai});
             this.dgvPhieuDat.Location = new System.Drawing.Point(29, 143);
             this.dgvPhieuDat.Name = "dgvPhieuDat";
             this.dgvPhieuDat.RowHeadersWidth = 51;
             this.dgvPhieuDat.RowTemplate.Height = 29;
-            this.dgvPhieuDat.Size = new System.Drawing.Size(516, 235);
+            this.dgvPhieuDat.Size = new System.Drawing.Size(770, 235);
             this.dgvPhieuDat.TabIndex = 0;
             this.dgvPhieuDat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuDat_CellClick);
-            // 
-            // MaPhieu
-            // 
-            this.MaPhieu.DataPropertyName = "MaPhieuDat";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MaPhieu.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MaPhieu.HeaderText = "Mã phiếu đặt";
-            this.MaPhieu.MinimumWidth = 6;
-            this.MaPhieu.Name = "MaPhieu";
-            this.MaPhieu.Width = 130;
-            // 
-            // NgayDat
-            // 
-            this.NgayDat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NgayDat.DataPropertyName = "NgayDat";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NgayDat.DefaultCellStyle = dataGridViewCellStyle3;
-            this.NgayDat.HeaderText = "Ngày đặt";
-            this.NgayDat.MinimumWidth = 6;
-            this.NgayDat.Name = "NgayDat";
-            this.NgayDat.Width = 94;
-            // 
-            // ThoiHanGiaoHang
-            // 
-            this.ThoiHanGiaoHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ThoiHanGiaoHang.DataPropertyName = "ThoiHanGiaoHang";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ThoiHanGiaoHang.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ThoiHanGiaoHang.HeaderText = "Thời hạn giao hàng";
-            this.ThoiHanGiaoHang.MinimumWidth = 6;
-            this.ThoiHanGiaoHang.Name = "ThoiHanGiaoHang";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(164, 18);
+            this.label1.Location = new System.Drawing.Point(282, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 37);
             this.label1.TabIndex = 1;
@@ -115,15 +94,23 @@ namespace QLCuaHangJuno
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboTrangThai);
             this.groupBox1.Controls.Add(this.btnTim);
-            this.groupBox1.Controls.Add(this.txtSearchMaPh);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(36, 74);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(228, 63);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm kiếm theo mã";
+            this.groupBox1.Text = "Lọc theo trạng thái";
+            // 
+            // cboTrangThai
+            // 
+            this.cboTrangThai.FormattingEnabled = true;
+            this.cboTrangThai.Location = new System.Drawing.Point(6, 25);
+            this.cboTrangThai.Name = "cboTrangThai";
+            this.cboTrangThai.Size = new System.Drawing.Size(137, 28);
+            this.cboTrangThai.TabIndex = 2;
             // 
             // btnTim
             // 
@@ -132,17 +119,9 @@ namespace QLCuaHangJuno
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(51, 29);
             this.btnTim.TabIndex = 1;
-            this.btnTim.Text = "Tìm";
+            this.btnTim.Text = "Lọc";
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // txtSearchMaPh
-            // 
-            this.txtSearchMaPh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearchMaPh.Location = new System.Drawing.Point(6, 26);
-            this.txtSearchMaPh.Name = "txtSearchMaPh";
-            this.txtSearchMaPh.Size = new System.Drawing.Size(138, 27);
-            this.txtSearchMaPh.TabIndex = 0;
             // 
             // btnThem
             // 
@@ -177,11 +156,114 @@ namespace QLCuaHangJuno
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.dtpDateEnd);
+            this.groupBox2.Controls.Add(this.dtpDateStart);
+            this.groupBox2.Controls.Add(this.btnSearchByDate);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(270, 74);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(529, 63);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tìm kiếm theo thời gian";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(230, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "đến ngày:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Từ ngày:";
+            // 
+            // dtpDateEnd
+            // 
+            this.dtpDateEnd.CustomFormat = "dd-MM-yyyy";
+            this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateEnd.Location = new System.Drawing.Point(313, 24);
+            this.dtpDateEnd.Name = "dtpDateEnd";
+            this.dtpDateEnd.Size = new System.Drawing.Size(134, 27);
+            this.dtpDateEnd.TabIndex = 3;
+            // 
+            // dtpDateStart
+            // 
+            this.dtpDateStart.CustomFormat = "dd-MM-yyyy";
+            this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateStart.Location = new System.Drawing.Point(90, 24);
+            this.dtpDateStart.Name = "dtpDateStart";
+            this.dtpDateStart.Size = new System.Drawing.Size(134, 27);
+            this.dtpDateStart.TabIndex = 2;
+            // 
+            // btnSearchByDate
+            // 
+            this.btnSearchByDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchByDate.Location = new System.Drawing.Point(465, 23);
+            this.btnSearchByDate.Name = "btnSearchByDate";
+            this.btnSearchByDate.Size = new System.Drawing.Size(51, 29);
+            this.btnSearchByDate.TabIndex = 1;
+            this.btnSearchByDate.Text = "Tìm";
+            this.btnSearchByDate.UseVisualStyleBackColor = true;
+            this.btnSearchByDate.Click += new System.EventHandler(this.btnSearchByDate_Click);
+            // 
+            // MaPhieu
+            // 
+            this.MaPhieu.DataPropertyName = "MaPhieuDat";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaPhieu.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MaPhieu.HeaderText = "Mã phiếu đặt";
+            this.MaPhieu.MinimumWidth = 6;
+            this.MaPhieu.Name = "MaPhieu";
+            this.MaPhieu.Width = 130;
+            // 
+            // NgayDat
+            // 
+            this.NgayDat.DataPropertyName = "NgayDat";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NgayDat.DefaultCellStyle = dataGridViewCellStyle3;
+            this.NgayDat.HeaderText = "Ngày đặt";
+            this.NgayDat.MinimumWidth = 6;
+            this.NgayDat.Name = "NgayDat";
+            this.NgayDat.Width = 170;
+            // 
+            // ThoiHanGiaoHang
+            // 
+            this.ThoiHanGiaoHang.DataPropertyName = "ThoiHanGiaoHang";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ThoiHanGiaoHang.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ThoiHanGiaoHang.HeaderText = "Thời hạn giao hàng";
+            this.ThoiHanGiaoHang.MinimumWidth = 6;
+            this.ThoiHanGiaoHang.Name = "ThoiHanGiaoHang";
+            this.ThoiHanGiaoHang.Width = 200;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            // 
             // frmPhieuDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 462);
+            this.ClientSize = new System.Drawing.Size(810, 462);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnChiTietPh);
             this.Controls.Add(this.btnThem);
@@ -193,7 +275,8 @@ namespace QLCuaHangJuno
             this.Load += new System.EventHandler(this.frmPhieuDatHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuDat)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,12 +288,19 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox txtSearchMaPh;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnChiTietPh;
+        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtpDateEnd;
+        private System.Windows.Forms.DateTimePicker dtpDateStart;
+        private System.Windows.Forms.Button btnSearchByDate;
+        private System.Windows.Forms.ComboBox cboTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayDat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThoiHanGiaoHang;
-        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
 }

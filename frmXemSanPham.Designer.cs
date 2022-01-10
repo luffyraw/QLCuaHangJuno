@@ -211,7 +211,7 @@ namespace QLCuaHangJuno
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(80, 29);
             this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Làm mới";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 

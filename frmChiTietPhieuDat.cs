@@ -24,10 +24,17 @@ namespace QLCuaHangJuno
         {
             var phieu = (from ph in db.PhieuDatHangs
                          where ph.MaPhieuDat == this.Tag.ToString()
-                         select ph).FirstOrDefault();
+                         select new
+                         {
+                             MaPhieuDat = ph.MaPhieuDat,
+                             NgayDat = ph.NgayDat.ToString("dd-MM-yyyy HH:mm:ss"),
+                             ThoiHanGiaoHang = ph.ThoiHanGiaoHang.ToString("dd-MM-yyyy"),
+                             NguoiDat = ph.MaNvNavigation.HoTenNv
+                         }).FirstOrDefault();
             lblMaPhieuD.Text = phieu.MaPhieuDat;
-            lblNgayLap.Text = phieu.NgayDat.ToString("dd-MM-yyyy HH:mm:ss");
-            lblThoiHanGiaoHang.Text = phieu.ThoiHanGiaoHang.ToString("dd-MM-yyyy");
+            lblNgayLap.Text = phieu.NgayDat;
+            lblThoiHanGiaoHang.Text = phieu.ThoiHanGiaoHang;
+            lblNguoiDat.Text = phieu.NguoiDat;
             var sps = from spd in db.DatHangSanPhams
                       where spd.MaPhieuDat == this.Tag.ToString()
                       select new
@@ -46,6 +53,10 @@ namespace QLCuaHangJuno
                                   SoLuongDat = spd.SoLuongDat
                               };
             dgvSanPhamDat.DataSource = sanPhamDats.ToList();
+            for(int i = 0; i < dgvSanPhamDat.Rows.Count; i++)
+            {
+                dgvSanPhamDat.Rows[i].Cells[0].Value = i + 1;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -78,7 +89,7 @@ namespace QLCuaHangJuno
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Rectangle pagearea = e.PageBounds;
-            e.Graphics.DrawImage(memoryimg, (pagearea.Width / 2) - (this.panelPrint.Width / 2), this.panelPrint.Location.Y);
+            e.Graphics.DrawImage(memoryimg, this.panelPrint.Location.X, this.panelPrint.Location.Y);
 
         }
     }

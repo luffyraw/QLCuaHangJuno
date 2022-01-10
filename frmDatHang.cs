@@ -13,11 +13,14 @@ namespace QLCuaHangJuno
 {
     public partial class frmDatHang : Form
     {
-        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();    
+        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         int index = 0;
         int rowDelete = -1;
-        public frmDatHang()
+        NhanVien nv = new NhanVien();
+
+        public frmDatHang(NhanVien nv)
         {
+            this.nv = nv;
             InitializeComponent();
         }
 
@@ -28,13 +31,14 @@ namespace QLCuaHangJuno
             txtMaPhieuD.Text = MaPhieuDat();
             dtpNgayLap.Value = DateTime.Now;
             dtpThoiHanGiaoHang.Value = DateTime.Now.AddDays(7);
+            lblNguoiDat.Text = nv.HoTenNv;
         }
 
         private void txtMaSp_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-                if(txtMaSp.Text != "")
+                if (txtMaSp.Text != "")
                 {
                     var querySP = (from sp in db.SanPhams
                                    where sp.MaSp == txtMaSp.Text
@@ -47,9 +51,9 @@ namespace QLCuaHangJuno
                                        DonGia = sp.DonGia,
                                        LoaiSp = sp.MaLoaiSpNavigation.TenLoaiSp
                                    }).FirstOrDefault();
-                    if(querySP != null)
+                    if (querySP != null)
                     {
-                        errorProvider1.SetError(txtMaSp, null);
+
 
                         txtTenSp.Text = querySP.TenSp;
                         txtKieuDang.Text = querySP.KieuDang;
@@ -71,16 +75,16 @@ namespace QLCuaHangJuno
                                       where kc.MaSp == querySP.MaSp && kc.MaMau == cboMau.SelectedValue.ToString()
                                       select new
                                       {
-                                         MaKC = kc.MaKc,
-                                         KichCo = kc.MaKcNavigation.KichCo1
-                                       }).Distinct();
-                         cboKichCo.DataSource = listKC.ToList();
-                         cboKichCo.DisplayMember = "KichCo";
-                         cboKichCo.ValueMember = "MaKC";   
+                                          MaKC = kc.MaKc,
+                                          KichCo = kc.MaKcNavigation.KichCo1
+                                      }).Distinct();
+                        cboKichCo.DataSource = listKC.ToList();
+                        cboKichCo.DisplayMember = "KichCo";
+                        cboKichCo.ValueMember = "MaKC";
                     }
                     else
                     {
-                        errorProvider1.SetError(txtMaSp, "Không tồn tại sản phẩm có mã "+ txtMaSp.Text + " .");
+                        MessageBox.Show("Không tồn tại sản phẩm có mã " + txtMaSp.Text + " .");
                     }
                 }
             }
@@ -88,17 +92,26 @@ namespace QLCuaHangJuno
         private bool KiemTraDuLieuAddSP()
         {
             bool duLieuHopLe = false;
-            if(txtMaSp.Text != "")
+            if (txtMaSp.Text != "")
             {
                 errorProvider1.SetError(txtMaSp, null);
-                if(txtSoLuongDat.Text != "")
+                if (txtSoLuongDat.Text != "")
                 {
                     errorProvider1.SetError(txtSoLuongDat, null);
                     try
                     {
                         int soLuong = int.Parse(txtSoLuongDat.Text);
                         errorProvider1.SetError(txtSoLuongDat, null);
-                        duLieuHopLe = true;
+                        if (soLuong > 0)
+                        {
+                            errorProvider1.SetError(txtSoLuongDat, null);
+                            duLieuHopLe = true;
+                        }
+                        else
+                        {
+                            errorProvider1.SetError(txtSoLuongDat, "Số lượng đặt phải >0.");
+                        }
+
                     }
                     catch (Exception ex)
                     {
@@ -120,16 +133,16 @@ namespace QLCuaHangJuno
         {
             if (KiemTraDuLieuAddSP())
             {
-                
+
                 int check = CheckDataGrid(txtMaSp.Text, cboMau.SelectedValue.ToString(), cboKichCo.SelectedValue.ToString());
                 if (check >= 0)
                 {
-                   DialogResult result = MessageBox.Show("Sản phẩm " + txtTenSp.Text + " màu " + cboMau.SelectedValue.ToString() +
-                      " cỡ " + cboKichCo.SelectedValue.ToString() + " đã có trong phiếu đặt. Bạn có muốn thay thế ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                   if(result == DialogResult.Yes)
-                   {
-                       dgvSanPhamDat.Rows[check].Cells[4].Value = txtSoLuongDat.Text;
-                   }
+                    DialogResult result = MessageBox.Show("Sản phẩm " + txtTenSp.Text + " màu " + cboMau.SelectedValue.ToString() +
+                       " cỡ " + cboKichCo.SelectedValue.ToString() + " đã có trong phiếu đặt. Bạn có muốn thay thế ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        dgvSanPhamDat.Rows[check].Cells[4].Value = txtSoLuongDat.Text;
+                    }
                 }
                 else
                 {
@@ -142,15 +155,15 @@ namespace QLCuaHangJuno
                     dgvSanPhamDat.Rows[index].Cells[3].Tag = cboKichCo.SelectedValue.ToString();
                     dgvSanPhamDat.Rows[index].Cells[4].Value = txtSoLuongDat.Text;
                     index++;
-                    
-                }     
+
+                }
             }
-            
+
         }
         private int CheckDataGrid(string maSP, string maMau, string maKC)
         {
             int check = -1;
-            for(int i = 0; i < index; i++)
+            for (int i = 0; i < index; i++)
             {
                 if (dgvSanPhamDat.Rows[i].Cells[0].Value.ToString() == maSP &&
                     dgvSanPhamDat.Rows[i].Cells[2].Value.ToString() == maMau &&
@@ -159,11 +172,11 @@ namespace QLCuaHangJuno
                     check = i;
                     break;
                 }
-                     
+
             }
             return check;
         }
-        
+
         private string MaPhieuDat()
         {
             var phieu = from item in db.PhieuDatHangs
@@ -174,11 +187,11 @@ namespace QLCuaHangJuno
             {
                 maPhieu = String.Format("{0}00{1}", "PD", soPhieu);
             }
-            else if(soPhieu < 100)
+            else if (soPhieu < 100)
             {
                 maPhieu = String.Format("{0}0{1}", "PD", soPhieu);
             }
-            else if(soPhieu < 1000)
+            else if (soPhieu < 1000)
             {
                 maPhieu = String.Format("{0}{1}", "PD", soPhieu);
             }
@@ -210,7 +223,7 @@ namespace QLCuaHangJuno
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(rowDelete >= 0)
+            if (rowDelete >= 0)
             {
                 dgvSanPhamDat.Rows.RemoveAt(rowDelete);
             }
@@ -228,9 +241,11 @@ namespace QLCuaHangJuno
                 phieu.MaPhieuDat = txtMaPhieuD.Text;
                 phieu.NgayDat = dtpNgayLap.Value;
                 phieu.ThoiHanGiaoHang = dtpThoiHanGiaoHang.Value;
+                phieu.TrangThai = "Chưa nhập";
+                phieu.MaNv = nv.MaNv;
                 db.PhieuDatHangs.Add(phieu);
-                
-                for(int i = 0; i < index; i++)
+
+                for (int i = 0; i < index; i++)
                 {
                     string maSPCT = (from spct in db.SanPhamChiTiets
                                      where (spct.MaSp == dgvSanPhamDat.Rows[i].Cells[0].Value.ToString()
@@ -241,11 +256,11 @@ namespace QLCuaHangJuno
                     dhsp.MaPhieuDat = phieu.MaPhieuDat;
                     dhsp.MaSpCt = maSPCT;
                     dhsp.SoLuongDat = int.Parse(dgvSanPhamDat.Rows[i].Cells[4].Value.ToString());
-                    db.DatHangSanPhams.Add(dhsp);  
+                    db.DatHangSanPhams.Add(dhsp);
                 }
                 db.SaveChanges();
                 this.Close();
-                
+
             }
         }
     }

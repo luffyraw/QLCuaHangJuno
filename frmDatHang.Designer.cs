@@ -54,6 +54,10 @@ namespace QLCuaHangJuno
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblNguoiDat = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnDatHang = new System.Windows.Forms.Button();
@@ -121,7 +125,7 @@ namespace QLCuaHangJuno
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(77, 29);
             this.btnReset.TabIndex = 19;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Làm mới";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -292,6 +296,10 @@ namespace QLCuaHangJuno
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.lblNguoiDat);
+            this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.dtpNgayLap);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnDatHang);
@@ -305,10 +313,46 @@ namespace QLCuaHangJuno
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(473, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(636, 477);
+            this.groupBox2.Size = new System.Drawing.Size(708, 534);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin phiếu đặt";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(142, 142);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(409, 23);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Công ty cổ phần sản xuất thương mại dịch vụ JUNO";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 142);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(121, 23);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Nhà cung cấp:";
+            // 
+            // lblNguoiDat
+            // 
+            this.lblNguoiDat.AutoSize = true;
+            this.lblNguoiDat.Location = new System.Drawing.Point(112, 109);
+            this.lblNguoiDat.Name = "lblNguoiDat";
+            this.lblNguoiDat.Size = new System.Drawing.Size(115, 23);
+            this.lblNguoiDat.TabIndex = 34;
+            this.lblNguoiDat.Text = "Trần Văn Thìn";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 23);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Người đặt:";
             // 
             // dtpNgayLap
             // 
@@ -322,7 +366,7 @@ namespace QLCuaHangJuno
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(220, 420);
+            this.btnXoa.Location = new System.Drawing.Point(220, 485);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(83, 29);
             this.btnXoa.TabIndex = 28;
@@ -332,7 +376,7 @@ namespace QLCuaHangJuno
             // 
             // btnDatHang
             // 
-            this.btnDatHang.Location = new System.Drawing.Point(108, 420);
+            this.btnDatHang.Location = new System.Drawing.Point(108, 485);
             this.btnDatHang.Name = "btnDatHang";
             this.btnDatHang.Size = new System.Drawing.Size(94, 29);
             this.btnDatHang.TabIndex = 27;
@@ -351,6 +395,7 @@ namespace QLCuaHangJuno
             // 
             // dgvSanPhamDat
             // 
+            this.dgvSanPhamDat.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -366,11 +411,11 @@ namespace QLCuaHangJuno
             this.Mau,
             this.KichCo,
             this.SoLuongDat});
-            this.dgvSanPhamDat.Location = new System.Drawing.Point(15, 155);
+            this.dgvSanPhamDat.Location = new System.Drawing.Point(15, 209);
             this.dgvSanPhamDat.Name = "dgvSanPhamDat";
             this.dgvSanPhamDat.RowHeadersWidth = 51;
             this.dgvSanPhamDat.RowTemplate.Height = 29;
-            this.dgvSanPhamDat.Size = new System.Drawing.Size(618, 239);
+            this.dgvSanPhamDat.Size = new System.Drawing.Size(693, 239);
             this.dgvSanPhamDat.TabIndex = 25;
             this.dgvSanPhamDat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPhamDat_CellClick);
             // 
@@ -384,12 +429,11 @@ namespace QLCuaHangJuno
             // 
             // TenSp
             // 
-            this.TenSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.TenSp.DataPropertyName = "TenSp";
             this.TenSp.HeaderText = "Tên sản phẩm";
             this.TenSp.MinimumWidth = 6;
             this.TenSp.Name = "TenSp";
-            this.TenSp.Width = 148;
+            this.TenSp.Width = 220;
             // 
             // Mau
             // 
@@ -409,17 +453,17 @@ namespace QLCuaHangJuno
             // 
             // SoLuongDat
             // 
+            this.SoLuongDat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoLuongDat.DataPropertyName = "SoLuongDat";
             this.SoLuongDat.HeaderText = "Số lượng đặt";
             this.SoLuongDat.MinimumWidth = 6;
             this.SoLuongDat.Name = "SoLuongDat";
-            this.SoLuongDat.Width = 140;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(15, 129);
+            this.label14.Location = new System.Drawing.Point(15, 183);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(169, 23);
             this.label14.TabIndex = 23;
@@ -468,7 +512,7 @@ namespace QLCuaHangJuno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 651);
+            this.ClientSize = new System.Drawing.Size(1218, 651);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -518,14 +562,18 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.TextBox txtMaPhieuD;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnDatHang;
+        private System.Windows.Forms.DateTimePicker dtpNgayLap;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mau;
         private System.Windows.Forms.DataGridViewTextBoxColumn KichCo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDat;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnDatHang;
-        private System.Windows.Forms.DateTimePicker dtpNgayLap;
+        private System.Windows.Forms.Label lblNguoiDat;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }
