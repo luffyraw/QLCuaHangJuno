@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangJuno.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace QLCuaHangJuno
 {
     public partial class GiaoDienAdmin : Form
     {
-       NhanVien nv = new NhanVien();
+
+        NhanVien nv = new NhanVien();
         public GiaoDienAdmin(NhanVien nv)
         {
             this.nv = nv;
@@ -75,6 +77,7 @@ namespace QLCuaHangJuno
         {
             frmPhieuNhapHang frm = new frmPhieuNhapHang(nv);
             frm.Show();
+
         }
     }
 }

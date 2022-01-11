@@ -15,13 +15,16 @@ namespace QLCuaHangJuno
         //Cơ sở dữ liệu
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         HoaDonBanHang hd = new HoaDonBanHang();
+
         List<HoaDonBanHangSanPham> listsp = new List<HoaDonBanHangSanPham>();
+
         double tongtien = 0;
         double gghd = 0;
         double thanhtien = 0;
         KhachHang kh = new KhachHang();
 
         NhanVien nv = new NhanVien();
+
         public HoaDonThanhToan(NhanVien nv)
         {
             this.nv = nv;
@@ -72,9 +75,8 @@ namespace QLCuaHangJuno
                 DatSoLuongMax();
                 //Khuyến mãi
                 var km = (from item in db.KhuyenMaiSanPhams where item.MaSp == txt_masp.Text select item).FirstOrDefault();
-                if (km != null) txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
-                if (txt_giamgia.Text == null) txt_giamgia.Text = "0";
-
+                txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
+                
                 //Hiển thị tổng tiền
                 txt_thanhtien.Text = TinhTienSP().ToString();
             }
@@ -84,8 +86,6 @@ namespace QLCuaHangJuno
         {
             //Gợi ý mã sản phẩm
             autoCompleteSP();
-            //Gợi ý tên khách hàng
-            autoCompleteKH();
             //Gợi ý số điện thoại
             autoCompleteSDT();
             //Đặt giá trị mặc định
@@ -174,7 +174,7 @@ namespace QLCuaHangJuno
             var list = from item in listsp
                        join a in db.SanPhamChiTiets on item.MaSpCt equals a.MaSpCt
                        join b in db.SanPhams on a.MaSp equals b.MaSp
-                       join e in db.KhuyenMaiSanPhams on a.MaSp equals e.MaSp
+                       join e in db.KhuyenMaiSanPhams on b.MaSp equals e.MaSp
                        join c in db.Maus on a.MaMau equals c.MaMau
                        join d in db.KichCos on a.MaKc equals d.MaKc
                        select new
@@ -225,17 +225,17 @@ namespace QLCuaHangJuno
                 return;
             }
             //Kiểm tra khách hàng
-            kh = (from item in db.KhachHangs
+            var kh1 = (from item in db.KhachHangs
                   where txt_hotenKH.Text == item.HoTenKh && txt_sdtKH.Text == item.Sdt
                   select item).FirstOrDefault();
-            if (kh == null)
+            if (kh1 == null)
             {
                 MessageBox.Show("Không tìm thấy khách hàng này.\n Bạn cần thêm khách hàng trước");
                 return;
             }
             else
             {
-                hd.MaKh = kh.MaKh;
+                hd.MaKh = kh1.MaKh;
             }
             //Thêm hóa đơn vào csdl
             db.HoaDonBanHangs.Add(hd);
@@ -250,11 +250,17 @@ namespace QLCuaHangJuno
             }
 
             db.SaveChanges();
-            MessageBox.Show("Lưu thành công");
-            HoaDonThanhToan hdtt = new HoaDonThanhToan(nv);
-            hdtt.Show();
-            this.Close();
 
+            listsp = new List<HoaDonBanHangSanPham>();
+            HoaDonThanhToan_Load(sender, e);
+            HienThiDataGrid();
+            button1_Click(sender, e);
+            txt_diachiKH.Text = "";
+            txt_hotenKH.Text = "";
+            txt_sdtKH.Text = "";
+
+            MessageBox.Show("Lưu thành công");
+            
         }
 
         private void num_soluong_ValueChanged(object sender, EventArgs e)
@@ -300,19 +306,6 @@ namespace QLCuaHangJuno
             txt_masp.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txt_masp.AutoCompleteCustomSource = autoCompleteSP;
         }
-        //Gợi ý tên khách hàng
-        private void autoCompleteKH()
-        {
-            AutoCompleteStringCollection autoCompleteKH = new AutoCompleteStringCollection();
-            var KHList = from item in db.KhachHangs select item;
-            foreach (var item in KHList)
-            {
-                autoCompleteKH.Add(item.HoTenKh);
-            }
-            txt_hotenKH.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txt_hotenKH.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txt_hotenKH.AutoCompleteCustomSource = autoCompleteKH;
-        }
         private void ThongTinHoaDon()
         {
             //tự sinh thông tin hóa đơn
@@ -325,6 +318,7 @@ namespace QLCuaHangJuno
             hd.MaGg = "GG000";
             lb_manv.Text = "Mã nhân viên: " + nv.MaNv;
             lb_hotennv.Text = "Họ tên: " + nv.HoTenNv;
+
         }
         private string maHD()
         {
@@ -409,42 +403,58 @@ namespace QLCuaHangJuno
                 txt_hotenKH.Focus();
                 return;
             }
-            if (txt_sdtKH.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập số điện thoại");
-                txt_sdtKH.Focus();
-                return;
-            }
-            double sdt;
-            if (!double.TryParse(txt_sdtKH.Text, out sdt) && txt_sdtKH.Text.Length != 10)
-            {
-                MessageBox.Show("Số điện thoại phải là 10 ký tự số");
-                txt_sdtKH.Focus();
-                return;
-            }
-            if (txt_diachiKH.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập địa chỉ");
-                txt_diachiKH.Focus();
-                return;
-            }
+                double sdt;
+                if (!double.TryParse(txt_sdtKH.Text, out sdt) && txt_sdtKH.Text.Length < 10)
+                {
+                    MessageBox.Show("Số điện thoại phải lớn 10 ký tự số");
+                    txt_sdtKH.Focus();
+                    return;
+                }
+                   
+
             kh.MaKh = "KH" + (db.KhachHangs.Count() + 1).ToString();
+
             kh.HoTenKh = txt_hotenKH.Text;
             kh.Sdt = txt_sdtKH.Text;
             kh.DiaChi = txt_diachiKH.Text;
+
+            var KH = (from item in db.KhachHangs
+                      where item.HoTenKh == txt_hotenKH.Text
+                      select item).FirstOrDefault();
+            if (KH != null)
+            {
+                MessageBox.Show("Khách hàng này đã có trong cơ sở dữ liệu");
+                return;
+            }
+
             DialogResult dialogResult = MessageBox.Show("Thêm khách hàng:\n Mã khách hàng: " + kh.MaKh + "\nHọ tên: " + kh.HoTenKh + "\nSố điện thoại: " + kh.Sdt + "\n Địa chỉ: " + kh.DiaChi, "Xác nhận", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 db.KhachHangs.Add(kh);
-                db.SaveChanges();
             }
             else if (dialogResult == DialogResult.No)
             {
 
             }
+            db.SaveChanges();
 
 
 
+        }
+
+        private void txt_hotenKH_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txt_sdtKH_TextChanged(object sender, EventArgs e)
+        {
+            var KH = db.KhachHangs.SingleOrDefault(item => item.Sdt == txt_sdtKH.Text);
+            if (KH != null)
+            {
+                txt_hotenKH.Text = KH.HoTenKh;
+                txt_diachiKH.Text = KH.DiaChi;
+            }
         }
     }
 }
