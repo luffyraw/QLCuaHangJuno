@@ -48,6 +48,9 @@ namespace QLCuaHangJuno
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -61,9 +64,9 @@ namespace QLCuaHangJuno
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(155, 91);
+            this.groupBox1.Location = new System.Drawing.Point(12, 77);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 178);
+            this.groupBox1.Size = new System.Drawing.Size(435, 178);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thêm khuyến mãi";
@@ -72,31 +75,31 @@ namespace QLCuaHangJuno
             // 
             this.dtpNgayKT.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKT.Location = new System.Drawing.Point(359, 122);
+            this.dtpNgayKT.Location = new System.Drawing.Point(210, 129);
             this.dtpNgayKT.Name = "dtpNgayKT";
             this.dtpNgayKT.Size = new System.Drawing.Size(175, 27);
-            this.dtpNgayKT.TabIndex = 13;
+            this.dtpNgayKT.TabIndex = 2;
             // 
             // dtpNgayBD
             // 
             this.dtpNgayBD.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayBD.Location = new System.Drawing.Point(359, 77);
+            this.dtpNgayBD.Location = new System.Drawing.Point(210, 84);
             this.dtpNgayBD.Name = "dtpNgayBD";
             this.dtpNgayBD.Size = new System.Drawing.Size(175, 27);
-            this.dtpNgayBD.TabIndex = 12;
+            this.dtpNgayBD.TabIndex = 1;
             // 
             // txtMaKM
             // 
-            this.txtMaKM.Location = new System.Drawing.Point(359, 33);
+            this.txtMaKM.Location = new System.Drawing.Point(210, 40);
             this.txtMaKM.Name = "txtMaKM";
             this.txtMaKM.Size = new System.Drawing.Size(175, 27);
-            this.txtMaKM.TabIndex = 7;
+            this.txtMaKM.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(222, 129);
+            this.label4.Location = new System.Drawing.Point(73, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 3;
@@ -105,7 +108,7 @@ namespace QLCuaHangJuno
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 84);
+            this.label3.Location = new System.Drawing.Point(73, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 20);
             this.label3.TabIndex = 2;
@@ -114,7 +117,7 @@ namespace QLCuaHangJuno
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 36);
+            this.label2.Location = new System.Drawing.Point(73, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 20);
             this.label2.TabIndex = 1;
@@ -124,7 +127,7 @@ namespace QLCuaHangJuno
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(441, 34);
+            this.label1.Location = new System.Drawing.Point(439, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 38);
             this.label1.TabIndex = 23;
@@ -146,11 +149,11 @@ namespace QLCuaHangJuno
             this.MaKM,
             this.NgayBatDau,
             this.NgayKetThuc});
-            this.dgvKM.Location = new System.Drawing.Point(302, 336);
+            this.dgvKM.Location = new System.Drawing.Point(527, 136);
             this.dgvKM.Name = "dgvKM";
             this.dgvKM.RowHeadersWidth = 51;
             this.dgvKM.RowTemplate.Height = 29;
-            this.dgvKM.Size = new System.Drawing.Size(482, 250);
+            this.dgvKM.Size = new System.Drawing.Size(482, 539);
             this.dgvKM.TabIndex = 24;
             this.dgvKM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKM_CellContentClick);
             // 
@@ -184,49 +187,79 @@ namespace QLCuaHangJuno
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(837, 284);
+            this.btnThoat.Location = new System.Drawing.Point(31, 481);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(94, 29);
-            this.btnThoat.TabIndex = 29;
+            this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(595, 284);
+            this.btnXoa.Location = new System.Drawing.Point(31, 381);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(94, 29);
-            this.btnXoa.TabIndex = 27;
+            this.btnXoa.TabIndex = 5;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(377, 284);
+            this.btnSua.Location = new System.Drawing.Point(279, 284);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(94, 29);
-            this.btnSua.TabIndex = 26;
+            this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(155, 284);
+            this.btnThem.Location = new System.Drawing.Point(31, 284);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 29);
-            this.btnThem.TabIndex = 25;
+            this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(279, 381);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(94, 29);
+            this.btnClear.TabIndex = 6;
+            this.btnClear.Text = "Làm mới";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtTimkiem
+            // 
+            this.txtTimkiem.Location = new System.Drawing.Point(699, 89);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(175, 27);
+            this.txtTimkiem.TabIndex = 8;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(904, 89);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(94, 29);
+            this.btnTimKiem.TabIndex = 9;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // frmKhuyenMai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 649);
+            this.ClientSize = new System.Drawing.Size(1135, 763);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.txtTimkiem);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -265,5 +298,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Button btnClear;
     }
 }

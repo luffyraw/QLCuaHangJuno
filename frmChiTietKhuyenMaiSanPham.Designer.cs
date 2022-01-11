@@ -46,6 +46,7 @@ namespace QLCuaHangJuno
             // 
             // cbMaKM
             // 
+            this.cbMaKM.Enabled = false;
             this.cbMaKM.FormattingEnabled = true;
             this.cbMaKM.Location = new System.Drawing.Point(381, 83);
             this.cbMaKM.Name = "cbMaKM";
@@ -63,6 +64,7 @@ namespace QLCuaHangJuno
             // 
             // txtTyLe
             // 
+            this.txtTyLe.Enabled = false;
             this.txtTyLe.Location = new System.Drawing.Point(381, 258);
             this.txtTyLe.Name = "txtTyLe";
             this.txtTyLe.Size = new System.Drawing.Size(175, 27);
@@ -70,6 +72,7 @@ namespace QLCuaHangJuno
             // 
             // cbMaLoaiSP
             // 
+            this.cbMaLoaiSP.Enabled = false;
             this.cbMaLoaiSP.FormattingEnabled = true;
             this.cbMaLoaiSP.Location = new System.Drawing.Point(381, 195);
             this.cbMaLoaiSP.Name = "cbMaLoaiSP";
@@ -78,6 +81,7 @@ namespace QLCuaHangJuno
             // 
             // cbMaSP
             // 
+            this.cbMaSP.Enabled = false;
             this.cbMaSP.FormattingEnabled = true;
             this.cbMaSP.Location = new System.Drawing.Point(381, 139);
             this.cbMaSP.Name = "cbMaSP";
@@ -114,6 +118,7 @@ namespace QLCuaHangJuno
             // dtpNgayKT
             // 
             this.dtpNgayKT.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayKT.Enabled = false;
             this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayKT.Location = new System.Drawing.Point(381, 360);
             this.dtpNgayKT.Name = "dtpNgayKT";
@@ -123,6 +128,7 @@ namespace QLCuaHangJuno
             // dtpNgayBD
             // 
             this.dtpNgayBD.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayBD.Enabled = false;
             this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayBD.Location = new System.Drawing.Point(381, 315);
             this.dtpNgayBD.Name = "dtpNgayBD";
@@ -177,7 +183,6 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.label5);
             this.Name = "frmChiTietKhuyenMaiSanPham";
             this.Text = "frmChiTietKhuyenMaiSanPham";
-            this.Load += new System.EventHandler(this.frmChiTietKhuyenMaiSanPham_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

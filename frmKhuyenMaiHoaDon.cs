@@ -31,6 +31,13 @@ namespace QLCuaHangJuno
                             Gg.TgketThuc,
                         };
             dgvKMHD.DataSource = query.ToList();
+            foreach (var item in db.GiamGiaHoaDons)
+            {
+                if (item.TgketThuc < DateTime.Now)
+                {
+                    db.Remove(item);
+                }
+            }
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -79,7 +86,7 @@ namespace QLCuaHangJuno
                                         errorProvider1.SetError(dtpNgayBD, null);
                                         {
                                             var ngaykt = dtpNgayKT.Value;
-                                            if (dtpNgayKT.Text != "" && ngaykt >= ngaybd)
+                                            if(ngaykt>=DateTime.Now && ngaykt>=ngaybd)
                                             {
                                                 errorProvider1.SetError(dtpNgayKT, null);
                                                 duLieuHopLe = true;
@@ -203,5 +210,35 @@ namespace QLCuaHangJuno
             
             this.Close();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = from km in db.GiamGiaHoaDons
+                        where (km.MaGg == txtTimkiem.Text
+                               || km.TyLeGiamGia.ToString() == txtTimkiem.Text
+                               || km.DieuKienApDung.ToString() == txtTimkiem.Text)
+                        select km;
+            if (query.Count() > 0)
+            {
+                dgvKMHD.DataSource = query.ToList();
+            }
+            else
+            {
+                HienThiDuLieu();
+                MessageBox.Show("Không tồn tại " + txtTimkiem.Text);
+            }
+
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtMaKM.Text = "";
+            txtTiLe.Text = "";
+            txtDK.Text = "";
+            dtpNgayBD.Value = DateTime.Now;
+            dtpNgayKT.Value = DateTime.Now;
+        }
+
+
     }
 }
