@@ -546,12 +546,7 @@ namespace QLCuaHangJuno.DataModel
 
                 entity.Property(e => e.TienThua).HasColumnType("money");
 
-                entity.HasOne(d => d.MaHdNavigation)
-                    .WithMany(p => p.PhieuDoiHangs)
-                    .HasForeignKey(d => d.MaHd)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_PhieuTraHangg_hoadonbanhang");
-
+             
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.PhieuDoiHangs)
                     .HasForeignKey(d => d.MaNv)
@@ -646,11 +641,7 @@ namespace QLCuaHangJuno.DataModel
 
                 entity.Property(e => e.TienThua).HasColumnType("money");
 
-                entity.HasOne(d => d.MaHdNavigation)
-                    .WithMany(p => p.PhieuDoiHangs)
-                    .HasForeignKey(d => d.MaHd)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_PhieuTraHangg_hoadonbanhang");
+         
 
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.PhieuDoiHangs)

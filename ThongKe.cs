@@ -39,29 +39,32 @@ namespace QLCuaHangJuno
             string[] tkhd = new string[12];
             string[] tksp = new string[12];
             string[] tkdt = new string[12];
-
-            for (int i = 1; i <= 12; i++)
+            if (tk!=null)
             {
-                int sohd = 0;
-                int sosp = 0;
-                double dt = 0;
-                foreach (var item in tk.ToList())
+                for (int i = 1; i <= 12; i++)
                 {
-                    if (item.thang == i)
+                    int sohd = 0;
+                    int sosp = 0;
+                    double dt = 0;
+                    foreach (var item in tk.ToList())
                     {
-                        sohd++;
-                        sosp += item.sl;
-                        dt += ((double)item.gia);
+                        if (item.thang == i)
+                        {
+                            sohd++;
+                            sosp += item.sl;
+                            dt += ((double)item.gia);
+                        }
                     }
-                }
-                tonghd += sohd;
-                tongsp += sosp;
-                tongdt += dt;
-                tkhd[i - 1] = sohd.ToString();
-                tksp[i - 1] = sosp.ToString();
-                tkdt[i - 1] = dt.ToString();
+                    tonghd += sohd;
+                    tongsp += sosp;
+                    tongdt += dt;
+                    tkhd[i - 1] = sohd.ToString();
+                    tksp[i - 1] = sosp.ToString();
+                    tkdt[i - 1] = dt.ToString();
 
+                }
             }
+           
             //Hiển thị tổng
             lb_tongdh.Text = "Tổng số hóa đơn: " + tonghd;
             lb_tongsp.Text = "Tổng số sản phẩm: " + tongsp;

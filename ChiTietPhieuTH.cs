@@ -33,8 +33,8 @@ namespace QLCuaHangJuno
             maPhieuTH = a;
             lbMaPTH.Text = a;
             var pth = (from p in db.PhieuTraHangs
-                                where p.MaPhieuTra == a
-                                select p).ToList();
+                       where p.MaPhieuTra == a
+                       select p).ToList();
             if (pth.Count > 0)
             {
                 lbNgayNhap.Text = pth.FirstOrDefault().NgayLap.ToString("dd/MM/yyyy");
@@ -82,7 +82,7 @@ namespace QLCuaHangJuno
             {
                 MessageBox.Show("ERR: Không tìm thấy phiếu trả với vã bạn nhập !");
             }
-            
+
         }
         private void label5_Click(object sender, EventArgs e)
         {
@@ -101,21 +101,21 @@ namespace QLCuaHangJuno
 
         private void ChiTietPhieuTH_Load(object sender, EventArgs e)
         {
-            PhieuTraHang pth = (from p in db.PhieuTraHangs
+            /*PhieuTraHang pth = (from p in db.PhieuTraHangs
                                 where p.MaPhieuTra == this.maPhieuTH
                                 select p).FirstOrDefault();
 
             lbNgayNhap.Text = pth.NgayLap.ToString("dd/MM/yyyy");
             lbMaHD.Text = pth.MaHd;
-
+            
             NhanVien nv = (from n in db.NhanViens
                            where n.MaNv == pth.MaNv
                            select n).FirstOrDefault();
             lbTenNVTN.Text = nv.HoTenNv;
             lbMaNV.Text = nv.MaNv;
             HoaDonBanHang hd = (from h in db.HoaDonBanHangs
-                                where h.MaHd == pth.MaHd
-                                select h).FirstOrDefault();
+                           where h.MaHd == pth.MaHd
+                           select h).FirstOrDefault();
 
             KhachHang kh = (from k in db.KhachHangs
                             where k.MaKh == hd.MaKh
@@ -124,7 +124,7 @@ namespace QLCuaHangJuno
             lbTenKh.Text = kh.HoTenKh;
             lbSDTKH.Text = kh.Sdt;
             lbDCKH.Text = kh.DiaChi;
-            lbTenKH2.Text = kh.HoTenKh;
+            lbTenKH2.Text = kh.HoTenKh;*/
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -134,40 +134,49 @@ namespace QLCuaHangJuno
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
             try
             {
-                string filename = "D:/LT_WINDOW/BTL/QLCuaHangJuno/PhieuTraHang/"+lbMaPTH.Text+".pdf";
+                string filename = "D:/LT_WINDOW/BTL/QLCuaHangJuno/PhieuTraHang/" + lbMaPTH.Text + ".pdf";
                 iTextSharp.text.Document document = new Document();
                 PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
                 document.Open();
                 Paragraph p = new Paragraph("PHIẾU TIẾP NHẬN TRẢ HÀNG\n"
-                +"Mã phiếu : "+lbMaPTH.Text+ "\t\t Ngày lập : "+lbNgayNhap.Text+"\n"
-                +"Mã hóa đơn : "+lbMaHD.Text+"\n\n"
-                +"Thông tin khách hàng"+"\n"
-                +"Họ tên KH : "+lbTenKh.Text+"\n"
-                +"SDT KH : "+lbSDTKH.Text+"\n"
-                +"Địa chỉ KH : "+lbDCKH.Text+"\n\n"
-                +"Thông tin nhân viên tiếp nhận"+"\n"
-                +"Mã NV : "+lbMaNV.Text+"\n"
-                +"Họ tên NV : "+lbTenNVHD.Text+"\n\n"
-                +"Thông tin sản phẩm trả lại\n\n"
-                +"STT       Mã sản phẩm     Tên sản phẩm                 Ngày mua        Lý do                               Hoàn tiền          \n"
+                + "Mã phiếu : " + lbMaPTH.Text + "\t\t Ngày lập : " + lbNgayNhap.Text + "\n"
+                + "Mã hóa đơn : " + lbMaHD.Text + "\n\n"
+                + "Thông tin khách hàng" + "\n"
+                + "Họ tên KH : " + lbTenKh.Text + "\n"
+                + "SDT KH : " + lbSDTKH.Text + "\n"
+                + "Địa chỉ KH : " + lbDCKH.Text + "\n\n"
+                + "Thông tin nhân viên tiếp nhận" + "\n"
+                + "Mã NV : " + lbMaNV.Text + "\n"
+                + "Họ tên NV : " + lbTenNVHD.Text + "\n\n"
+                + "Thông tin sản phẩm trả lại\n\n"
+                + "STT       Mã sản phẩm     Tên sản phẩm                 Ngày mua        Lý do                               Hoàn tiền          \n"
                 );
                 string tmp = "";
                 foreach (ListViewItem li in listView1.Items)
-                {           
+                {
+
+                    foreach (ListViewItem.ListViewSubItem lsi in li.SubItems)
+                    {
+                        tmp += lsi.Text + "              ";
+                    }
+                    tmp += "\n";
+
+                }
+                Paragraph p1 = new Paragraph(tmp);
+
                 document.Add(p);
                 document.Add(p1);
                 document.Close();
-               
+
                 MessageBox.Show("SCC: Xuất file thành công!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("ERR: Lỗi khi xuất file!"+ex.Message);
+                MessageBox.Show("ERR: Lỗi khi xuất file!" + ex.Message);
             }
-            
+
         }
     }
 }
