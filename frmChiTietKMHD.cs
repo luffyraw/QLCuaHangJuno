@@ -22,7 +22,7 @@ namespace QLCuaHangJuno
         {
             GiamGiaHoaDon km = (GiamGiaHoaDon)this.Tag;
             txtMaKM.Text = km.MaGg;
-            txtTiLe.Text = km.TyLeGiamGia.ToString() ;
+            txtTiLe.Text = km.TyLeGiamGia.ToString();
             txtDK.Text = km.DieuKienApDung.ToString();
             dtpNgayBD.Value = km.TgbatDau;
             dtpNgayKT.Value = km.TgketThuc;

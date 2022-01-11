@@ -24,7 +24,8 @@ namespace QLCuaHangJuno
             var query = from km in db.KhuyenMaiSanPhams
                         join km1 in db.KhuyenMais on km.MaKm equals km1.MaKm
                         join sp in db.SanPhams on km.MaSp equals sp.MaSp
-                        select new { 
+                        select new
+                        {
                             km.MaKm,
                             km.MaSp,
                             km.TyLeKhuyenMai,
@@ -130,14 +131,14 @@ namespace QLCuaHangJuno
             cbMaKM.DataSource = queryCombo2.ToList();
             cbMaKM.ValueMember = "MaKm";
             cbMaKM.Text = "";
-            
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             KhuyenMaiSanPham kmXoa = (from km in db.KhuyenMaiSanPhams
-                                   where km.MaKm == cbMaKM.Text
-                                   select km).FirstOrDefault();
+                                      where km.MaKm == cbMaKM.Text
+                                      select km).FirstOrDefault();
 
             if (kmXoa != null)
             {
@@ -165,7 +166,7 @@ namespace QLCuaHangJuno
                 dgvKMSP.CurrentRow.Selected = true;
                 cbMaKM.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
                 cbMaSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["Masanpham"].FormattedValue.ToString();
-                cb.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
+                cbMaLoaiSP.Text = dgvKMSP.Rows[e.RowIndex].Cells["MaLoai"].FormattedValue.ToString();
                 txtTyLe.Text = dgvKMSP.Rows[e.RowIndex].Cells["TyLeKhuyenMai"].FormattedValue.ToString();
             }
         }
@@ -179,8 +180,8 @@ namespace QLCuaHangJuno
         {
             frmChiTietKMHD chitiet = new frmChiTietKMHD();
             KhuyenMaiSanPham kmShow = (from km in db.KhuyenMaiSanPhams
-                                    where km.MaKm == cbMaKM.Text
-                                    select km).FirstOrDefault();
+                                       where km.MaKm == cbMaKM.Text
+                                       select km).FirstOrDefault();
             if (kmShow != null)
             {
                 chitiet.Tag = kmShow;

@@ -60,16 +60,16 @@ namespace QLCuaHangJuno
             if (txtMaKM.Text != "")
             {
                 errorProvider1.SetError(txtMaKM, null);
-                try 
+                try
                 {
                     double tile = double.Parse(txtTiLe.Text);
-                    if (tile >=0)
+                    if (tile >= 0)
                     {
                         errorProvider1.SetError(txtTiLe, null);
                         try
                         {
                             var dkap = decimal.Parse(txtDK.Text);
-                            if (dkap>=0)
+                            if (dkap >= 0)
                             {
                                 errorProvider1.SetError(txtDK, null);
                                 {
@@ -79,7 +79,7 @@ namespace QLCuaHangJuno
                                         errorProvider1.SetError(dtpNgayBD, null);
                                         {
                                             var ngaykt = dtpNgayKT.Value;
-                                            if(dtpNgayKT.Text != "" && ngaykt>=ngaybd)
+                                            if (dtpNgayKT.Text != "" && ngaykt >= ngaybd)
                                             {
                                                 errorProvider1.SetError(dtpNgayKT, null);
                                                 duLieuHopLe = true;
@@ -137,7 +137,7 @@ namespace QLCuaHangJuno
             if (KiemTraDuLieu())
             {
                 query.TyLeGiamGia = double.Parse(txtTiLe.Text);
-                query.DieuKienApDung =decimal.Parse( txtDK.Text);
+                query.DieuKienApDung = decimal.Parse(txtDK.Text);
                 query.TgbatDau = dtpNgayBD.Value;
                 query.TgketThuc = dtpNgayKT.Value;
                 db.SaveChanges();
@@ -148,8 +148,8 @@ namespace QLCuaHangJuno
         private void btnXoa_Click(object sender, EventArgs e)
         {
             GiamGiaHoaDon GgXoa = (from km in db.GiamGiaHoaDons
-                               where km.MaGg == txtMaKM.Text
-                               select km).FirstOrDefault();
+                                   where km.MaGg == txtMaKM.Text
+                                   select km).FirstOrDefault();
 
             if (GgXoa != null)
             {
@@ -175,8 +175,8 @@ namespace QLCuaHangJuno
         {
             frmChiTietKMHD chitiet = new frmChiTietKMHD();
             GiamGiaHoaDon kmShow = (from km in db.GiamGiaHoaDons
-                                where km.MaGg == txtMaKM.Text
-                                select km).FirstOrDefault();
+                                    where km.MaGg == txtMaKM.Text
+                                    select km).FirstOrDefault();
             if (kmShow != null)
             {
                 chitiet.Tag = kmShow;

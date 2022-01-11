@@ -53,7 +53,7 @@ namespace QLCuaHangJuno
                                   SoLuongDat = spd.SoLuongDat
                               };
             dgvSanPhamDat.DataSource = sanPhamDats.ToList();
-            for(int i = 0; i < dgvSanPhamDat.Rows.Count; i++)
+            for (int i = 0; i < dgvSanPhamDat.Rows.Count; i++)
             {
                 dgvSanPhamDat.Rows[i].Cells[0].Value = i + 1;
             }

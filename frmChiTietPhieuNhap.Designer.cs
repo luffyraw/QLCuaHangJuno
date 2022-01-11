@@ -409,6 +409,7 @@ namespace QLCuaHangJuno
             // DonGia
             // 
             this.DonGia.DataPropertyName = "DonGia";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Format = "N0";
             dataGridViewCellStyle4.NullValue = null;
             this.DonGia.DefaultCellStyle = dataGridViewCellStyle4;
@@ -430,6 +431,7 @@ namespace QLCuaHangJuno
             // ThanhTien
             // 
             this.ThanhTien.DataPropertyName = "ThanhTien";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.Format = "N0";
             dataGridViewCellStyle6.NullValue = null;
             this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle6;

@@ -21,12 +21,13 @@ namespace QLCuaHangJuno
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            HienThiDuLieu();
+           HienThiDuLieu();
         }
         private void HienThiDuLieu()
         {
             var query = from kh in db.KhachHangs
-                        select new { 
+                        select new
+                        {
                             kh.MaKh,
                             kh.HoTenKh,
                             kh.Sdt,
@@ -55,25 +56,25 @@ namespace QLCuaHangJuno
                     MessageBox.Show("Đã có khách hàng " + txtMa.Text, "THÊM DỮ LIỆU", MessageBoxButtons.OK);
                 }
             }
-            
+
         }
 
         private bool KiemTraDuLieu()
         {
             bool duLieuHopLe = false;
-            if(txtMa.Text != "")
+            if (txtMa.Text != "")
             {
                 errorProvider1.SetError(txtMa, null);
                 {
-                    if(txtTen.Text != "")
+                    if (txtTen.Text != "")
                     {
                         errorProvider1.SetError(txtTen, null);
                         {
-                            if(txtSdt.Text != "")
+                            if (txtSdt.Text != "")
                             {
                                 errorProvider1.SetError(txtSdt, null);
                                 {
-                                    if(txtDC.Text != "")
+                                    if (txtDC.Text != "")
                                     {
                                         errorProvider1.SetError(txtDC, null);
                                         duLieuHopLe = true;
@@ -107,8 +108,8 @@ namespace QLCuaHangJuno
         private void btnSua_Click(object sender, EventArgs e)
         {
             var query = (from kh in db.KhachHangs
-                        where kh.MaKh == txtMa.Text
-                        select kh).FirstOrDefault();
+                         where kh.MaKh == txtMa.Text
+                         select kh).FirstOrDefault();
             if (KiemTraDuLieu())
             {
                 query.HoTenKh = txtTen.Text;
@@ -118,7 +119,7 @@ namespace QLCuaHangJuno
                 db.SaveChanges();
                 HienThiDuLieu();
             }
-               
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -149,7 +150,7 @@ namespace QLCuaHangJuno
 
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvKhachHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (dgvKhachHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 dgvKhachHang.CurrentRow.Selected = true;
                 txtMa.Text = dgvKhachHang.Rows[e.RowIndex].Cells["MaKh"].FormattedValue.ToString();
@@ -163,14 +164,14 @@ namespace QLCuaHangJuno
         {
             frmChiTietKhachHang chitiet = new frmChiTietKhachHang();
             KhachHang khShow = (from kh in db.KhachHangs
-                             where kh.MaKh == txtMa.Text
-                             select kh).FirstOrDefault();
-            if(khShow != null)
+                                where kh.MaKh == txtMa.Text
+                                select kh).FirstOrDefault();
+            if (khShow != null)
             {
                 chitiet.Tag = khShow;
                 chitiet.Show();
             }
-            
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

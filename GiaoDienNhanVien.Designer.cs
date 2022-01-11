@@ -31,7 +31,7 @@ namespace QLCuaHangJuno
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đặtHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bảoHànhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trảHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +46,7 @@ namespace QLCuaHangJuno
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hóaĐơnToolStripMenuItem,
-            this.đặtHàngToolStripMenuItem,
+            this.nhậpHàngToolStripMenuItem,
             this.bảoHànhToolStripMenuItem,
             this.trảHàngToolStripMenuItem,
             this.tàiKhoảnToolStripMenuItem});
@@ -63,12 +63,12 @@ namespace QLCuaHangJuno
             this.hóaĐơnToolStripMenuItem.Text = "Bán hàng";
             this.hóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem_Click);
             // 
-            // đặtHàngToolStripMenuItem
+            // nhậpHàngToolStripMenuItem
             // 
-            this.đặtHàngToolStripMenuItem.Name = "đặtHàngToolStripMenuItem";
-            this.đặtHàngToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
-            this.đặtHàngToolStripMenuItem.Text = "Nhập hàng";
-            this.đặtHàngToolStripMenuItem.Click += new System.EventHandler(this.đặtHàngToolStripMenuItem_Click);
+            this.nhậpHàngToolStripMenuItem.Name = "nhậpHàngToolStripMenuItem";
+            this.nhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.nhậpHàngToolStripMenuItem.Text = "Nhập hàng";
+            this.nhậpHàngToolStripMenuItem.Click += new System.EventHandler(this.nhậpHàngToolStripMenuItem_Click);
             // 
             // bảoHànhToolStripMenuItem
             // 
@@ -131,7 +131,7 @@ namespace QLCuaHangJuno
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đặtHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nhậpHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bảoHànhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trảHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem;

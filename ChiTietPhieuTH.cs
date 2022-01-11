@@ -1,4 +1,4 @@
-﻿//using QLCuaHangJuno.DataModel;
+﻿using QLCuaHangJuno.DataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +20,7 @@ namespace QLCuaHangJuno
 {
     public partial class ChiTietPhieuTH : Form
     {
-        //QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
+        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         private string maPhieuTH;
         int index = 0;
         public ChiTietPhieuTH()
@@ -30,52 +30,52 @@ namespace QLCuaHangJuno
 
         public ChiTietPhieuTH(string a) : this()
         {
-            //maPhieuTH = a;
-            //lbMaPTH.Text = a;
-            //PhieuTraHang pth = (from p in db.PhieuTraHangs
-            //                    where p.MaPhieuTra == a
-            //                    select p).FirstOrDefault();
+            maPhieuTH = a;
+            lbMaPTH.Text = a;
+            PhieuTraHang pth = (from p in db.PhieuTraHangs
+                                where p.MaPhieuTra == a
+                                select p).FirstOrDefault();
 
-            //lbNgayNhap.Text = pth.NgayLap.ToString("dd/MM/yyyy");
-            //lbMaHD.Text = pth.MaHd;
+            lbNgayNhap.Text = pth.NgayLap.ToString("dd/MM/yyyy");
+            lbMaHD.Text = pth.MaHd;
 
-            //NhanVien nv = (from n in db.NhanViens
-            //               where n.MaNv == pth.MaNv
-            //               select n).FirstOrDefault();
-            //lbTenNVTN.Text = nv.HoTenNv;
-            //lbMaNV.Text = nv.MaNv;
-            //lbTenNVHD.Text = nv.HoTenNv;
+            NhanVien nv = (from n in db.NhanViens
+                           where n.MaNv == pth.MaNv
+                           select n).FirstOrDefault();
+            lbTenNVTN.Text = nv.HoTenNv;
+            lbMaNV.Text = nv.MaNv;
+            lbTenNVHD.Text = nv.HoTenNv;
 
-            //HoaDonBanHang hd = (from h in db.HoaDonBanHangs
-            //                    where h.MaHd == pth.MaHd
-            //                    select h).FirstOrDefault();
+            HoaDonBanHang hd = (from h in db.HoaDonBanHangs
+                                where h.MaHd == pth.MaHd
+                                select h).FirstOrDefault();
 
-            //KhachHang kh = (from k in db.KhachHangs
-            //                where k.MaKh == hd.MaKh
-            //                select k).FirstOrDefault();
+            KhachHang kh = (from k in db.KhachHangs
+                            where k.MaKh == hd.MaKh
+                            select k).FirstOrDefault();
 
-            //lbTenKh.Text = kh.HoTenKh;
-            //lbSDTKH.Text = kh.Sdt;
-            //lbDCKH.Text = kh.DiaChi;
-            //lbTenKH2.Text = kh.HoTenKh;
-            //SanPhamChiTiet spct = (from s1 in db.SanPhamChiTiets
-            //                       where s1.MaSpCt == pth.MaSpCt
-            //                       select s1).FirstOrDefault();
+            lbTenKh.Text = kh.HoTenKh;
+            lbSDTKH.Text = kh.Sdt;
+            lbDCKH.Text = kh.DiaChi;
+            lbTenKH2.Text = kh.HoTenKh;
+            SanPhamChiTiet spct = (from s1 in db.SanPhamChiTiets
+                                   where s1.MaSpCt == pth.MaSpCt
+                                   select s1).FirstOrDefault();
 
-            //SanPham sp= (from s in db.SanPhams
-            //                where s.MaSp == spct.MaSp
-            //                select s).FirstOrDefault();
+            SanPham sp = (from s in db.SanPhams
+                          where s.MaSp == spct.MaSp
+                          select s).FirstOrDefault();
 
 
-            //listView1.Items.Add((index+1).ToString());
-            //listView1.Items[index].SubItems.Add(sp.MaSp);
-            //listView1.Items[index].SubItems.Add(sp.TenSp);
-            //listView1.Items[index].SubItems.Add(hd.NgayBan.ToString("dd/MM/yyyy"));
-            //listView1.Items[index].SubItems.Add(pth.LyDoTra);
-            //string formattedMoneyValue = String.Format("{0:C}", sp.DonGia);
+            listView1.Items.Add((index + 1).ToString());
+            listView1.Items[index].SubItems.Add(sp.MaSp);
+            listView1.Items[index].SubItems.Add(sp.TenSp);
+            listView1.Items[index].SubItems.Add(hd.NgayBan.ToString("dd/MM/yyyy"));
+            listView1.Items[index].SubItems.Add(pth.LyDoTra);
+            string formattedMoneyValue = String.Format("{0:C}", sp.DonGia);
 
-            //listView1.Items[index].SubItems.Add(formattedMoneyValue + " VND");
-            //index++;
+            listView1.Items[index].SubItems.Add(formattedMoneyValue + " VND");
+            index++;
         }
         private void label5_Click(object sender, EventArgs e)
         {
@@ -94,21 +94,21 @@ namespace QLCuaHangJuno
 
         private void ChiTietPhieuTH_Load(object sender, EventArgs e)
         {
-            /*PhieuTraHang pth = (from p in db.PhieuTraHangs
+            PhieuTraHang pth = (from p in db.PhieuTraHangs
                                 where p.MaPhieuTra == this.maPhieuTH
                                 select p).FirstOrDefault();
 
             lbNgayNhap.Text = pth.NgayLap.ToString("dd/MM/yyyy");
             lbMaHD.Text = pth.MaHd;
-            
+
             NhanVien nv = (from n in db.NhanViens
                            where n.MaNv == pth.MaNv
                            select n).FirstOrDefault();
             lbTenNVTN.Text = nv.HoTenNv;
             lbMaNV.Text = nv.MaNv;
             HoaDonBanHang hd = (from h in db.HoaDonBanHangs
-                           where h.MaHd == pth.MaHd
-                           select h).FirstOrDefault();
+                                where h.MaHd == pth.MaHd
+                                select h).FirstOrDefault();
 
             KhachHang kh = (from k in db.KhachHangs
                             where k.MaKh == hd.MaKh
@@ -117,7 +117,7 @@ namespace QLCuaHangJuno
             lbTenKh.Text = kh.HoTenKh;
             lbSDTKH.Text = kh.Sdt;
             lbDCKH.Text = kh.DiaChi;
-            lbTenKH2.Text = kh.HoTenKh;*/
+            lbTenKH2.Text = kh.HoTenKh;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

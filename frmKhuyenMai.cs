@@ -36,7 +36,7 @@ namespace QLCuaHangJuno
             if (txtMaKM.Text != "")
             {
                 errorProvider1.SetError(txtMaKM, null);
-                
+
                 {
                     var ngaybd = dtpNgayBD.Value;
                     if (dtpNgayBD.Text != "")
@@ -59,14 +59,14 @@ namespace QLCuaHangJuno
                     {
                         errorProvider1.SetError(dtpNgayBD, "Ngày bắt đầu không được để trống!");
                     }
-                 }
+                }
             }
             else
             {
                 errorProvider1.SetError(txtMaKM, "Mã khuyến mãi không được để trống!");
             }
-             
-            
+
+
             return duLieuHopLe;
         }
 
@@ -93,42 +93,42 @@ namespace QLCuaHangJuno
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var query = (from km in db.KhuyenMais
-                         where km.MaKm == txtMaKM.Text
-                         select km).FirstOrDefault();
-            if (KiemTraDuLieu())
-            {
-                query.MaKm = txtMaKM.Text;
-                query.NgayBatDau = dtpNgayBD.Value;
-                query.NgayKetThuc = dtpNgayKT.Value;
-                db.SaveChanges();
-                HienThiDuLieu();
-            }
+            //var query = (from km in db.KhuyenMais
+            //             where km.MaKm == txtMaKM.Text
+            //             select km).FirstOrDefault();
+            //if (KiemTraDuLieu())
+            //{
+            //    query.MaKm = txtMaKM.Text;
+            //    query.NgayBatDau = dtpNgayBD.Value;
+            //    query.NgayKetThuc = dtpNgayKT.Value;
+            //    db.SaveChanges();
+            //    HienThiDuLieu();
+            //}
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            KhuyenMai kmXoa = (from km in db.KhuyenMais
-                                   where km.MaKm == txtMaKM.Text
-                                   select km).FirstOrDefault();
+            //KhuyenMai kmXoa = (from km in db.KhuyenMais
+            //                       where km.MaKm == txtMaKM.Text
+            //                       select km).FirstOrDefault();
 
-            if (kmXoa != null)
-            {
-                DialogResult kq = MessageBox.Show("Bạn muốn xóa mã giảm giá " + kmXoa.MaKm + "? ", "CẬP NHẬT DỮ LIỆU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (kq == DialogResult.Yes)
-                {
-                    txtMaKM.Text = "";
-                    dtpNgayBD.Value = DateTime.Now;
-                    dtpNgayKT.Value = DateTime.Now;
-                    db.Remove(kmXoa);
-                    db.SaveChanges();
-                    HienThiDuLieu();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không có khách hàng " + txtMaKM.Text);
-            }
+            //if (kmXoa != null)
+            //{
+            //    DialogResult kq = MessageBox.Show("Bạn muốn xóa mã giảm giá " + kmXoa.MaKm + "? ", "CẬP NHẬT DỮ LIỆU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (kq == DialogResult.Yes)
+            //    {
+            //        txtMaKM.Text = "";
+            //        dtpNgayBD.Value = DateTime.Now;
+            //        dtpNgayKT.Value = DateTime.Now;
+            //        db.Remove(kmXoa);
+            //        db.SaveChanges();
+            //        HienThiDuLieu();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Không có khách hàng " + txtMaKM.Text);
+            //}
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -138,14 +138,14 @@ namespace QLCuaHangJuno
 
         private void dgvKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvKM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                dgvKM.CurrentRow.Selected = true;
-                txtMaKM.Text = dgvKM.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
-                dtpNgayBD.Text = dgvKM.Rows[e.RowIndex].Cells["NgayBatDau"].FormattedValue.ToString();
-                dtpNgayKT.Text = dgvKM.Rows[e.RowIndex].Cells["NgayKetThuc"].FormattedValue.ToString();
+            //if (dgvKM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            //{
+            //    dgvKM.CurrentRow.Selected = true;
+            //    txtMaKM.Text = dgvKM.Rows[e.RowIndex].Cells["MaKM"].FormattedValue.ToString();
+            //    dtpNgayBD.Text = dgvKM.Rows[e.RowIndex].Cells["NgayBatDau"].FormattedValue.ToString();
+            //    dtpNgayKT.Text = dgvKM.Rows[e.RowIndex].Cells["NgayKetThuc"].FormattedValue.ToString();
 
-            }
+            //}
         }
     }
 }

@@ -30,7 +30,6 @@ namespace QLCuaHangJuno
             frmQuanLiNhanVien qlNV = new frmQuanLiNhanVien();
             qlNV.Show();
         }
-<<<<<<< Updated upstream
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKhachHang kh = new frmKhachHang();
@@ -53,8 +52,7 @@ namespace QLCuaHangJuno
         {
             frmKhuyenMaiSanPham km = new frmKhuyenMaiSanPham();
             km.Show();
-=======
-
+        }
         private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmXemSanPham frm = new frmXemSanPham();
@@ -77,7 +75,6 @@ namespace QLCuaHangJuno
         {
             frmPhieuNhapHang frm = new frmPhieuNhapHang(nv);
             frm.Show();
->>>>>>> Stashed changes
         }
     }
 }

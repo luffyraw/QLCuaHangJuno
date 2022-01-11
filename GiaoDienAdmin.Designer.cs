@@ -220,13 +220,10 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem quảnLíNhânViênToolStripMenuItem;
-<<<<<<< Updated upstream
         private System.Windows.Forms.ToolStripMenuItem khuyễnMãiTheoHóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem khuyếnMãiTheoSảnPhẩmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mãKhuyễnMãiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem;
-=======
         private System.Windows.Forms.ToolStripMenuItem loạiSảnPhẩmToolStripMenuItem;
->>>>>>> Stashed changes
     }
 }

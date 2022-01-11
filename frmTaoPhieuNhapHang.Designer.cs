@@ -495,6 +495,7 @@ namespace QLCuaHangJuno
             // 
             this.SoLuongNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
             this.SoLuongNhap.DefaultCellStyle = dataGridViewCellStyle7;
             this.SoLuongNhap.HeaderText = "Số lượng nhập";
             this.SoLuongNhap.MinimumWidth = 6;

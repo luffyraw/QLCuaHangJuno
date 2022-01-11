@@ -141,7 +141,7 @@ namespace QLCuaHangJuno
                 else
                 {
                     MessageBox.Show("Không tồn tại phiếu đặt hàng có mã " + txtMaPhieuD.Text);
-                } 
+                }
             }
         }
     }
