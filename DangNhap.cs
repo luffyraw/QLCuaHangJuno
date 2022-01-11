@@ -13,12 +13,12 @@ namespace QLCuaHangJuno
 {
     public partial class DangNhap : Form
     {
-        QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
+        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
+        NhanVien nv = new NhanVien();
         public DangNhap()
         {
             InitializeComponent();
         }
-
         private void DangNhap_Load(object sender, EventArgs e)
         {
             txtTenDangNhap.Focus();
@@ -29,11 +29,14 @@ namespace QLCuaHangJuno
             var user = (from item in db.NhanViens
                         where txtTenDangNhap.Text == item.TenTk && txtMatKhau.Text == item.MatKhau
                         select item).FirstOrDefault();
-            if (user == null)
+            if (txtTenDangNhap.Text != "")
             {
+                if (txtMatKhau.Text != "")
+                {
+                    if (user == null)
+                    {
 
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác không chính xác");
-
+                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác");
             }
             else
             {
@@ -42,13 +45,23 @@ namespace QLCuaHangJuno
                     this.Tag = user;
                     this.DialogResult = DialogResult.OK;
                 }
-                else if (user.Quyen == "Nhân viên")
+                else
                 {
                     this.Tag = user;
                     this.DialogResult = DialogResult.Yes;
 
                 }
             }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống");
+                txtTenDangNhap.Focus();
+            }
+        }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
 
 

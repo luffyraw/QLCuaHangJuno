@@ -90,8 +90,8 @@ namespace QLCuaHangJuno
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(260, 47);
-            this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.Size = new System.Drawing.Size(145, 23);
+            this.txtMatKhau.TabIndex = 3;
             // 
             // btDangNhap
             // 
