@@ -45,6 +45,7 @@ namespace QLCuaHangJuno.DataModel
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-08B1JD4\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
             }
         }
@@ -515,6 +516,106 @@ namespace QLCuaHangJuno.DataModel
             {
                 entity.HasKey(e => e.MaPhieuDoi)
                     .HasName("PK__PhieuDoi__01EABA5BD94F4B82");
+
+                entity.ToTable("PhieuDoiHang");
+
+                entity.Property(e => e.MaPhieuDoi)
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LyDoDoi)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.MaHd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaHD");
+
+                entity.Property(e => e.MaNv)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaNV");
+
+                entity.Property(e => e.NgayLap).HasColumnType("datetime");
+
+                entity.Property(e => e.TienThuLai).HasColumnType("money");
+
+                entity.Property(e => e.TienThua).HasColumnType("money");
+
+                entity.HasOne(d => d.MaHdNavigation)
+                    .WithMany(p => p.PhieuDoiHangs)
+                    .HasForeignKey(d => d.MaHd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_PhieuTraHangg_hoadonbanhang");
+
+                entity.HasOne(d => d.MaNvNavigation)
+                    .WithMany(p => p.PhieuDoiHangs)
+                    .HasForeignKey(d => d.MaNv)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_PhieuTraHangg_NhanVien");
+            });
+
+            modelBuilder.Entity<PhieuDoiSanPhamDoi>(entity =>
+            {
+                entity.ToTable("PhieuDoi_SanPhamDoi");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.MaPd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaPD");
+
+                entity.Property(e => e.MaSpct)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaSPCT");
+
+                entity.Property(e => e.Sl).HasColumnName("SL");
+
+                entity.HasOne(d => d.MaPdNavigation)
+                    .WithMany(p => p.PhieuDoiSanPhamDois)
+                    .HasForeignKey(d => d.MaPd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaPhieuDoi1");
+            });
+
+            modelBuilder.Entity<PhieuDoiSanPhamHd>(entity =>
+            {
+                entity.ToTable("PhieuDoi_SanPhamHD");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.MaPd)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaPD");
+
+                entity.Property(e => e.MaSpct)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("MaSPCT");
+
+                entity.Property(e => e.Sl).HasColumnName("SL");
+
+                entity.HasOne(d => d.MaPdNavigation)
+                    .WithMany(p => p.PhieuDoiSanPhamHds)
+                    .HasForeignKey(d => d.MaPd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_MaPhieuDoi");
+            });
+
+            modelBuilder.Entity<PhieuDoiHang>(entity =>
+            {
+                entity.HasKey(e => e.MaPhieuDoi)
+                    .HasName("PK__PhieuDoi__01EABA5B4B67C2C0");
 
                 entity.ToTable("PhieuDoiHang");
 

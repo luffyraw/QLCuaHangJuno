@@ -42,24 +42,24 @@ namespace QLCuaHangJuno
                 lbMaPhieuTH.Text = "PT" + (query.ToList().Count + 1);
             }
 
-            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
             txtMaNV.Text = "NV001";
-            txtMaNV.Enabled = false;
+            //txtMaNV.Enabled = false;
             var nv = (from n in db.NhanViens
                       where n.MaNv == "NV001"
                       select n).FirstOrDefault();
             txtTenNV.Text = nv.HoTenNv;
-            txtTenNV.Enabled = false;
+            //txtTenNV.Enabled = false;
 
-            var queryCombo = from HD in db.HoaDonBanHangs
+           /* var queryCombo = from HD in db.HoaDonBanHangs
                              select HD;
             cbMaHD.DataSource = queryCombo.ToList();
             cbMaHD.DisplayMember = "MaHd";
-            cbMaHD.ValueMember = "MaHd";
+            cbMaHD.ValueMember = "MaHd";*/
         }
 
-        private void cbMaHD_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void cbMaHD_SelectedIndexChanged(object sender, EventArgs e)
         {
             var query = (from spct in db.HoaDonBanHangSanPhams
                          where spct.MaHd == cbMaHD.Text
@@ -94,7 +94,7 @@ namespace QLCuaHangJuno
                 }
 
             }
-        }
+        }*/
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -103,7 +103,7 @@ namespace QLCuaHangJuno
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
-            if (checkLiDo())
+            if (checkLiDo() && checkMaHoaDon() &&checkKT() && checkMaSPCT() && checkMS() && checkTenSP())
             {
 
                 var query = (from spct in db.SanPhamChiTiets
@@ -121,23 +121,30 @@ namespace QLCuaHangJuno
                 index++;
 
                 btnAddSP.Enabled = false;
-                cbMaHD.Enabled = false;
+                txtMaHD.Enabled = false;
                 cbMaSPCT.Enabled = false;
                 txtLiDoTra.Enabled = false;
-
-                /*try
-                {
-                    
-                }catch(Exception e)
-                {
-
-                }*/
+                btnSearch.Enabled = false;
 
             }
             else
             {
-                checkLiDo();
-                txtLiDoTra.Focus();
+                if (!checkMaHoaDon())
+                {
+                    checkMaHoaDon();
+                    txtMaHD.Focus();
+                }else if (!checkLiDo())
+                {
+                    checkLiDo();
+                    txtLiDoTra.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("ERR: Bạn chưa nhập đủ thông tin sản phẩm !");
+                }
+                
+
+                
             }
         }
 
@@ -161,18 +168,23 @@ namespace QLCuaHangJuno
         {
             listView1.Items.Clear();
             index = 0;
-            var queryCombo = from HD in db.HoaDonBanHangs
-                             select HD;
-            cbMaHD.DataSource = queryCombo.ToList();
-            cbMaHD.DisplayMember = "MaHd";
-            cbMaHD.ValueMember = "MaHd";
+            txtMaHD.Text = null;
 
-
+            btnSearch.Enabled = true;
+            btnAddSP.Enabled = true;
             txtLiDoTra.Text = null;
             txtLiDoTra.Enabled = true;
-            cbMaHD.Enabled = true;
+            txtMaHD.Enabled = true;
             cbMaSPCT.Enabled = true;
-            btnAddSP.Enabled = true;
+            cbMaSPCT.DataSource = null;
+            txtKT.Text = null;
+            txtMS.Text = null;
+            txtTenSp.Text = null;
+            txtTenKH.Text = null;
+            txtDCKH.Text = null;
+            
+            txtSDTKH.Text = null;
+            txtMaHD.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -187,23 +199,38 @@ namespace QLCuaHangJuno
                     phieu.NgayLap = DateTime.Now;
                     phieu.MaNv = txtMaNV.Text;
                     phieu.MaSpCt = cbMaSPCT.SelectedValue.ToString();
-                    phieu.MaHd = cbMaHD.SelectedValue.ToString();
+                    phieu.MaHd = txtMaHD.Text;
                     phieu.LyDoTra = txtLiDoTra.Text;
 
                     var qr = (from pth in db.PhieuTraHangs
-                              where pth.MaHd == cbMaHD.SelectedValue.ToString() && pth.MaSpCt == cbMaSPCT.SelectedValue.ToString()
+                              where pth.MaHd == txtMaHD.Text && pth.MaSpCt == cbMaSPCT.SelectedValue.ToString()
                               select pth).ToList();
-                    if (qr.Count > 0)
+                    var SL = (from hdsp in db.HoaDonBanHangSanPhams
+                              where hdsp.MaHd == txtMaHD.Text && hdsp.MaSpCt == cbMaSPCT.SelectedValue.ToString()
+                              select hdsp).ToList();
+                    if (qr.Count >= SL.FirstOrDefault().SoLuongBan)
                     {
-                        throw new Exception("Mặt hàng cùng hóa đơn này đã tồn tại trong 1 phiếu trả hàng!");
+                        throw new Exception("Mặt hàng đã quá số lượng bán của hóa đơn!");
                     }
                     else
                     {
                         db.PhieuTraHangs.Add(phieu);
+
+                        var query = from spct in db.SanPhamChiTiets
+                                    where spct.MaSpCt == cbMaSPCT.SelectedValue.ToString()
+                                    select spct;
+                        
+                        SanPhamChiTiet spSua = query.FirstOrDefault();
+                        int sl = spSua.SoLuongTon;
+                        spSua.SoLuongTon = sl + 1;
+                        //spSua.MaLoai = txtMaLoai.Text;
+                       /* db.SaveChanges();
+                        HienThiDuLieu();*/
+
                         db.SaveChanges();
 
-                        DSPhieuTH ds = new DSPhieuTH();
-                        ds.Show();
+                        MessageBox.Show("SCC: Thêm phiếu trả hàng thành công!");
+                        btnDeleteSp_Click(sender, e);
                     }
 
 
@@ -212,6 +239,7 @@ namespace QLCuaHangJuno
                 {
                     MessageBox.Show("ERROR: " + ex.Message);
                     a = 1;
+                    index = 0;
                 }
 
                 if (a == 1)
@@ -220,9 +248,10 @@ namespace QLCuaHangJuno
                     var queryCombo = from HD in db.HoaDonBanHangs
                                      select HD;
                     txtLiDoTra.Enabled = true;
-                    cbMaHD.Enabled = true;
+                    txtMaHD.Enabled = true;
                     cbMaSPCT.Enabled = true;
                     btnAddSP.Enabled = true;
+                    btnSearch.Enabled = true;
                 }
             }
             else
@@ -230,5 +259,178 @@ namespace QLCuaHangJuno
                 MessageBox.Show("Bạn chưa nhập thông tin sản phẩm vào phiếu trả hàng !");
             }
         }
+
+        private void cbMaSPCT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var SPCT = (from Spct in db.SanPhamChiTiets
+                              where Spct.MaSpCt == cbMaSPCT.Text
+                              select Spct).ToList();
+
+            if (SPCT.Count > 0)
+            {
+                var SP = (from Sp in db.SanPhams
+                          where Sp.MaSp == SPCT.FirstOrDefault().MaSp
+                          select new { Sp.TenSp }).FirstOrDefault();
+
+                var MS = (from Ms in db.Maus
+                          where Ms.MaMau == SPCT.FirstOrDefault().MaMau
+                          select new { Ms.Mau1 }).FirstOrDefault();
+
+                var KC = (from Kc in db.KichCos
+                          where Kc.MaKc == SPCT.FirstOrDefault().MaKc
+                          select new { Kc.KichCo1 }).FirstOrDefault();
+
+                txtTenSp.Text = SP.TenSp;
+                txtKT.Text = KC.KichCo1;
+                txtMS.Text = MS.Mau1;
+            }
+           
+        }
+
+        private void txtMaHD_TextChanged(object sender, EventArgs e)
+        {
+            cbMaSPCT.Enabled = true;
+            cbMaSPCT.DataSource = null;
+            txtKT.Text = null;
+            txtMS.Text = null;
+            txtTenSp.Text = null;
+            txtTenKH.Text = null;
+            txtDCKH.Text = null;
+
+            txtSDTKH.Text = null;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (checkMaHoaDon())
+            {
+                var HD = (from hd in db.HoaDonBanHangs
+                          where hd.MaHd == txtMaHD.Text
+                          select hd).ToList();
+                if (HD.Count > 0) {
+                    if (HD.FirstOrDefault() != null)
+                    {
+                        var SPCT = (from spct in db.HoaDonBanHangSanPhams
+                                    where spct.MaHd == txtMaHD.Text
+                                    select
+                                    new
+                                    {
+                                        spct.MaSpCt,
+                                    }).ToList();
+
+                        cbMaSPCT.DataSource = SPCT.ToList();
+                        cbMaSPCT.DisplayMember = "MaSpCt";
+                        cbMaSPCT.ValueMember = "MaSpCt";
+
+
+
+                        KhachHang kh = (from k in db.KhachHangs
+                                        where k.MaKh == HD.FirstOrDefault().MaKh
+                                        select k).FirstOrDefault();
+                        txtTenKH.Text = kh.HoTenKh;
+                        //txtTenKH.Enabled = false;
+                        txtSDTKH.Text = kh.Sdt;
+                        //txtSDTKH.Enabled = false;
+                        txtDCKH.Text = kh.DiaChi;
+                        //txtDCKH.Enabled = false;
+                    }
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("ERR: Không tìm thấy hóa đơn bạn nhập!");
+                }
+
+
+
+            }
+            else
+            {
+                checkMaHoaDon();
+                txtMaHD.Focus();
+            }
+        }
+
+        public bool checkMaHoaDon()
+        {
+            if (txtMaHD.Text == null || txtMaHD.Text == "")
+            {
+                errorProvider1.SetError(txtMaHD, "Bạn không được để trống mã hóa đơn!");
+
+                //MessageBox.Show("Bạn không được để trống tên!");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtMaHD, "");
+                return true;
+            }
+        }
+
+        public bool checkMaSPCT()
+        {
+            if (cbMaSPCT.Text == null || cbMaSPCT.Text == "")
+            {
+                //errorProvider1.SetError(txtMaHD, "Bạn không được để trống mã hóa đơn!");
+
+                //MessageBox.Show("Bạn không được để trống tên!");
+                return false;
+            }
+            else
+            {
+                //errorProvider1.SetError(txtMaHD, "");
+                return true;
+            }
+        }
+        public bool checkTenSP()
+        {
+            if (txtTenSp.Text == null || txtTenSp.Text == "")
+            {
+                //errorProvider1.SetError(txtMaHD, "Bạn không được để trống mã hóa đơn!");
+
+                //MessageBox.Show("Bạn không được để trống tên!");
+                return false;
+            }
+            else
+            {
+                //errorProvider1.SetError(txtMaHD, "");
+                return true;
+            }
+        }
+
+        public bool checkKT()
+        {
+            if (txtKT.Text == null || txtKT.Text == "")
+            {
+                //errorProvider1.SetError(txtMaHD, "Bạn không được để trống mã hóa đơn!");
+
+                //MessageBox.Show("Bạn không được để trống tên!");
+                return false;
+            }
+            else
+            {
+                //errorProvider1.SetError(txtMaHD, "");
+                return true;
+            }
+        }
+
+        public bool checkMS()
+        {
+            if (txtMS.Text == null || txtMS.Text == "")
+            {
+                //errorProvider1.SetError(txtMaHD, "Bạn không được để trống mã hóa đơn!");
+
+                //MessageBox.Show("Bạn không được để trống tên!");
+                return false;
+            }
+            else
+            {
+                //errorProvider1.SetError(txtMaHD, "");
+                return true;
+            }
+        }
+
     }
 }

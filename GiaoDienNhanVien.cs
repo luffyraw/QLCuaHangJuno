@@ -27,9 +27,17 @@ namespace QLCuaHangJuno
             hd.MdiParent = this;
             hd.Show();
         }
+     
+
         private void trảHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DSPhieuTH form = new DSPhieuTH();
+            AddPhieuTH form = new AddPhieuTH();
+            form.Show();
+        }
+
+        private void đổiHàngtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPhieuDoi form = new AddPhieuDoi();
             form.Show();
         }
 

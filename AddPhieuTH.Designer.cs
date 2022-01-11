@@ -52,7 +52,6 @@ namespace QLCuaHangJuno
             this.btnClose = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbMaHD = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbMaSPCT = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -66,6 +65,14 @@ namespace QLCuaHangJuno
             this.btnAddSP = new System.Windows.Forms.Button();
             this.btnDeleteSp = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtTenSp = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtMS = new System.Windows.Forms.TextBox();
+            this.lbKT = new System.Windows.Forms.Label();
+            this.txtKT = new System.Windows.Forms.TextBox();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +105,7 @@ namespace QLCuaHangJuno
             // 
             // txtSDTKH
             // 
+            this.txtSDTKH.Enabled = false;
             this.txtSDTKH.Location = new System.Drawing.Point(99, 524);
             this.txtSDTKH.Name = "txtSDTKH";
             this.txtSDTKH.Size = new System.Drawing.Size(263, 27);
@@ -114,6 +122,7 @@ namespace QLCuaHangJuno
             // 
             // txtDCKH
             // 
+            this.txtDCKH.Enabled = false;
             this.txtDCKH.Location = new System.Drawing.Point(99, 471);
             this.txtDCKH.Name = "txtDCKH";
             this.txtDCKH.Size = new System.Drawing.Size(263, 27);
@@ -130,6 +139,7 @@ namespace QLCuaHangJuno
             // 
             // txtTenKH
             // 
+            this.txtTenKH.Enabled = false;
             this.txtTenKH.Location = new System.Drawing.Point(99, 414);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(263, 27);
@@ -156,6 +166,7 @@ namespace QLCuaHangJuno
             // 
             // txtTenNV
             // 
+            this.txtTenNV.Enabled = false;
             this.txtTenNV.Location = new System.Drawing.Point(142, 297);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(220, 27);
@@ -181,6 +192,7 @@ namespace QLCuaHangJuno
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(142, 249);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(220, 27);
@@ -250,7 +262,7 @@ namespace QLCuaHangJuno
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(674, 633);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 49);
+            this.btnSave.Size = new System.Drawing.Size(108, 49);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -261,9 +273,9 @@ namespace QLCuaHangJuno
             this.btnClose.BackColor = System.Drawing.Color.Red;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(974, 633);
+            this.btnClose.Location = new System.Drawing.Point(969, 633);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 49);
+            this.btnClose.Size = new System.Drawing.Size(99, 49);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -273,7 +285,7 @@ namespace QLCuaHangJuno
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(223, 59);
+            this.label11.Location = new System.Drawing.Point(223, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(232, 31);
             this.label11.TabIndex = 4;
@@ -282,26 +294,16 @@ namespace QLCuaHangJuno
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(54, 148);
+            this.label12.Location = new System.Drawing.Point(46, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(101, 20);
             this.label12.TabIndex = 5;
             this.label12.Text = "Mã Hóa Đơn :";
             // 
-            // cbMaHD
-            // 
-            this.cbMaHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMaHD.FormattingEnabled = true;
-            this.cbMaHD.Location = new System.Drawing.Point(223, 140);
-            this.cbMaHD.Name = "cbMaHD";
-            this.cbMaHD.Size = new System.Drawing.Size(196, 28);
-            this.cbMaHD.TabIndex = 6;
-            this.cbMaHD.SelectedIndexChanged += new System.EventHandler(this.cbMaHD_SelectedIndexChanged);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(54, 208);
+            this.label13.Location = new System.Drawing.Point(46, 129);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(154, 20);
             this.label13.TabIndex = 7;
@@ -311,15 +313,16 @@ namespace QLCuaHangJuno
             // 
             this.cbMaSPCT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaSPCT.FormattingEnabled = true;
-            this.cbMaSPCT.Location = new System.Drawing.Point(223, 205);
+            this.cbMaSPCT.Location = new System.Drawing.Point(223, 126);
             this.cbMaSPCT.Name = "cbMaSPCT";
             this.cbMaSPCT.Size = new System.Drawing.Size(196, 28);
             this.cbMaSPCT.TabIndex = 8;
+            this.cbMaSPCT.SelectedIndexChanged += new System.EventHandler(this.cbMaSPCT_SelectedIndexChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(54, 271);
+            this.label14.Location = new System.Drawing.Point(46, 343);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(110, 20);
             this.label14.TabIndex = 9;
@@ -327,7 +330,7 @@ namespace QLCuaHangJuno
             // 
             // txtLiDoTra
             // 
-            this.txtLiDoTra.Location = new System.Drawing.Point(223, 264);
+            this.txtLiDoTra.Location = new System.Drawing.Point(223, 340);
             this.txtLiDoTra.Name = "txtLiDoTra";
             this.txtLiDoTra.Size = new System.Drawing.Size(406, 27);
             this.txtLiDoTra.TabIndex = 10;
@@ -336,7 +339,7 @@ namespace QLCuaHangJuno
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(48, 326);
+            this.label15.Location = new System.Drawing.Point(45, 394);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 23);
             this.label15.TabIndex = 11;
@@ -351,7 +354,7 @@ namespace QLCuaHangJuno
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(46, 387);
+            this.listView1.Location = new System.Drawing.Point(54, 439);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(583, 205);
             this.listView1.TabIndex = 12;
@@ -382,7 +385,7 @@ namespace QLCuaHangJuno
             this.btnAddSP.BackColor = System.Drawing.Color.Black;
             this.btnAddSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddSP.ForeColor = System.Drawing.Color.White;
-            this.btnAddSP.Location = new System.Drawing.Point(506, 183);
+            this.btnAddSP.Location = new System.Drawing.Point(506, 380);
             this.btnAddSP.Name = "btnAddSP";
             this.btnAddSP.Size = new System.Drawing.Size(123, 50);
             this.btnAddSP.TabIndex = 13;
@@ -392,7 +395,7 @@ namespace QLCuaHangJuno
             // 
             // btnDeleteSp
             // 
-            this.btnDeleteSp.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteSp.BackColor = System.Drawing.Color.Green;
             this.btnDeleteSp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteSp.ForeColor = System.Drawing.Color.White;
             this.btnDeleteSp.Location = new System.Drawing.Point(816, 633);
@@ -407,11 +410,91 @@ namespace QLCuaHangJuno
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(46, 182);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 20);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Tên sản phẩm :";
+            // 
+            // txtTenSp
+            // 
+            this.txtTenSp.Enabled = false;
+            this.txtTenSp.Location = new System.Drawing.Point(223, 179);
+            this.txtTenSp.Name = "txtTenSp";
+            this.txtTenSp.Size = new System.Drawing.Size(406, 27);
+            this.txtTenSp.TabIndex = 16;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(46, 245);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 20);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "Màu sắc :";
+            // 
+            // txtMS
+            // 
+            this.txtMS.Enabled = false;
+            this.txtMS.Location = new System.Drawing.Point(223, 238);
+            this.txtMS.Name = "txtMS";
+            this.txtMS.Size = new System.Drawing.Size(196, 27);
+            this.txtMS.TabIndex = 18;
+            // 
+            // lbKT
+            // 
+            this.lbKT.AutoSize = true;
+            this.lbKT.Location = new System.Drawing.Point(46, 292);
+            this.lbKT.Name = "lbKT";
+            this.lbKT.Size = new System.Drawing.Size(86, 20);
+            this.lbKT.TabIndex = 19;
+            this.lbKT.Text = "Kích thước :";
+            // 
+            // txtKT
+            // 
+            this.txtKT.Enabled = false;
+            this.txtKT.Location = new System.Drawing.Point(223, 289);
+            this.txtKT.Name = "txtKT";
+            this.txtKT.Size = new System.Drawing.Size(196, 27);
+            this.txtKT.TabIndex = 20;
+            // 
+            // txtMaHD
+            // 
+            this.txtMaHD.Location = new System.Drawing.Point(223, 65);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.Size = new System.Drawing.Size(196, 27);
+            this.txtMaHD.TabIndex = 21;
+            this.txtMaHD.TextChanged += new System.EventHandler(this.txtMaHD_TextChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
+            this.btnSearch.Location = new System.Drawing.Point(506, 107);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 47);
+            this.btnSearch.TabIndex = 22;
+            this.btnSearch.Text = "Search HĐ";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // AddPhieuTH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 715);
+            this.ClientSize = new System.Drawing.Size(1103, 715);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtMaHD);
+            this.Controls.Add(this.txtKT);
+            this.Controls.Add(this.lbKT);
+            this.Controls.Add(this.txtMS);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtTenSp);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.btnDeleteSp);
             this.Controls.Add(this.btnAddSP);
             this.Controls.Add(this.listView1);
@@ -420,14 +503,13 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cbMaSPCT);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.cbMaHD);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddPhieuTH";
-            this.Text = "Quản lí trả hàng";
+            this.Text = "Tạo trả hàng";
             this.Load += new System.EventHandler(this.AddPhieuTH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -461,7 +543,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbMaHD;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbMaSPCT;
         private System.Windows.Forms.Label label14;
@@ -475,5 +556,13 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtTenSp;
+        private System.Windows.Forms.TextBox txtKT;
+        private System.Windows.Forms.Label lbKT;
+        private System.Windows.Forms.TextBox txtMS;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtMaHD;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

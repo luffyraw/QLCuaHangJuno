@@ -234,14 +234,26 @@ namespace QLCuaHangJuno
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtMaPT.Text != "" && txtMaPT.Text != null)
+
+            if(txtMaPT.Text!="" && txtMaPT.Text != null)
             {
-                ChiTietPhieuTH ct = new ChiTietPhieuTH(txtMaPT.Text);
-                ct.Show();
+                var pth = (from p in db.PhieuTraHangs
+                           where p.MaPhieuTra == txtMaPT.Text
+                           select p).ToList();
+                if (pth.Count > 0)
+                {
+                    ChiTietPhieuTH ct = new ChiTietPhieuTH(txtMaPT.Text);
+                    ct.Show();
+                }
+                else
+                {
+                    MessageBox.Show("ERR: Không tìm thấy phiếu trùng với mã bạn nhập !");
+                }
+
             }
             else
             {
-                MessageBox.Show("Bạn chưa nhập mã phiếu trả hàng !");
+                MessageBox.Show("ERR: Bạn chưa nhập mã phiếu trả hàng !");
             }
 
         }
