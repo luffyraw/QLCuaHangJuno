@@ -1,10 +1,10 @@
 ﻿USE master
 GO
 --Tạo CSDL QuanLyCuaHangJuno
-CREATE DATABASE QuanLyCuaHangJuno
+CREATE DATABASE QuanLyCuaHangJuno1
 GO
 --Kết nối với CSDL muốn làm việc
-USE QuanLyCuaHangJuno
+USE QuanLyCuaHangJuno1
 GO
 --Tạo bảng Nhân viên
 CREATE TABLE NhanVien

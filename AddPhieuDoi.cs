@@ -13,10 +13,16 @@ namespace QLCuaHangJuno
 {
     public partial class AddPhieuDoi : Form
     {
+        private NhanVien nv;
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         int index = 0;
         public AddPhieuDoi()
         {
+            InitializeComponent();
+        }
+        public AddPhieuDoi(NhanVien nv)
+        {
+            this.nv = nv;
             InitializeComponent();
         }
 
@@ -32,8 +38,9 @@ namespace QLCuaHangJuno
 
         private void AddPhieuDoi_Load(object sender, EventArgs e)
         {
-            var query = (from pth in db.PhieuDoiHangs
-                         select pth);
+            var query = (from pdh in db.PhieuDoiHangs
+                         select pdh);
+
             if (query.ToList().Count > 0)
             {
                 lbMaPhieuDoi.Text = "PDH" + (query.ToList().Count + 1);
@@ -42,15 +49,12 @@ namespace QLCuaHangJuno
             {
                 lbMaPhieuDoi.Text = "PDH1";
             }
+            
 
-            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            txtMaNV.Text = "NV001";
-            //txtMaNV.Enabled = false;
-            var nv = (from n in db.NhanViens
-                      where n.MaNv == "NV001"
-                      select n).FirstOrDefault();
-            txtTenNV.Text = nv.HoTenNv;
+            txtMaNV.Text = this.nv.MaNv;
+            txtTenNV.Text = this.nv.HoTenNv;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -2727,7 +2731,7 @@ namespace QLCuaHangJuno
 
                     btnReset_Click(sender, e);
                     AddPhieuDoi_Load(sender, e);
-                    MessageBox.Show("SCC: Thêm phiếu trả hàng thành công!");
+                    MessageBox.Show("SCC: Thêm phiếu đổi hàng thành công!");
                 }
                 catch (Exception ex)
                 {
