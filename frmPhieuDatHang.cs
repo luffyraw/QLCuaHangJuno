@@ -24,11 +24,9 @@ namespace QLCuaHangJuno
 
         private void frmPhieuDatHang_Load(object sender, EventArgs e)
         {
-            cboTrangThai.Items.Add("All");
             cboTrangThai.Items.Add("Chưa nhập");
             cboTrangThai.Items.Add("Nhập một phần");
             cboTrangThai.Items.Add("Hoàn thành");
-            cboTrangThai.SelectedIndex = 0;
             HienThi();
         }
         private void HienThi()

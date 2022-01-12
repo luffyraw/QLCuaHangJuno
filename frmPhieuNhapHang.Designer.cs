@@ -29,12 +29,13 @@ namespace QLCuaHangJuno
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,15 +67,16 @@ namespace QLCuaHangJuno
             // 
             // dgvPhieuNhap
             // 
+            this.dgvPhieuNhap.AllowUserToAddRows = false;
             this.dgvPhieuNhap.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhieuNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -94,8 +96,8 @@ namespace QLCuaHangJuno
             // 
             // STT
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.MinimumWidth = 6;
             this.STT.Name = "STT";
@@ -104,8 +106,8 @@ namespace QLCuaHangJuno
             // MaPhNhap
             // 
             this.MaPhNhap.DataPropertyName = "MaPhNhap";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MaPhNhap.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaPhNhap.DefaultCellStyle = dataGridViewCellStyle3;
             this.MaPhNhap.HeaderText = "Mã phiếu nhập";
             this.MaPhNhap.MinimumWidth = 6;
             this.MaPhNhap.Name = "MaPhNhap";
@@ -114,8 +116,8 @@ namespace QLCuaHangJuno
             // MaPhieu
             // 
             this.MaPhieu.DataPropertyName = "MaPhieuDat";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MaPhieu.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaPhieu.DefaultCellStyle = dataGridViewCellStyle4;
             this.MaPhieu.HeaderText = "Mã phiếu đặt";
             this.MaPhieu.MinimumWidth = 6;
             this.MaPhieu.Name = "MaPhieu";
@@ -124,8 +126,8 @@ namespace QLCuaHangJuno
             // NgayNhap
             // 
             this.NgayNhap.DataPropertyName = "NgayNhap";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NgayNhap.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NgayNhap.DefaultCellStyle = dataGridViewCellStyle5;
             this.NgayNhap.HeaderText = "Ngày nhập";
             this.NgayNhap.MinimumWidth = 6;
             this.NgayNhap.Name = "NgayNhap";
@@ -134,8 +136,8 @@ namespace QLCuaHangJuno
             // NguoiNhap
             // 
             this.NguoiNhap.DataPropertyName = "NguoiNhap";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NguoiNhap.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NguoiNhap.DefaultCellStyle = dataGridViewCellStyle6;
             this.NguoiNhap.HeaderText = "Người nhập";
             this.NguoiNhap.MinimumWidth = 6;
             this.NguoiNhap.Name = "NguoiNhap";
@@ -145,6 +147,8 @@ namespace QLCuaHangJuno
             // 
             this.NguoiGiao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NguoiGiao.DataPropertyName = "NguoiGiao";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NguoiGiao.DefaultCellStyle = dataGridViewCellStyle7;
             this.NguoiGiao.HeaderText = "Người giao";
             this.NguoiGiao.MinimumWidth = 6;
             this.NguoiGiao.Name = "NguoiGiao";
@@ -360,14 +364,14 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DateTimePicker dtpDateEnd;
         private System.Windows.Forms.DateTimePicker dtpDateStart;
         private System.Windows.Forms.Button btnSearchByDate;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnLoc;
+        private System.Windows.Forms.TextBox txtMaPhieuD;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn NguoiNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn NguoiGiao;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnLoc;
-        private System.Windows.Forms.TextBox txtMaPhieuD;
     }
 }

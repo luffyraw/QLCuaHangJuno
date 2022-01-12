@@ -28,6 +28,7 @@ namespace QLCuaHangJuno
         }
         private void HienThi()
         {
+            dgvPhieuNhap.Rows.Clear();
             var queryPhieuNhap = from p in db.PhieuNhapHangs
                                  select new
                                  {
@@ -37,11 +38,23 @@ namespace QLCuaHangJuno
                                      NguoiNhap = p.MaNvNavigation.HoTenNv,
                                      NguoiGiao = p.NguoiGiao
                                  };
-            dgvPhieuNhap.DataSource = queryPhieuNhap.ToList();
-            for (int i = 0; i < dgvPhieuNhap.Rows.Count; i++)
+            int i = 0;
+            foreach (var item in queryPhieuNhap)
             {
+                dgvPhieuNhap.Rows.Add();
                 dgvPhieuNhap.Rows[i].Cells[0].Value = i + 1;
+                dgvPhieuNhap.Rows[i].Cells[1].Value = item.MaPhNhap;
+                dgvPhieuNhap.Rows[i].Cells[2].Value = item.MaPhieuDat;
+                dgvPhieuNhap.Rows[i].Cells[3].Value = item.NgayNhap;
+                dgvPhieuNhap.Rows[i].Cells[4].Value = item.NguoiNhap;
+                dgvPhieuNhap.Rows[i].Cells[5].Value = item.NguoiGiao;
+                i++;
             }
+            //dgvPhieuNhap.DataSource = queryPhieuNhap.ToList();
+            //for (int i = 0; i < dgvPhieuNhap.Rows.Count; i++)
+            //{
+            //    dgvPhieuNhap.Rows[i].Cells[0].Value = i + 1;
+            //}
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -59,7 +72,7 @@ namespace QLCuaHangJuno
             dgvPhieuNhap.DataSource = queryPhieuNhap.ToList();
             for (int i = 0; i < dgvPhieuNhap.Rows.Count; i++)
             {
-                dgvPhieuNhap.Rows[i].Cells[0].Value = i + 1;
+                dgvPhieuNhap.Rows[i].Cells[0].Value = i+1;
             }
         }
 
@@ -78,7 +91,7 @@ namespace QLCuaHangJuno
             dgvPhieuNhap.DataSource = queryPhieuNhap.ToList();
             for (int i = 0; i < dgvPhieuNhap.Rows.Count; i++)
             {
-                dgvPhieuNhap.Rows[i].Cells[0].Value = i + 1;
+                dgvPhieuNhap.Rows[i].Cells["STT"].Value = i + 1;
             }
         }
 

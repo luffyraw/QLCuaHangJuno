@@ -89,7 +89,7 @@ namespace QLCuaHangJuno
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Rectangle pagearea = e.PageBounds;
-            e.Graphics.DrawImage(memoryimg, this.panelPrint.Location.X, this.panelPrint.Location.Y);
+            e.Graphics.DrawImage(memoryimg, this.panelPrint.Location.X + 30, this.panelPrint.Location.Y);
 
         }
     }
