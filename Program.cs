@@ -18,21 +18,28 @@ namespace QLCuaHangJuno
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
-            //do
-            //{
-            //    using (DangNhap login = new DangNhap())
-            //    {
-            //        if (login.ShowDialog() == DialogResult.OK)
-            //        {
-            //            Application.Run(new GiaoDienAdmin(login.Tag as NhanVien));
-            //        }
-            //        else if (login.ShowDialog() == DialogResult.Yes)
-            //        {
-            //            Application.Run(new GiaoDienNhanVien(login.Tag as NhanVien));
-            //        }
-            //    }
-            //} while (true);
+            do
+            {
+                using (DangNhap login = new DangNhap())
+                {
+                    
+                        if (login.ShowDialog() == DialogResult.OK)
+                        {
+                            GiaoDienAdmin form = new GiaoDienAdmin();
+                            form.nv = login.Tag as NhanVien;
+                            Application.Run(form);
+                        }
+                        if (login.ShowDialog() == DialogResult.Yes)
+                        {
+                            GiaoDienNhanVien form = new GiaoDienNhanVien();
+                            form.nv = login.Tag as NhanVien;
+                            Application.Run(form);
+                        }
+                    
+                   
+                                      
+                }
+            } while (true);
         }
 
         

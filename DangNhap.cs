@@ -17,14 +17,17 @@ namespace QLCuaHangJuno
         public DangNhap()
         {
             InitializeComponent();
+        }  
+
+        private void DangNhap_Load_1(object sender, EventArgs e)
+        {
+            txtTenDangNhap.Focus();
+
         }
 
-        QuanLyCuaHangJunoContext jn = new QuanLyCuaHangJunoContext();
-       
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            var user = (from item in jn.NhanViens
+            var user = (from item in db.NhanViens
                         where txtTenDangNhap.Text == item.TenTk && txtMatKhau.Text == item.MatKhau
                         select item).FirstOrDefault();
             if (user == null)
@@ -48,12 +51,12 @@ namespace QLCuaHangJuno
 
                 }
             }
+
         }
 
-        private void DangNhap_Load_1(object sender, EventArgs e)
+        private void btn_thoat_Click(object sender, EventArgs e)
         {
-            txtTenDangNhap.Focus();
-
+            Application.Exit();
         }
     }
 }

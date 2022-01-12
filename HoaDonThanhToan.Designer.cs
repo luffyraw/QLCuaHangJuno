@@ -665,7 +665,7 @@ namespace QLCuaHangJuno
             this.ClientSize = new System.Drawing.Size(1730, 853);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "HoaDonThanhToan";
             this.Text = " ";
             this.Load += new System.EventHandler(this.HoaDonThanhToan_Load);
