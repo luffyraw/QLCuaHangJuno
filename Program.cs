@@ -1,4 +1,4 @@
-using QLCuaHangJuno.DataModel;
+﻿using QLCuaHangJuno.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,30 +18,35 @@ namespace QLCuaHangJuno
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            do
+
+            DangNhap login = new DangNhap();
+            if (login.ShowDialog() == DialogResult.OK)
             {
-                using (DangNhap login = new DangNhap())
+                NhanVien nv = login.Tag as NhanVien;
+                if (nv.Quyen == "Quản lý")
                 {
-                    
-                        if (login.ShowDialog() == DialogResult.OK)
-                        {
-                            GiaoDienAdmin form = new GiaoDienAdmin();
-                            form.nv = login.Tag as NhanVien;
-                            Application.Run(form);
-                        }
-                        if (login.ShowDialog() == DialogResult.Yes)
-                        {
-                            GiaoDienNhanVien form = new GiaoDienNhanVien();
-                            form.nv = login.Tag as NhanVien;
-                            Application.Run(form);
-                        }
-                    
-                   
-                                      
+                    GiaoDienAdmin form = new GiaoDienAdmin();
+                    form.nv = login.Tag as NhanVien;
+                    Application.Run(form);
                 }
-            } while (true);
+                else
+                {
+                    GiaoDienNhanVien form = new GiaoDienNhanVien();
+                    form.nv = login.Tag as NhanVien;
+                    Application.Run(form);
+
+                }
+            }
+            else
+            {
+                Application.Exit();
+            }
+
+
+
+
         }
 
-        
+
     }
 }

@@ -47,7 +47,7 @@ namespace QLCuaHangJuno
                 else if (user.Quyen == "Nhân viên")
                 {
                     this.Tag = user;
-                    this.DialogResult = DialogResult.Yes;
+                    this.DialogResult = DialogResult.OK;
 
                 }
             }
