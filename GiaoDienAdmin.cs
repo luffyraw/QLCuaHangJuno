@@ -174,5 +174,37 @@ namespace QLCuaHangJuno
 
             }
         }
+
+        private void bảoHànhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            frmXemPhieuBaoHanh fr = new frmXemPhieuBaoHanh(nv);
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void thốngKêHằngNămToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            ThongKe fr = new ThongKe();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void hoạtĐộngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            ThongKeNhanVien fr = new ThongKeNhanVien();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void sảnPhẩmToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            ThongKeSanPham fr = new ThongKeSanPham();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }
