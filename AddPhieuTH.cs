@@ -13,10 +13,16 @@ namespace QLCuaHangJuno
 {
     public partial class AddPhieuTH : Form
     {
+        private NhanVien nv;
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         int index = 0;
         public AddPhieuTH()
         {
+            InitializeComponent();
+        }
+        public AddPhieuTH(NhanVien nv)
+        {
+            this.nv = nv;
             InitializeComponent();
         }
 
@@ -44,19 +50,15 @@ namespace QLCuaHangJuno
 
             lbNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            txtMaNV.Text = "NV001";
-            //txtMaNV.Enabled = false;
-            var nv = (from n in db.NhanViens
-                      where n.MaNv == "NV001"
-                      select n).FirstOrDefault();
-            txtTenNV.Text = nv.HoTenNv;
+            txtMaNV.Text = this.nv.MaNv;
+            txtTenNV.Text = this.nv.HoTenNv;
             //txtTenNV.Enabled = false;
 
-           /* var queryCombo = from HD in db.HoaDonBanHangs
-                             select HD;
-            cbMaHD.DataSource = queryCombo.ToList();
-            cbMaHD.DisplayMember = "MaHd";
-            cbMaHD.ValueMember = "MaHd";*/
+            /* var queryCombo = from HD in db.HoaDonBanHangs
+                              select HD;
+             cbMaHD.DataSource = queryCombo.ToList();
+             cbMaHD.DisplayMember = "MaHd";
+             cbMaHD.ValueMember = "MaHd";*/
         }
 
         /*private void cbMaHD_SelectedIndexChanged(object sender, EventArgs e)

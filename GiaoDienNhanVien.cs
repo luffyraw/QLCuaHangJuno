@@ -65,7 +65,7 @@ namespace QLCuaHangJuno
         {
             CloseAllMDI();
 
-            AddPhieuTH fr = new AddPhieuTH();
+            AddPhieuTH fr = new AddPhieuTH(nv);
             fr.MdiParent = this;
             fr.Show();
         }
@@ -74,7 +74,7 @@ namespace QLCuaHangJuno
         {
             CloseAllMDI();
 
-            AddPhieuDoi fr = new AddPhieuDoi();
+            AddPhieuDoi fr = new AddPhieuDoi(nv);
             fr.MdiParent = this;
             fr.Show();
         }
@@ -103,6 +103,11 @@ namespace QLCuaHangJuno
                 frm.Close();
 
             }
+        }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

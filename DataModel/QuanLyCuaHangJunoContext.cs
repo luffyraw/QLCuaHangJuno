@@ -46,7 +46,7 @@ namespace QLCuaHangJuno.DataModel
             {
 
 
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-517PNF4;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-94IFOHB\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangJuno1;Integrated Security=True");
             }
         }
 
@@ -545,7 +545,12 @@ namespace QLCuaHangJuno.DataModel
 
                 entity.Property(e => e.TienThua).HasColumnType("money");
 
-             
+                entity.HasOne(d => d.MaHdNavigation)
+                    .WithMany(p => p.PhieuDoiHangs)
+                    .HasForeignKey(d => d.MaHd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_PhieuTraHangg_hoadonbanhang");
+
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.PhieuDoiHangs)
                     .HasForeignKey(d => d.MaNv)
