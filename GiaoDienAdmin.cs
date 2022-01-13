@@ -28,7 +28,11 @@ namespace QLCuaHangJuno
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CloseAllMDI();
+            XemHoaDon fr = new XemHoaDon();
+            fr.MdiParent = this;
 
+            fr.Show();
         }
 
         private void đặtHàngToolStripMenuItem_Click(object sender, EventArgs e)

@@ -75,8 +75,15 @@ namespace QLCuaHangJuno
                 DatSoLuongMax();
                 //Khuyến mãi
                 var km = (from item in db.KhuyenMaiSanPhams where item.MaSp == txt_masp.Text select item).FirstOrDefault();
-                txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
-                
+                try
+                {
+                    txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
+
+                } catch
+                {
+                    txt_giamgia.Text = "0";
+                }
+
                 //Hiển thị tổng tiền
                 txt_thanhtien.Text = TinhTienSP().ToString();
             }
