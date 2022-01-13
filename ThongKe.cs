@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,15 +165,40 @@ namespace QLCuaHangJuno
                 listView1.Items[2].SubItems[i + 1].Text = tkdt[i];
             }
         }
+         
 
-        private void dtp_thangnam_ValueChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            Print(this.panelPrint);
+
+        }
+        private void Print(Panel pnl)
+        {
+            PrinterSettings ps = new PrinterSettings();
+            panelPrint = pnl;
+            getprintarea(pnl);
+            printPreviewDialog1.Document = printDocument1;
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            printPreviewDialog1.ShowDialog();
+
 
         }
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
+        private Bitmap memoryImg;
+        private void getprintarea(Panel pnl)
         {
+            memoryImg = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(memoryImg, new Rectangle(0, 0, pnl.Width, pnl.Height));
 
         }
+
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(memoryImg, (pagearea.Width / 7) - (this.panelPrint.Width / 7), this.panelPrint.Location.Y);
+        }
+
+    
     }
 }
