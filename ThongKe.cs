@@ -46,15 +46,15 @@ namespace QLCuaHangJuno
                     int sohd = 0;
                     int sosp = 0;
                     double dt = 0;
-                    //foreach (var item in tk.ToList())
-                    //{
-                    //    if (item.thang == i)
-                    //    {
-                    //        sohd++;
-                    //        sosp += item.sl;
-                    //        dt += ((double)item.gia);
-                    //    }
-                    //}
+                    foreach (var item in tk.ToList())
+                    {
+                        if (item.thang == i)
+                        {
+                            sohd++;
+                            sosp += item.sl;
+                            dt += ((double)item.gia);
+                        }
+                    }
                     tonghd += sohd;
                     tongsp += sosp;
                     tongdt += dt;
