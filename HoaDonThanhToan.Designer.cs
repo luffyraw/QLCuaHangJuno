@@ -83,6 +83,7 @@ namespace QLCuaHangJuno
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssp)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,6 +190,7 @@ namespace QLCuaHangJuno
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btn_themKH);
             this.panel1.Controls.Add(this.btn_luu);
             this.panel1.Controls.Add(this.lb_thanhtien);
@@ -657,6 +659,17 @@ namespace QLCuaHangJuno
             this.Column3.Name = "Column3";
             this.Column3.Width = 125;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(124, 712);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(83, 54);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "In";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // HoaDonThanhToan
             // 
             this.AcceptButton = this.btn_them;
@@ -735,5 +748,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.Button btn_themKH;
+        private System.Windows.Forms.Button button3;
     }
 }

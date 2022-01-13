@@ -463,5 +463,20 @@ namespace QLCuaHangJuno
                 txt_diachiKH.Text = KH.DiaChi;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InHoaDon hd = new InHoaDon();
+            hd.hd = this.hd;
+            hd.nv = this.nv;
+            hd.TenKH = txt_hotenKH.Text;
+            hd.sdt = txt_sdtKH.Text;
+            hd.diachi = txt_diachiKH.Text;
+            hd.listsp = this.listsp;
+            hd.giamgia = lb_gghd.Text;
+            hd.thanhtien = lb_thanhtien.Text;
+            hd.tongtien = lb_tongtien.Text;
+            hd.Show();
+        }
     }
 }
