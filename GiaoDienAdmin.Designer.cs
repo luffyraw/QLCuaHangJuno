@@ -48,6 +48,7 @@ namespace QLCuaHangJuno
             this.thốngKêHằngNămToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hoạtĐộngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.khuyếnMãiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bảoHànhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trảHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,6 @@ namespace QLCuaHangJuno
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khuyếnMãiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,6 +218,13 @@ namespace QLCuaHangJuno
             this.sảnPhẩmToolStripMenuItem2.Text = "Sản phẩm";
             this.sảnPhẩmToolStripMenuItem2.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem2_Click);
             // 
+            // khuyếnMãiToolStripMenuItem1
+            // 
+            this.khuyếnMãiToolStripMenuItem1.Name = "khuyếnMãiToolStripMenuItem1";
+            this.khuyếnMãiToolStripMenuItem1.Size = new System.Drawing.Size(231, 26);
+            this.khuyếnMãiToolStripMenuItem1.Text = "Khuyến mãi";
+            this.khuyếnMãiToolStripMenuItem1.Click += new System.EventHandler(this.khuyếnMãiToolStripMenuItem1_Click);
+            // 
             // bảoHànhToolStripMenuItem
             // 
             this.bảoHànhToolStripMenuItem.Name = "bảoHànhToolStripMenuItem";
@@ -269,12 +276,6 @@ namespace QLCuaHangJuno
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Thoát";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
-            // 
-            // khuyếnMãiToolStripMenuItem1
-            // 
-            this.khuyếnMãiToolStripMenuItem1.Name = "khuyếnMãiToolStripMenuItem1";
-            this.khuyếnMãiToolStripMenuItem1.Size = new System.Drawing.Size(231, 26);
-            this.khuyếnMãiToolStripMenuItem1.Text = "Khuyến mãi";
             // 
             // GiaoDienAdmin
             // 

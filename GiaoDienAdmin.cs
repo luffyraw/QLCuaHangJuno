@@ -210,5 +210,13 @@ namespace QLCuaHangJuno
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void khuyếnMãiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            frmThongKeSPKM fr = new frmThongKeSPKM();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }
