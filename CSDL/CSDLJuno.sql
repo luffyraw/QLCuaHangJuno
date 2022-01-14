@@ -9,7 +9,7 @@ GO
 --Tạo bảng Nhân viên
 CREATE TABLE NhanVien
 (
-	MaNV varchar(10) PRIMARY KEY, d
+	MaNV varchar(10) PRIMARY KEY,
 	HoTenNV nvarchar(50) NOT NULL,
 	GioiTinh nvarchar(10) NOT NULL,
 	NgaySinh date NOT NULL,

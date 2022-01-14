@@ -37,7 +37,7 @@ namespace QLCuaHangJuno
                        select p).ToList();
             if (pth.Count > 0)
             {
-                lbNgayNhap.Text = pth.FirstOrDefault().NgayLap.ToString("dd/MM/yyyy");
+                lbNgayNhap.Text = pth.FirstOrDefault().NgayLap.ToString("dd/MM/yyyy HH:mm:ss");
                 lbMaHD.Text = pth.FirstOrDefault().MaHd;
 
                 NhanVien nv = (from n in db.NhanViens
@@ -71,11 +71,12 @@ namespace QLCuaHangJuno
                 listView1.Items.Add((index + 1).ToString());
                 listView1.Items[index].SubItems.Add(sp.MaSp);
                 listView1.Items[index].SubItems.Add(sp.TenSp);
-                listView1.Items[index].SubItems.Add(hd.NgayBan.ToString("dd/MM/yyyy"));
+                listView1.Items[index].SubItems.Add(hd.NgayBan.ToString("dd/MM/yyyy HH:mm:ss"));
                 listView1.Items[index].SubItems.Add(pth.FirstOrDefault().LyDoTra);
-                string formattedMoneyValue = String.Format("{0:C}", sp.DonGia);
+                var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+                string formattedMoneyValue = String.Format(info,"{0:C}", sp.DonGia);
 
-                listView1.Items[index].SubItems.Add(formattedMoneyValue + " VND");
+                listView1.Items[index].SubItems.Add(formattedMoneyValue);
                 index++;
             }
             else

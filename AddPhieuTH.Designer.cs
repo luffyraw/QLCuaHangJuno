@@ -73,6 +73,7 @@ namespace QLCuaHangJuno
             this.txtKT = new System.Windows.Forms.TextBox();
             this.txtMaHD = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -260,7 +261,7 @@ namespace QLCuaHangJuno
             this.btnSave.BackColor = System.Drawing.Color.Blue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(674, 633);
+            this.btnSave.Location = new System.Drawing.Point(674, 654);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(108, 49);
             this.btnSave.TabIndex = 1;
@@ -273,7 +274,7 @@ namespace QLCuaHangJuno
             this.btnClose.BackColor = System.Drawing.Color.Red;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(969, 633);
+            this.btnClose.Location = new System.Drawing.Point(969, 652);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 49);
             this.btnClose.TabIndex = 3;
@@ -398,7 +399,7 @@ namespace QLCuaHangJuno
             this.btnDeleteSp.BackColor = System.Drawing.Color.Green;
             this.btnDeleteSp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteSp.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteSp.Location = new System.Drawing.Point(816, 633);
+            this.btnDeleteSp.Location = new System.Drawing.Point(816, 654);
             this.btnDeleteSp.Name = "btnDeleteSp";
             this.btnDeleteSp.Size = new System.Drawing.Size(110, 49);
             this.btnDeleteSp.TabIndex = 14;
@@ -463,7 +464,7 @@ namespace QLCuaHangJuno
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(223, 65);
+            this.txtMaHD.Location = new System.Drawing.Point(223, 73);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(196, 27);
             this.txtMaHD.TabIndex = 21;
@@ -482,11 +483,25 @@ namespace QLCuaHangJuno
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(527, 652);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 49);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "RESET LIST";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AddPhieuTH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 715);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.txtKT);
@@ -564,5 +579,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -108,11 +108,11 @@ namespace QLCuaHangJuno
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("000 Elephantmen TB", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.label3.Location = new System.Drawing.Point(175, -26);
+            this.label3.Location = new System.Drawing.Point(166, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 174);
+            this.label3.Size = new System.Drawing.Size(322, 135);
             this.label3.TabIndex = 2;
             this.label3.Text = "Juno";
             // 
