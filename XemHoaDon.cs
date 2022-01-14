@@ -53,7 +53,7 @@ namespace QLCuaHangJuno
             {
                 txt_mahd.Text = dgv_dshd.Rows[numrow].Cells[0].Value.ToString();
                 txt_nhanvien.Text = dgv_dshd.Rows[numrow].Cells[1].Value.ToString();
-                dtp_ngay.Text = dgv_dshd.Rows[numrow].Cells[2].Value.ToString();
+                txt_ngay.Text = dgv_dshd.Rows[numrow].Cells[2].Value.ToString();
                 txt_khachhang.Text = dgv_dshd.Rows[numrow].Cells[3].Value.ToString();
 
             }
@@ -87,7 +87,7 @@ namespace QLCuaHangJuno
             txt_mahd.Text = "";
             txt_khachhang.Text = "";
             txt_nhanvien.Text = "";
-            dtp_ngay.Value = DateTime.Now;
+            txt_ngay.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lb_mahd.Text = "";
             lb_manv.Text = "";
             lb_nv.Text = "";
@@ -104,7 +104,7 @@ namespace QLCuaHangJuno
             lb_mahd.Text = txt_mahd.Text;
             lb_manv.Text = hd.MaNv;
             lb_nv.Text = txt_nhanvien.Text;
-            lb_ngaylap.Text = dtp_ngay.Value.ToString("dd/MM/yyyy");
+            lb_ngaylap.Text = txt_ngay.Text;
             KhachHang kh = (from item in db.KhachHangs where item.MaKh == hd.MaKh select item).FirstOrDefault();
             lb_diachi.Text = kh.DiaChi;
             lb_khachhang.Text = kh.HoTenKh;

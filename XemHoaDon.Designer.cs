@@ -46,6 +46,8 @@ namespace QLCuaHangJuno
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lb_diachi = new System.Windows.Forms.Label();
+            this.lb_tongtien = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lb_sdt = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,10 +67,8 @@ namespace QLCuaHangJuno
             this.txt_mahd = new System.Windows.Forms.TextBox();
             this.txt_nhanvien = new System.Windows.Forms.TextBox();
             this.txt_khachhang = new System.Windows.Forms.TextBox();
-            this.dtp_ngay = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
-            this.lb_tongtien = new System.Windows.Forms.Label();
+            this.txt_ngay = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshd)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssp)).BeginInit();
@@ -256,6 +256,26 @@ namespace QLCuaHangJuno
             this.lb_diachi.TabIndex = 2;
             this.lb_diachi.Text = "Địa chỉ";
             // 
+            // lb_tongtien
+            // 
+            this.lb_tongtien.AutoSize = true;
+            this.lb_tongtien.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_tongtien.Location = new System.Drawing.Point(373, 645);
+            this.lb_tongtien.Name = "lb_tongtien";
+            this.lb_tongtien.Size = new System.Drawing.Size(154, 41);
+            this.lb_tongtien.TabIndex = 2;
+            this.lb_tongtien.Text = "Tổng tiền";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label.Location = new System.Drawing.Point(277, 661);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(99, 25);
+            this.label.TabIndex = 2;
+            this.label.Text = "Tổng tiền:";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -440,16 +460,6 @@ namespace QLCuaHangJuno
             this.txt_khachhang.Size = new System.Drawing.Size(264, 34);
             this.txt_khachhang.TabIndex = 6;
             // 
-            // dtp_ngay
-            // 
-            this.dtp_ngay.CustomFormat = "dd/MM/yyyy";
-            this.dtp_ngay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtp_ngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_ngay.Location = new System.Drawing.Point(175, 126);
-            this.dtp_ngay.Name = "dtp_ngay";
-            this.dtp_ngay.Size = new System.Drawing.Size(264, 34);
-            this.dtp_ngay.TabIndex = 7;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(669, 177);
@@ -460,32 +470,20 @@ namespace QLCuaHangJuno
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label
+            // txt_ngay
             // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label.Location = new System.Drawing.Point(277, 661);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(99, 25);
-            this.label.TabIndex = 2;
-            this.label.Text = "Tổng tiền:";
-            // 
-            // lb_tongtien
-            // 
-            this.lb_tongtien.AutoSize = true;
-            this.lb_tongtien.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_tongtien.Location = new System.Drawing.Point(373, 645);
-            this.lb_tongtien.Name = "lb_tongtien";
-            this.lb_tongtien.Size = new System.Drawing.Size(154, 41);
-            this.lb_tongtien.TabIndex = 2;
-            this.lb_tongtien.Text = "Tổng tiền";
+            this.txt_ngay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_ngay.Location = new System.Drawing.Point(175, 130);
+            this.txt_ngay.Name = "txt_ngay";
+            this.txt_ngay.Size = new System.Drawing.Size(264, 34);
+            this.txt_ngay.TabIndex = 8;
             // 
             // XemHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 753);
-            this.Controls.Add(this.dtp_ngay);
+            this.Controls.Add(this.txt_ngay);
             this.Controls.Add(this.txt_khachhang);
             this.Controls.Add(this.txt_nhanvien);
             this.Controls.Add(this.txt_mahd);
@@ -539,7 +537,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.TextBox txt_mahd;
         private System.Windows.Forms.TextBox txt_nhanvien;
         private System.Windows.Forms.TextBox txt_khachhang;
-        private System.Windows.Forms.DateTimePicker dtp_ngay;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -551,5 +548,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label lb_tongtien;
         private System.Windows.Forms.Label label;
+        private System.Windows.Forms.TextBox txt_ngay;
     }
 }
