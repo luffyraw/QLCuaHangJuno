@@ -44,8 +44,6 @@ namespace QLCuaHangJuno.DataModel
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-517PNF4;Initial Catalog=QuanLyCuaHangJuno;Integrated Security=True");
             }
         }
