@@ -69,6 +69,7 @@ namespace QLCuaHangJuno
             this.txt_khachhang = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txt_ngay = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshd)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssp)).BeginInit();
@@ -82,11 +83,11 @@ namespace QLCuaHangJuno
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgv_dshd.Location = new System.Drawing.Point(22, 247);
+            this.dgv_dshd.Location = new System.Drawing.Point(22, 309);
             this.dgv_dshd.Name = "dgv_dshd";
             this.dgv_dshd.RowHeadersWidth = 51;
             this.dgv_dshd.RowTemplate.Height = 29;
-            this.dgv_dshd.Size = new System.Drawing.Size(903, 482);
+            this.dgv_dshd.Size = new System.Drawing.Size(903, 420);
             this.dgv_dshd.TabIndex = 1;
             this.dgv_dshd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dshd_CellContentClick);
             // 
@@ -478,6 +479,16 @@ namespace QLCuaHangJuno
             this.txt_ngay.Size = new System.Drawing.Size(264, 34);
             this.txt_ngay.TabIndex = 8;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(22, 262);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(175, 25);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Danh sách hóa đơn";
+            // 
             // XemHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -486,6 +497,7 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.txt_ngay);
             this.Controls.Add(this.txt_khachhang);
             this.Controls.Add(this.txt_nhanvien);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_mahd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -549,5 +561,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label lb_tongtien;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox txt_ngay;
+        private System.Windows.Forms.Label label14;
     }
 }
