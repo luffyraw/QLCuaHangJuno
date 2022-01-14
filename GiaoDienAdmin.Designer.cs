@@ -48,6 +48,7 @@ namespace QLCuaHangJuno
             this.thốngKêHằngNămToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hoạtĐộngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.khuyếnMãiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bảoHànhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trảHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,7 +191,8 @@ namespace QLCuaHangJuno
             this.thốngKêToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thốngKêHằngNămToolStripMenuItem,
             this.hoạtĐộngNhânViênToolStripMenuItem,
-            this.sảnPhẩmToolStripMenuItem2});
+            this.sảnPhẩmToolStripMenuItem2,
+            this.khuyếnMãiToolStripMenuItem1});
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.thốngKêToolStripMenuItem.Text = "Thống kê";
@@ -215,6 +217,13 @@ namespace QLCuaHangJuno
             this.sảnPhẩmToolStripMenuItem2.Size = new System.Drawing.Size(231, 26);
             this.sảnPhẩmToolStripMenuItem2.Text = "Sản phẩm";
             this.sảnPhẩmToolStripMenuItem2.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem2_Click);
+            // 
+            // khuyếnMãiToolStripMenuItem1
+            // 
+            this.khuyếnMãiToolStripMenuItem1.Name = "khuyếnMãiToolStripMenuItem1";
+            this.khuyếnMãiToolStripMenuItem1.Size = new System.Drawing.Size(231, 26);
+            this.khuyếnMãiToolStripMenuItem1.Text = "Khuyến mãi";
+            this.khuyếnMãiToolStripMenuItem1.Click += new System.EventHandler(this.khuyếnMãiToolStripMenuItem1_Click);
             // 
             // bảoHànhToolStripMenuItem
             // 
@@ -314,5 +323,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.ToolStripMenuItem hoạtĐộngNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sảnPhẩmToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem bảoHànhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem khuyếnMãiToolStripMenuItem1;
     }
 }

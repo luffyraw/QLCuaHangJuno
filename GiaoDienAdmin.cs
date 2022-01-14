@@ -28,7 +28,11 @@ namespace QLCuaHangJuno
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CloseAllMDI();
+            XemHoaDon fr = new XemHoaDon();
+            fr.MdiParent = this;
 
+            fr.Show();
         }
 
         private void đặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,6 +207,14 @@ namespace QLCuaHangJuno
         {
             CloseAllMDI();
             ThongKeSanPham fr = new ThongKeSanPham();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void khuyếnMãiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CloseAllMDI();
+            frmThongKeSPKM fr = new frmThongKeSPKM();
             fr.MdiParent = this;
             fr.Show();
         }

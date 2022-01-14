@@ -29,13 +29,13 @@ namespace QLCuaHangJuno
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            this.panel9 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKe));
+            this.panelPrint = new System.Windows.Forms.Panel();
             this.lb_doanhthu = new System.Windows.Forms.Label();
             this.lb_tongsp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_tongdh = new System.Windows.Forms.Label();
-            this.cb_year = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -50,27 +50,27 @@ namespace QLCuaHangJuno
             this.columnHeader12 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader13 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader14 = new System.Windows.Forms.ColumnHeader();
+            this.cb_year = new System.Windows.Forms.ComboBox();
             this.btn_tim = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel9.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.panelPrint.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel9
+            // panelPrint
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel9.Controls.Add(this.lb_doanhthu);
-            this.panel9.Controls.Add(this.lb_tongsp);
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.lb_tongdh);
-            this.panel9.Controls.Add(this.cb_year);
-            this.panel9.Controls.Add(this.listView1);
-            this.panel9.Controls.Add(this.btn_tim);
-            this.panel9.Controls.Add(this.label5);
-            this.panel9.Location = new System.Drawing.Point(38, 31);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1509, 651);
-            this.panel9.TabIndex = 0;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            this.panelPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelPrint.Controls.Add(this.lb_doanhthu);
+            this.panelPrint.Controls.Add(this.lb_tongsp);
+            this.panelPrint.Controls.Add(this.label1);
+            this.panelPrint.Controls.Add(this.lb_tongdh);
+            this.panelPrint.Controls.Add(this.listView1);
+            this.panelPrint.Location = new System.Drawing.Point(33, 108);
+            this.panelPrint.Name = "panelPrint";
+            this.panelPrint.Size = new System.Drawing.Size(1509, 537);
+            this.panelPrint.TabIndex = 0;
             // 
             // lb_doanhthu
             // 
@@ -112,22 +112,6 @@ namespace QLCuaHangJuno
             this.lb_tongdh.TabIndex = 7;
             this.lb_tongdh.Text = "Tổng số đơn hàng: ";
             // 
-            // cb_year
-            // 
-            this.cb_year.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cb_year.FormattingEnabled = true;
-            this.cb_year.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.cb_year.Location = new System.Drawing.Point(120, 143);
-            this.cb_year.Name = "cb_year";
-            this.cb_year.Size = new System.Drawing.Size(201, 39);
-            this.cb_year.TabIndex = 6;
-            this.cb_year.Text = "2022";
-            // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -148,7 +132,7 @@ namespace QLCuaHangJuno
             this.listView1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(21, 249);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1443, 182);
@@ -221,10 +205,26 @@ namespace QLCuaHangJuno
             this.columnHeader14.Text = "Tháng 12";
             this.columnHeader14.Width = 100;
             // 
+            // cb_year
+            // 
+            this.cb_year.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_year.FormattingEnabled = true;
+            this.cb_year.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.cb_year.Location = new System.Drawing.Point(141, 33);
+            this.cb_year.Name = "cb_year";
+            this.cb_year.Size = new System.Drawing.Size(201, 39);
+            this.cb_year.TabIndex = 6;
+            this.cb_year.Text = "2022";
+            // 
             // btn_tim
             // 
             this.btn_tim.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_tim.Location = new System.Drawing.Point(344, 143);
+            this.btn_tim.Location = new System.Drawing.Point(365, 33);
             this.btn_tim.Name = "btn_tim";
             this.btn_tim.Size = new System.Drawing.Size(96, 40);
             this.btn_tim.TabIndex = 2;
@@ -237,30 +237,56 @@ namespace QLCuaHangJuno
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(21, 143);
+            this.label5.Location = new System.Drawing.Point(42, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 36);
             this.label5.TabIndex = 0;
             this.label5.Text = "Năm";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(488, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 40);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "In";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 800);
-            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panelPrint);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btn_tim);
+            this.Controls.Add(this.cb_year);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ThongKe";
             this.Text = "ThongKe";
             this.Load += new System.EventHandler(this.ThongKe_Load);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.panelPrint.ResumeLayout(false);
+            this.panelPrint.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelPrint;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_tim;
         private System.Windows.Forms.ListView listView1;
@@ -282,5 +308,8 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Label lb_tongsp;
         private System.Windows.Forms.Label lb_tongdh;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

@@ -1,15 +1,15 @@
 ﻿USE master
 GO
 --Tạo CSDL QuanLyCuaHangJuno
-CREATE DATABASE QuanLyCuaHangJuno1
+CREATE DATABASE QuanLyCuaHangJuno
 GO
 --Kết nối với CSDL muốn làm việc
-USE QuanLyCuaHangJuno1
+USE QuanLyCuaHangJuno
 GO
 --Tạo bảng Nhân viên
 CREATE TABLE NhanVien
 (
-	MaNV varchar(10) PRIMARY KEY,
+	MaNV varchar(10) PRIMARY KEY, d
 	HoTenNV nvarchar(50) NOT NULL,
 	GioiTinh nvarchar(10) NOT NULL,
 	NgaySinh date NOT NULL,

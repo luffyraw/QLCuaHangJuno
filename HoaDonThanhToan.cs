@@ -75,8 +75,15 @@ namespace QLCuaHangJuno
                 DatSoLuongMax();
                 //Khuyến mãi
                 var km = (from item in db.KhuyenMaiSanPhams where item.MaSp == txt_masp.Text select item).FirstOrDefault();
-                txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
-                
+                try
+                {
+                    txt_giamgia.Text = km.TyLeKhuyenMai.ToString();
+
+                } catch
+                {
+                    txt_giamgia.Text = "0";
+                }
+
                 //Hiển thị tổng tiền
                 txt_thanhtien.Text = TinhTienSP().ToString();
             }
@@ -455,6 +462,21 @@ namespace QLCuaHangJuno
                 txt_hotenKH.Text = KH.HoTenKh;
                 txt_diachiKH.Text = KH.DiaChi;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InHoaDon hd = new InHoaDon();
+            hd.hd = this.hd;
+            hd.nv = this.nv;
+            hd.TenKH = txt_hotenKH.Text;
+            hd.sdt = txt_sdtKH.Text;
+            hd.diachi = txt_diachiKH.Text;
+            hd.listsp = this.listsp;
+            hd.giamgia = lb_gghd.Text;
+            hd.thanhtien = lb_thanhtien.Text;
+            hd.tongtien = lb_tongtien.Text;
+            hd.Show();
         }
     }
 }
