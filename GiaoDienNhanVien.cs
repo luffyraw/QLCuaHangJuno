@@ -74,7 +74,7 @@ namespace QLCuaHangJuno
         {
             CloseAllMDI();
 
-            AddPhieuDoi fr = new AddPhieuDoi(nv);
+            btnResetList fr = new btnResetList(nv);
             fr.MdiParent = this;
             fr.Show();
         }

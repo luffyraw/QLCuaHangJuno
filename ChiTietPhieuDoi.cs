@@ -34,8 +34,9 @@ namespace QLCuaHangJuno
             {
                 lbNgayLap.Text = PD.FirstOrDefault().NgayLap.ToString("dd/MM/yyyy HH:mm:ss");
                 lbMaHD.Text = PD.FirstOrDefault().MaHd;
-                lbTienThua.Text = String.Format("{0:C}",PD.FirstOrDefault().TienThua) + " VND";
-                lbTienThuThem.Text = String.Format("{0:C}", PD.FirstOrDefault().TienThuLai) + " VND";
+                var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+                lbTienThua.Text = String.Format(info,"{0:C}",PD.FirstOrDefault().TienThua);
+                lbTienThuThem.Text = String.Format(info,"{0:C}", PD.FirstOrDefault().TienThuLai);
                 lbLiDoDoi.Text = PD.FirstOrDefault().LyDoDoi;
 
                 NhanVien nv = (from n in db.NhanViens

@@ -233,6 +233,8 @@ namespace QLCuaHangJuno
 
                         MessageBox.Show("SCC: Thêm phiếu trả hàng thành công!");
                         btnDeleteSp_Click(sender, e);
+                        ChiTietPhieuTH ct = new ChiTietPhieuTH(phieu.MaPhieuTra);
+                        ct.Show();
                     }
 
 
@@ -434,5 +436,15 @@ namespace QLCuaHangJuno
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            index = 0;
+            btnAddSP.Enabled = true;
+            txtMaHD.Enabled = true;
+            cbMaSPCT.Enabled = true;
+            txtLiDoTra.Enabled = true;
+            btnSearch.Enabled = true;
+        }
     }
 }

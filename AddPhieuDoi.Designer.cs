@@ -1,7 +1,7 @@
 ﻿
 namespace QLCuaHangJuno
 {
-    partial class AddPhieuDoi
+    partial class btnResetList
     {
         /// <summary>
         /// Required designer variable.
@@ -95,6 +95,7 @@ namespace QLCuaHangJuno
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.btnAdd = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnRsList = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -126,6 +127,7 @@ namespace QLCuaHangJuno
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Phiếu đổi hàng";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtSDTKH
             // 
@@ -712,11 +714,25 @@ namespace QLCuaHangJuno
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // AddPhieuDoi
+            // btnRsList
+            // 
+            this.btnRsList.BackColor = System.Drawing.Color.Blue;
+            this.btnRsList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRsList.ForeColor = System.Drawing.Color.White;
+            this.btnRsList.Location = new System.Drawing.Point(780, 742);
+            this.btnRsList.Name = "btnRsList";
+            this.btnRsList.Size = new System.Drawing.Size(117, 55);
+            this.btnRsList.TabIndex = 23;
+            this.btnRsList.Text = "Reset List";
+            this.btnRsList.UseVisualStyleBackColor = false;
+            this.btnRsList.Click += new System.EventHandler(this.btnRsList_Click);
+            // 
+            // btnResetList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 809);
+            this.Controls.Add(this.btnRsList);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
@@ -738,7 +754,7 @@ namespace QLCuaHangJuno
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddPhieuDoi";
+            this.Name = "btnResetList";
             this.Text = "Đổi hàng";
             this.Load += new System.EventHandler(this.AddPhieuDoi_Load);
             this.groupBox1.ResumeLayout(false);
@@ -820,5 +836,6 @@ namespace QLCuaHangJuno
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnRsList;
     }
 }

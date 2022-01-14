@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace QLCuaHangJuno
 {
-    public partial class AddPhieuDoi : Form
+    public partial class btnResetList : Form
     {
         private NhanVien nv;
         QuanLyCuaHangJunoContext db = new QuanLyCuaHangJunoContext();
         int index = 0;
-        public AddPhieuDoi()
+        public btnResetList()
         {
             InitializeComponent();
         }
-        public AddPhieuDoi(NhanVien nv)
+        public btnResetList(NhanVien nv)
         {
             this.nv = nv;
             InitializeComponent();
@@ -458,7 +458,7 @@ namespace QLCuaHangJuno
                                                         listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                         listView1.Items[index].SubItems.Add((1).ToString());
                                                         listView2.Items.Add((index + 1).ToString());
-                                                        listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                        listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                         listView2.Items[index].SubItems.Add((1).ToString());
                                                         index++;
                                                     }
@@ -547,7 +547,7 @@ namespace QLCuaHangJuno
                                                         listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                         listView1.Items[index].SubItems.Add((1).ToString());
                                                         listView2.Items.Add((index + 1).ToString());
-                                                        listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                        listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                         listView2.Items[index].SubItems.Add((1).ToString());
                                                         index++;
                                                     }
@@ -653,7 +653,7 @@ namespace QLCuaHangJuno
                                                 listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                 listView1.Items[index].SubItems.Add((1).ToString());
                                                 listView2.Items.Add((index + 1).ToString());
-                                                listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                 listView2.Items[index].SubItems.Add((1).ToString());
                                                 index++;
                                             }
@@ -747,7 +747,7 @@ namespace QLCuaHangJuno
                                                 listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                 listView1.Items[index].SubItems.Add((1).ToString());
                                                 listView2.Items.Add((index + 1).ToString());
-                                                listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                 listView2.Items[index].SubItems.Add((1).ToString());
                                                 index++;
                                             }
@@ -879,7 +879,7 @@ namespace QLCuaHangJuno
                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                             listView1.Items[index].SubItems.Add((1).ToString());
                                             listView2.Items.Add((index + 1).ToString());
-                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                             listView2.Items[index].SubItems.Add((1).ToString());
                                             index++;
                                         }
@@ -974,7 +974,7 @@ namespace QLCuaHangJuno
                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                             listView1.Items[index].SubItems.Add((1).ToString());
                                             listView2.Items.Add((index + 1).ToString());
-                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                             listView2.Items[index].SubItems.Add((1).ToString());
                                             index++;
                                         }
@@ -1114,7 +1114,7 @@ namespace QLCuaHangJuno
                                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                             listView1.Items[index].SubItems.Add((1).ToString());
                                                             listView2.Items.Add((index + 1).ToString());
-                                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                             listView2.Items[index].SubItems.Add((1).ToString());
                                                             index++;
                                                         }
@@ -1202,7 +1202,7 @@ namespace QLCuaHangJuno
                                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                             listView1.Items[index].SubItems.Add((1).ToString());
                                                             listView2.Items.Add((index + 1).ToString());
-                                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                             listView2.Items[index].SubItems.Add((1).ToString());
                                                             index++;
                                                         }
@@ -1307,7 +1307,7 @@ namespace QLCuaHangJuno
                                                     listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                     listView1.Items[index].SubItems.Add((1).ToString());
                                                     listView2.Items.Add((index + 1).ToString());
-                                                    listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                    listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                     listView2.Items[index].SubItems.Add((1).ToString());
                                                     index++;
                                                 }
@@ -1402,7 +1402,7 @@ namespace QLCuaHangJuno
                                                     listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                     listView1.Items[index].SubItems.Add((1).ToString());
                                                     listView2.Items.Add((index + 1).ToString());
-                                                    listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                    listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                     listView2.Items[index].SubItems.Add((1).ToString());
                                                     index++;
                                                 }
@@ -1536,7 +1536,7 @@ namespace QLCuaHangJuno
                                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                             listView1.Items[index].SubItems.Add((1).ToString());
                                                             listView2.Items.Add((index + 1).ToString());
-                                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                             listView2.Items[index].SubItems.Add((1).ToString());
                                                             index++;
                                                         }
@@ -1624,7 +1624,7 @@ namespace QLCuaHangJuno
                                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                             listView1.Items[index].SubItems.Add((1).ToString());
                                                             listView2.Items.Add((index + 1).ToString());
-                                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                             listView2.Items[index].SubItems.Add((1).ToString());
                                                             index++;
                                                         }
@@ -1730,7 +1730,7 @@ namespace QLCuaHangJuno
                                                     listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                     listView1.Items[index].SubItems.Add((1).ToString());
                                                     listView2.Items.Add((index + 1).ToString());
-                                                    listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                    listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                     listView2.Items[index].SubItems.Add((1).ToString());
                                                     index++;
                                                 }
@@ -1826,7 +1826,7 @@ namespace QLCuaHangJuno
                                                     listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                                     listView1.Items[index].SubItems.Add((1).ToString());
                                                     listView2.Items.Add((index + 1).ToString());
-                                                    listView2.Items[index].SubItems.Add(textBox1.Text);
+                                                    listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                                     listView2.Items[index].SubItems.Add((1).ToString());
                                                     index++;
                                                 }
@@ -1961,7 +1961,7 @@ namespace QLCuaHangJuno
                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                             listView1.Items[index].SubItems.Add((1).ToString());
                                             listView2.Items.Add((index + 1).ToString());
-                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                             listView2.Items[index].SubItems.Add((1).ToString());
                                             index++;
                                         }
@@ -2072,7 +2072,7 @@ namespace QLCuaHangJuno
                                             listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                             listView1.Items[index].SubItems.Add((1).ToString());
                                             listView2.Items.Add((index + 1).ToString());
-                                            listView2.Items[index].SubItems.Add(textBox1.Text);
+                                            listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                             listView2.Items[index].SubItems.Add((1).ToString());
                                             index++;
                                         }
@@ -2125,7 +2125,7 @@ namespace QLCuaHangJuno
                                         listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                         listView1.Items[index].SubItems.Add((1).ToString());
                                         listView2.Items.Add((index + 1).ToString());
-                                        listView2.Items[index].SubItems.Add(textBox1.Text);
+                                        listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                         listView2.Items[index].SubItems.Add((1).ToString());
                                         index++;
                                     }
@@ -2149,7 +2149,7 @@ namespace QLCuaHangJuno
                                         listView1.Items[index].SubItems.Add(cbMaSPCTHD.Text);
                                         listView1.Items[index].SubItems.Add((1).ToString());
                                         listView2.Items.Add((index + 1).ToString());
-                                        listView2.Items[index].SubItems.Add(textBox1.Text);
+                                        listView2.Items[index].SubItems.Add(textBox1.Text.ToUpper());
                                         listView2.Items[index].SubItems.Add((1).ToString());
                                         index++;
                                     }
@@ -2732,6 +2732,8 @@ namespace QLCuaHangJuno
                     btnReset_Click(sender, e);
                     AddPhieuDoi_Load(sender, e);
                     MessageBox.Show("SCC: Thêm phiếu đổi hàng thành công!");
+                    ChiTietPhieuDoi ct = new ChiTietPhieuDoi(phieu.MaPhieuDoi);
+                    ct.Show();
                 }
                 catch (Exception ex)
                 {
@@ -2786,6 +2788,20 @@ namespace QLCuaHangJuno
                 SL = 0;
             }
             return SL;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRsList_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            index = 0;
+            txtTienThua.Text = null;
+            txtTienThuThem.Text = null;
         }
     }
 }

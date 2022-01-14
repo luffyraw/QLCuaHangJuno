@@ -43,7 +43,7 @@ namespace QLCuaHangJuno
         }
         private void HienThiDuLieu()
         {
-
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             Focus();
             var query = from p in db.PhieuDoiHangs
                         select new
@@ -52,8 +52,8 @@ namespace QLCuaHangJuno
                             NgayLap = p.NgayLap.ToString("dd/MM/yyyy"),
                             p.MaNv,
                             p.MaHd,
-                            p.TienThua,
-                            p.TienThuLai
+                            TienThua = String.Format(info, "{0:C}",p.TienThua),
+                            TienThuLai= String.Format(info, "{0:C}", p.TienThuLai)
                         };
             dataGridView1.DataSource = query.ToList();
             /* query = "SELECT * FROM PhieuTraHang";
@@ -148,6 +148,7 @@ namespace QLCuaHangJuno
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             if (checkMaPD() && checkMaNV() && checkMaHD())
             {
 
@@ -158,8 +159,8 @@ namespace QLCuaHangJuno
                                 NgayLap = p.NgayLap.Date.ToString("dd/MM/yyyy"),
                                 p.MaNv,
                                 p.MaHd,
-                                p.TienThua,
-                                p.TienThuLai
+                                TienThua = String.Format(info, "{0:C}", p.TienThua),
+                                TienThuLai = String.Format(info, "{0:C}", p.TienThuLai)
                             };
 
                 if (txtMaPD.Text != null && txtMaPD.Text != "")
