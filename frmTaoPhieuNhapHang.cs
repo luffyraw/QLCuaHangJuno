@@ -56,6 +56,7 @@ namespace QLCuaHangJuno
         {
             if (e.KeyCode == Keys.Enter)
             {
+                dgvSanPhamNhap.Rows.Clear();
                 if (txtMaPhieuD.Text != "")
                 {
                     var queryPhieuDat = (from phieu in db.PhieuDatHangs
@@ -147,12 +148,12 @@ namespace QLCuaHangJuno
                         }
                         if (queryPhieuDat.TrangThai == "Hoàn thành")
                         {
-                            MessageBox.Show("Phiếu đặt hàng có mã " + txtMaPhieuD.Text + " đã nhập đủ .");
+                            MessageBox.Show("Phiếu đặt hàng có mã " + txtMaPhieuD.Text + " đã nhập đủ .","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Không tồn tại phiếu đặt hàng có mã " + txtMaPhieuD.Text + " .");
+                        MessageBox.Show("Không tồn tại phiếu đặt hàng có mã " + txtMaPhieuD.Text + " .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -184,12 +185,12 @@ namespace QLCuaHangJuno
                 }
                 else
                 {
-                    MessageBox.Show("Số lượng nhập phải nhỏ hơn hoặc bằng " + chenhLech);
+                    MessageBox.Show("Số lượng nhập phải nhỏ hơn hoặc bằng " + chenhLech, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Bạn cần chọn 1 dòng trong danh sách sản phẩm để cập nhật. ");
+                MessageBox.Show("Bạn cần chọn 1 dòng trong danh sách sản phẩm để cập nhật. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public bool CheckChuaNhap()
@@ -233,7 +234,7 @@ namespace QLCuaHangJuno
                     }
                     else
                     {
-                        MessageBox.Show("Không tồn tại sản phẩm nào trong danh sách sản phẩm nhập.");
+                        MessageBox.Show("Không tồn tại sản phẩm nào trong danh sách sản phẩm nhập.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
